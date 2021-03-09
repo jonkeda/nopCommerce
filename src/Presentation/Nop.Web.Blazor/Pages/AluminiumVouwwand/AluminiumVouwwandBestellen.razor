@@ -1,0 +1,46 @@
+﻿@page "/aluminiumvouwwand/aluminiumvouwwandbestellen"
+@inherits Nop.Web.Pages.AluminiumVouwwand.AluminiumVouwwandBestellenBase
+
+<section class="employee-edit">
+
+        <h1 class="page-title">Vouwwand Bestellen</h1>
+
+        <EditForm Model="@Ctx" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+            <InputSelectEnumRow @bind-Value="@Ctx.AantalDelen"
+                                Label="Aantal delen" />
+            <InputSelectEnumRow @bind-Value="@Ctx.SchuifRichting"
+                                Label="Schuif Richting" />
+            <InputSelectEnumRow @bind-Value="@Ctx.Vouwrichting"
+                                Label="Vouwrichting" />
+            <InputSelectEnumRow @bind-Value="@Ctx.Deuren"
+                                Label="Deuren" />
+            <InputSelectEnumRow @bind-Value="@Ctx.LocatieLoopdeuren"
+                                Label="Locatie loop deuren" />
+            <InputNumberRow @bind-Value="@Ctx.BreedteKozijn"
+                            Label="BreedteKozijn"></InputNumberRow>
+            <InputNumberRow @bind-Value="@Ctx.HoogteKozijn" 
+                            Label="Hoogte Kozijn"></InputNumberRow>
+            <InputSelectEnumRow @bind-Value="@Ctx.TypeProfiel"
+                                Label="Type profiel" />
+            <InputSelectEnumRow @bind-Value="@Ctx.MetAanslag"
+                                Label="MetAanslag" />
+            <InputSelectEnumRow @bind-Value="@Ctx.Glas"
+                                Label="Glas" />
+            <InputSelectEnumRow @bind-Value="@Ctx.Roeden"
+                                Label="Roeden" />
+            <InputSelectEnumRow @bind-Value="@Ctx.Structuur"
+                                Label="Structuur" />
+            <InputTextRow @bind-Value="@Ctx.KleurBinnenkant"
+                          Label="Kleur binnenkant" />
+            <InputTextRow @bind-Value="@Ctx.KleurBuitenkant"
+                          Label="Kleur buitenkant" />
+            <InputSelectEnumRow @bind-Value="@Ctx.KleurAfstandHouders"
+                                Label="Kleur afstandHouders" />
+            <InputSelectEnumRow @bind-Value="@Ctx.VouwKlink"
+                                Label="Vouw klink" />
+            
+        </EditForm>
+
+
+</section>
