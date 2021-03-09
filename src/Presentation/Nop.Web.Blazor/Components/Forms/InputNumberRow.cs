@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Rendering;
 
 namespace Nop.Web.Components.Forms
 {
-    public class InputNumberRow<T> : InputNumber<T>
+    public class InputNumberRow<T> : NopInputNumber<T>
     {
         [Parameter]
         public string Label { get; set; }

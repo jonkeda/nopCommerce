@@ -1,8 +1,15 @@
 ﻿namespace Nop.Web.Models.AluminiumVouwwand
 {
-    public interface IAluminiumVouwwandConfiguration
+    public interface IAluminiumVouwwandConfigurationCost : IConfigurationCost
+    {
+        double PerDeel { get; set; }
+
+    }
+
+    public interface IAluminiumVouwwandConfiguration : IConfiguration
     {
         AantalDelen AantalDelen { get; set; }
+        bool MetDeur { get; set; }
         Deuren Deuren { get; set; }
         Schuifrichting SchuifRichting { get; set; }
         Vouwrichting Vouwrichting { get; set; }

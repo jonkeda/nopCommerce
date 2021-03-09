@@ -11,7 +11,7 @@ namespace Nop.Web.Components.Forms
     // file: Shared/InputSelectEnum.cs
     // Inherit from InputBase so the hard work is already implemented 😊
     // Note that adding a constraint on TEnum (where T : Enum) doesn't work when used in the view, Razor raises an error at build time. Also, this would prevent using nullable types...
-    public class InputSelectEnum<TEnum> : InputBase<TEnum>
+    public class NopInputSelectEnum<TEnum> : NopInputBase<TEnum>
     {
         // Generate html when the component is rendered.
         protected override void BuildRenderTree(RenderTreeBuilder builder)

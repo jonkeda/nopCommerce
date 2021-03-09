@@ -1,7 +1,10 @@
-﻿namespace Nop.Web.Models.AluminiumVouwwand
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Nop.Web.Models.AluminiumVouwwand
 {
     public enum TypeProfiel
     {
-        AluminiumHarmonicasysteem77mmDiep
+        [Display(Name = "Aluminium harmonica systeem 77mm diep")]
+        AluminiumHarmonicasysteem77mmDiep 
     }
 }

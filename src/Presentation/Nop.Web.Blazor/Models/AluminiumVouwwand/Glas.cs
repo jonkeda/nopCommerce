@@ -1,9 +1,14 @@
-﻿namespace Nop.Web.Models.AluminiumVouwwand
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Nop.Web.Models.AluminiumVouwwand
 {
     public enum Glas
     {
+        [Display(Name = "Zonder glas")]
         ZonderGlas,
+        [Display(Name = "HR++ Dubbel glas")]
         HrPpDubbelGlas,
+        [Display(Name = "HR+++ Triple glas")]
         HrPppTripleGlas,
     }
 }

@@ -4,6 +4,8 @@
     {
         public AantalDelen AantalDelen { get; set; }
 
+        public bool MetDeur { get; set; }
+
         public Deuren Deuren { get; set; }
 
         public Schuifrichting SchuifRichting { get; set; }

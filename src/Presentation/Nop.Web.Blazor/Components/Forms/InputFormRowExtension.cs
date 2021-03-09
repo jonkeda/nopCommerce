@@ -10,7 +10,7 @@ namespace Nop.Web.Components.Forms
             builder.OpenElement(1, "div");
             builder.AddAttribute(2,"class", "form-group row");
             builder.OpenElement(1, "label");
-            builder.AddAttribute(2, "class", "col-sm-3");
+            builder.AddAttribute(2, "class", "col-sm-5");
             if (!string.IsNullOrEmpty(label))
             {
                 builder.AddContent(3, label);

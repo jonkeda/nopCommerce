@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Rendering;
 
 namespace Nop.Web.Components.Forms
 {
-    public class InputSelectEnumRow<T> : InputSelectEnum<T> 
+    public class InputSelectEnumRow<T> : NopInputSelectEnum<T> 
     {
         [Parameter]
         public string Label { get; set; }

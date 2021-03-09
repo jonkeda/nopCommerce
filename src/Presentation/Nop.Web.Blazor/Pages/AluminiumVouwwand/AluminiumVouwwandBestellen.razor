@@ -3,44 +3,124 @@
 
 <section class="employee-edit">
 
-        <h1 class="page-title">Vouwwand Bestellen</h1>
+    <h1 class="page-title">Vouwwand Bestellen</h1>
+    <EditForm Model="@Ctx" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container">
 
-        <EditForm Model="@Ctx" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+                        <InputSelectEnumRow @bind-Value="@Ctx.AantalDelen"
+                                            Label="Aantal delen" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.SchuifRichting"
+                                            Label="Schuifrichting" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.Vouwrichting"
+                                            Label="Vouwrichting" />
+                        <InputCheckBoxRow @bind-Value="@Ctx.MetDeur"
+                                          Label="Met deur(en)" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.LocatieLoopdeuren"
+                                            Label="Locatie loopdeuren" />
+                        <InputNumberRow @bind-Value="@Ctx.BreedteKozijn"
+                                        Label="Breedte kozijn"></InputNumberRow>
+                        <InputNumberRow @bind-Value="@Ctx.HoogteKozijn"
+                                        Label="Hoogte kozijn"></InputNumberRow>
+                        <InputSelectEnumRow @bind-Value="@Ctx.TypeProfiel"
+                                            Label="Type profiel" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.MetAanslag"
+                                            Label="Met aanslag" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.Glas"
+                                            Label="Glas" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.Roeden"
+                                            Label="Roeden" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.Structuur"
+                                            Label="Structuur" />
+                        <InputTextRow @bind-Value="@Ctx.KleurBinnenkant"
+                                      Label="Kleur binnenkant" />
+                        <InputTextRow @bind-Value="@Ctx.KleurBuitenkant"
+                                      Label="Kleur buitenkant" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.KleurAfstandHouders"
+                                            Label="Kleur afstandHouders" />
+                        <InputSelectEnumRow @bind-Value="@Ctx.VouwKlink"
+                                            Label="Vouw klink" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="container">
 
-            <InputSelectEnumRow @bind-Value="@Ctx.AantalDelen"
-                                Label="Aantal delen" />
-            <InputSelectEnumRow @bind-Value="@Ctx.SchuifRichting"
-                                Label="Schuif Richting" />
-            <InputSelectEnumRow @bind-Value="@Ctx.Vouwrichting"
-                                Label="Vouwrichting" />
-            <InputSelectEnumRow @bind-Value="@Ctx.Deuren"
-                                Label="Deuren" />
-            <InputSelectEnumRow @bind-Value="@Ctx.LocatieLoopdeuren"
-                                Label="Locatie loop deuren" />
-            <InputNumberRow @bind-Value="@Ctx.BreedteKozijn"
-                            Label="BreedteKozijn"></InputNumberRow>
-            <InputNumberRow @bind-Value="@Ctx.HoogteKozijn" 
-                            Label="Hoogte Kozijn"></InputNumberRow>
-            <InputSelectEnumRow @bind-Value="@Ctx.TypeProfiel"
-                                Label="Type profiel" />
-            <InputSelectEnumRow @bind-Value="@Ctx.MetAanslag"
-                                Label="MetAanslag" />
-            <InputSelectEnumRow @bind-Value="@Ctx.Glas"
-                                Label="Glas" />
-            <InputSelectEnumRow @bind-Value="@Ctx.Roeden"
-                                Label="Roeden" />
-            <InputSelectEnumRow @bind-Value="@Ctx.Structuur"
-                                Label="Structuur" />
-            <InputTextRow @bind-Value="@Ctx.KleurBinnenkant"
-                          Label="Kleur binnenkant" />
-            <InputTextRow @bind-Value="@Ctx.KleurBuitenkant"
-                          Label="Kleur buitenkant" />
-            <InputSelectEnumRow @bind-Value="@Ctx.KleurAfstandHouders"
-                                Label="Kleur afstandHouders" />
-            <InputSelectEnumRow @bind-Value="@Ctx.VouwKlink"
-                                Label="Vouw klink" />
-            
-        </EditForm>
+                                    <InputNumberRow @bind-Value="@Ctx.PerDeel"
+                                                    Label="Per deel"></InputNumberRow>
 
+                                    <div class="row">
+                                        <div class="col-sm">Valide</div>
+                                        <div class="col-sm">@Ctx.IsValidConfiguration</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">Deuren</div>
+                                        <div class="col-sm">@Ctx.Deuren</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">Prijs excl. btw</div>
+                                        <div class="col-sm">@Ctx.PriceExcludingTax</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">Min Breedte</div>
+                                        <div class="col-sm">@Ctx.MinBreedteKozijn</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">Max Breedte</div>
+                                        <div class="col-sm">@Ctx.MaxBreedteKozijn</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">MaxMessage</div>
+                                        <div class="col-sm">@Ctx.BreedteKozijnMessage</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">Min Hoogte</div>
+                                        <div class="col-sm">@Ctx.MinHoogteKozijn</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">Max Hoogte</div>
+                                        <div class="col-sm">@Ctx.MaxHoogteKozijn</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">MaxMessage</div>
+                                        <div class="col-sm">@Ctx.HoogteKozijnMessage</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="container">
+
+                                    <div class="row">
+                                        <div class="col-sm">Prijs excl. btw</div>
+                                        <div class="col-sm">@Ctx.PriceExcludingTax</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm">Btw</div>
+                                        <div class="col-sm">@Ctx.Tax</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm">Prijs incl. btw</div>
+                                        <div class="col-sm">@Ctx.PriceExcludingTax</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <SvgImage Svg="@Ctx.SvgImage"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </EditForm>
 
 </section>

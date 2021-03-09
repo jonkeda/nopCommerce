@@ -6,12 +6,12 @@ namespace Nop.Web.Pages.AluminiumVouwwand
 {
     public class AluminiumVouwwandBestellenBase : ComponentBase
     {
-        public AluminiumVouwwandViewModel Ctx { get; set; } = new AluminiumVouwwandViewModel();
-
-
+        public AluminiumVouwwandViewModel Ctx { get; set; }
+        
         protected override async Task OnInitializedAsync()
         {
-
+            Ctx = new AluminiumVouwwandViewModel();
+            Ctx.ChangeConfiguration();
         }
 
         protected async Task HandleValidSubmit()

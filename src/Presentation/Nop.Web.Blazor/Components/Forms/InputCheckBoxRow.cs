@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Rendering;
 
 namespace Nop.Web.Components.Forms
 {
-
-    public class InputTextRow : NopInputText
+    public class InputCheckBoxRow : NopInputCheckbox
     {
         [Parameter]
         public string Label { get; set; }
