@@ -11,7 +11,7 @@ namespace Nop.Core.Domain.Catalog
     /// <summary>
     /// Represents a product
     /// </summary>
-    public partial class Product : BaseEntity, ILocalizedEntity, ISlugSupported, IAclSupported, IStoreMappingSupported, IDiscountSupported<DiscountProductMapping>, ISoftDeletedEntity
+    public partial class Product : BaseEntity, ILocalizedEntity, ISlugSupported, IAclSupported, IStoreMappingSupported, IDiscountSupported<DiscountProductMapping>, ISoftDeletedEntity, IProductConfiguration
     {
         /// <summary>
         /// Gets or sets the product type identifier
@@ -612,5 +612,29 @@ namespace Nop.Core.Domain.Catalog
             get => (RentalPricePeriod)RentalPricePeriodId;
             set => RentalPricePeriodId = (int)value;
         }
+
+        /// <summary>
+        /// Gets or sets the id of the product configurator
+        /// PCFG
+        /// </summary>
+        public int ConfiguratorId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the configurationdata of the configured product. This is defined in JSON
+        /// PCFG
+        /// </summary>
+        public string Configuration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the readable text of the configured product
+        /// PCFG
+        /// </summary>
+        public string ConfigurationDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the picture id of the configured product
+        /// PCFG
+        /// </summary>
+        public string ConfigurationPictureId { get; set; }
     }
 }

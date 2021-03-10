@@ -1,11 +1,12 @@
 ﻿using System;
+using Nop.Core.Domain.Catalog;
 
 namespace Nop.Core.Domain.Orders
 {
     /// <summary>
     /// Represents an order item
     /// </summary>
-    public partial class OrderItem : BaseEntity
+    public partial class OrderItem : BaseEntity, IProductConfiguration
     {
         /// <summary>
         /// Gets or sets the order item identifier
@@ -102,5 +103,23 @@ namespace Nop.Core.Domain.Orders
         /// Gets or sets the rental product end date (null if it's not a rental product)
         /// </summary>
         public DateTime? RentalEndDateUtc { get; set; }
+
+        /// <summary>
+        /// Gets or sets the configurationdata of the configured product. This is defined in JSON
+        /// PCFG
+        /// </summary>
+        public string Configuration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the readable text of the configured product
+        /// PCFG
+        /// </summary>
+        public string ConfigurationDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the picture id of the configured product
+        /// PCFG
+        /// </summary>
+        public string ConfigurationPictureId { get; set; }
     }
 }

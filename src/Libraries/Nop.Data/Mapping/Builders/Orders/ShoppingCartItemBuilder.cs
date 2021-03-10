@@ -21,7 +21,9 @@ namespace Nop.Data.Mapping.Builders.Orders
         {
             table
                 .WithColumn(nameof(ShoppingCartItem.CustomerId)).AsInt32().ForeignKey<Customer>()
-                .WithColumn(nameof(ShoppingCartItem.ProductId)).AsInt32().ForeignKey<Product>();
+                .WithColumn(nameof(ShoppingCartItem.ProductId)).AsInt32().ForeignKey<Product>()
+                // PCFG
+                .WithColumn(nameof(ShoppingCartItem.Configuration)).AsString(int.MaxValue).NotNullable();
         }
 
         #endregion

@@ -1,11 +1,12 @@
 ﻿using System;
+using Nop.Core.Domain.Catalog;
 
 namespace Nop.Core.Domain.Orders
 {
     /// <summary>
     /// Represents a shopping cart item
     /// </summary>
-    public partial class ShoppingCartItem : BaseEntity
+    public partial class ShoppingCartItem : BaseEntity, IProductConfiguration
     {
         /// <summary>
         /// Gets or sets the store identifier
@@ -70,5 +71,24 @@ namespace Nop.Core.Domain.Orders
             get => (ShoppingCartType)ShoppingCartTypeId;
             set => ShoppingCartTypeId = (int)value;
         }
+
+        /// <summary>
+        /// Gets or sets the configurationdata of the configured product. This is defined in JSON
+        /// PCFG
+        /// </summary>
+        public string Configuration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the readable text of the configured product
+        /// PCFG
+        /// </summary>
+        public string ConfigurationDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the picture id of the configured product
+        /// PCFG
+        /// </summary>
+        public string ConfigurationPictureId { get; set; }
+
     }
 }
