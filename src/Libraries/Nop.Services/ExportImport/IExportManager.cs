@@ -98,5 +98,11 @@ namespace Nop.Services.ExportImport
         /// <param name="storeId">Store identifier</param>
         /// <returns>Customer GDPR info</returns>
         Task<byte[]> ExportCustomerGdprInfoToXlsxAsync(Customer customer, int storeId);
+
+
+        Task<string> ExportProductConfiguratorsToXmlAsync(IList<ProductConfigurator> productConfigurators);
+        
+
+        Task<byte[]> ExportProductConfiguratorsToXlsxAsync(object @where);
     }
 }

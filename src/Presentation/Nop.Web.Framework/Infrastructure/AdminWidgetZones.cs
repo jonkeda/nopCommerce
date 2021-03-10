@@ -189,6 +189,9 @@
         public static string ProductAvailabilityRangeDetailsBottom => "admin_product_availability_range_details_bottom";
         public static string ProductAvailabilityRangeDetailsButtons => "admin_product_availability_range_details_buttons";
         public static string ProductAvailabilityRangeDetailsTop => "admin_product_availability_range_details_top";
+        public static string ProductConfiguratorDetailsBlock => "product_configurator_details_block";
+        public static string ProductConfiguratorDetailsButtons => "product_configurator_details_buttons";
+        public static string ProductConfiguratorListButtons => "product_configurator_list_buttons";
         public static string ProductDetailsBlock => "admin_product_details_block";
         public static string ProductDetailsButtons => "admin_product_details_buttons";
         public static string ProductDetailsProductAttributesCombinationsBottom => "admin_product_details_product_attributes_combinations_bottom";

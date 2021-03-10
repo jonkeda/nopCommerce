@@ -40,5 +40,7 @@ namespace Nop.Services.ExportImport
         /// </summary>
         /// <param name="stream">Stream</param>
         Task ImportCategoriesFromXlsxAsync(Stream stream);
+
+        Task ImportProductConfiguratorsFromXlsxAsync(Stream openReadStream);
     }
 }

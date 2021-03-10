@@ -66,6 +66,7 @@ namespace Nop.Web.Infrastructure
             services.AddScoped<IPollModelFactory, PollModelFactory>();
             services.AddScoped<IProductModelFactory, ProductModelFactory>();
             services.AddScoped<IProductAttributeModelFactory, ProductAttributeModelFactory>();
+            services.AddScoped<IProductConfiguratorModelFactory, ProductConfiguratorModelFactory>();
             services.AddScoped<IProductReviewModelFactory, ProductReviewModelFactory>();
             services.AddScoped<IReportModelFactory, ReportModelFactory>();
             services.AddScoped<IQueuedEmailModelFactory, QueuedEmailModelFactory>();

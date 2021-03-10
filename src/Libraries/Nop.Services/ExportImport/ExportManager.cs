@@ -2123,6 +2123,16 @@ namespace Nop.Services.ExportImport
             return stream.ToArray();
         }
 
+        public Task<string> ExportProductConfiguratorsToXmlAsync(IList<ProductConfigurator> productConfigurators)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<byte[]> ExportProductConfiguratorsToXlsxAsync(object @where)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

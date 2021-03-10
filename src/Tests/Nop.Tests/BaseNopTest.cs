@@ -417,6 +417,7 @@ namespace Nop.Tests
             services.AddTransient<IPollModelFactory, PollModelFactory>();
             services.AddTransient<IProductModelFactory, ProductModelFactory>();
             services.AddTransient<IProductAttributeModelFactory, ProductAttributeModelFactory>();
+            services.AddTransient<IProductConfiguratorModelFactory, ProductConfiguratorModelFactory>();
             services.AddTransient<IProductReviewModelFactory, ProductReviewModelFactory>();
             services.AddTransient<IReportModelFactory, ReportModelFactory>();
             services.AddTransient<IQueuedEmailModelFactory, QueuedEmailModelFactory>();

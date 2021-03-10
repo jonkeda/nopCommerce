@@ -2139,6 +2139,11 @@ namespace Nop.Services.ExportImport
             throw new ArgumentException(string.Format(await _localizationService.GetResourceAsync("Admin.Catalog.Categories.Import.CategoriesArentImported"), string.Join(", ", categoriesName)));
         }
 
+        public Task ImportProductConfiguratorsFromXlsxAsync(Stream openReadStream)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region Nested classes
