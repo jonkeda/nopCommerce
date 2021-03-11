@@ -623,7 +623,10 @@ namespace Nop.Web.Areas.Admin.Infrastructure.Mapper
 
             CreateMap<ProductTemplate, ProductTemplateModel>();
             CreateMap<ProductTemplateModel, ProductTemplate>();
-
+            
+            CreateMap<ProductConfigurator, ProductConfiguratorModel>();
+            CreateMap<ProductConfiguratorModel, ProductConfigurator>();
+            
             CreateMap<RelatedProduct, RelatedProductModel>()
                .ForMember(model => model.Product2Name, options => options.Ignore());
 

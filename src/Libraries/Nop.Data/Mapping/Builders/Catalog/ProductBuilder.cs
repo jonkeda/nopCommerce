@@ -23,8 +23,8 @@ namespace Nop.Data.Mapping.Builders.Catalog
                 // PCFG
                 .WithColumn(nameof(ProductConfigurator.FullClassName)).AsString(400).Nullable()
                 .WithColumn(nameof(ProductConfigurator.RouteName)).AsString(400).Nullable()
-                .WithColumn(nameof(ProductConfigurator.Definition)).AsString(int.MaxValue).NotNullable()
-                .WithColumn(nameof(ProductConfigurator.Attributes)).AsString(int.MaxValue).NotNullable();
+                .WithColumn(nameof(ProductConfigurator.Definition)).AsString(int.MaxValue).Nullable()
+                .WithColumn(nameof(ProductConfigurator.Attributes)).AsString(int.MaxValue).Nullable();
         }
 
         #endregion

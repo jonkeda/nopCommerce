@@ -120,6 +120,6 @@ namespace Nop.Core.Domain.Orders
         /// Gets or sets the picture id of the configured product
         /// PCFG
         /// </summary>
-        public string ConfigurationPictureId { get; set; }
+        public int ConfigurationPictureId { get; set; }
     }
 }

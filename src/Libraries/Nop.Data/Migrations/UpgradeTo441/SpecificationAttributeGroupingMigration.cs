@@ -45,9 +45,9 @@ namespace Nop.Data.Migrations.UpgradeTo441
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Product)))
                     .AddColumn(nameof(Product.ConfiguratorId)).AsInt32();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Product)))
-                    .AddColumn(nameof(Product.Configuration)).AsString(int.MaxValue);
+                    .AddColumn(nameof(Product.Configuration)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Product)))
-                    .AddColumn(nameof(Product.ConfigurationDescription)).AsString();
+                    .AddColumn(nameof(Product.ConfigurationDescription)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Product)))
                     .AddColumn(nameof(Product.ConfigurationPictureId)).AsInt32();
             }
@@ -57,9 +57,9 @@ namespace Nop.Data.Migrations.UpgradeTo441
             {
                 //add new columns
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(OrderItem)))
-                    .AddColumn(nameof(OrderItem.Configuration)).AsString(int.MaxValue);
+                    .AddColumn(nameof(OrderItem.Configuration)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(OrderItem)))
-                    .AddColumn(nameof(OrderItem.ConfigurationDescription)).AsString();
+                    .AddColumn(nameof(OrderItem.ConfigurationDescription)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(OrderItem)))
                     .AddColumn(nameof(OrderItem.ConfigurationPictureId)).AsInt32();
             }
@@ -69,9 +69,9 @@ namespace Nop.Data.Migrations.UpgradeTo441
             {
                 //add new columns
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(ShoppingCartItem)))
-                    .AddColumn(nameof(ShoppingCartItem.Configuration)).AsString(int.MaxValue);
+                    .AddColumn(nameof(ShoppingCartItem.Configuration)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(ShoppingCartItem)))
-                    .AddColumn(nameof(ShoppingCartItem.ConfigurationDescription)).AsString();
+                    .AddColumn(nameof(ShoppingCartItem.ConfigurationDescription)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(ShoppingCartItem)))
                     .AddColumn(nameof(ShoppingCartItem.ConfigurationPictureId)).AsInt32();
             }
