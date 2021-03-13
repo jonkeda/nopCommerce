@@ -1,0 +1,147 @@
+﻿@using System.Reflection
+@model VouwwandenModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script asp-location="Footer">
+    var Configurationfields = [];
+    @{
+        foreach (PropertyInfo info in typeof(VouwwandenModel).GetProperties())
+        {
+             @:Configurationfields.push('@info.Name');
+        }
+    }
+
+    var ConfigurationGetValue = function(id) {
+        var value = {}
+        value.value = $('#' + id).val();
+        return value;
+    }
+    var ConfigurationSetValue = function(id, data) {
+        if (data) {
+            $('#' + id).val(data.value);
+            // todo visibility
+            // todo error messages
+        }
+    }
+    var ConfigurationName = function (field) {
+        return field.substr(0, 1).toLowerCase() + field.substr(1);
+    }
+    var ConfigurationCalculate = function() {
+        var cfg = {}
+        var i;
+        var field;
+        var name;
+        for (i = 0; i < Configurationfields.length; i++) {
+            field = Configurationfields[i];
+            name = ConfigurationName(field);
+            cfg[name] = ConfigurationGetValue(field);
+        }
+        //window.alert(JSON.stringify(cfg));
+        //addAntiForgeryToken(cfg);
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Calculate", "home")',
+            dataType: 'json',
+            data: cfg,
+            success: function (data) {
+                for (i = 0; i < Configurationfields.length; i++) {
+                    field = Configurationfields[i];
+                    name = ConfigurationName(field);
+                    ConfigurationSetValue(field, data[name]);
+                }
+                //window.alert(JSON.stringify(data));
+            },
+            error: function (ex) {
+                //window.alert(ex);
+            }
+        });
+    };
+
+    $(document).ready(function () {
+        var i;
+        for (i = 0; i < Configurationfields.length; i++) {
+            var field = Configurationfields[i];
+            $("#" + field).change(function () {
+                ConfigurationCalculate();
+            });
+        }
+    });
+
+</script>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table>
+    <tr>
+        <th colspan="2">
+            Vouwwanden
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Lengte
+        </td>
+        <td>
+            <input type="number" id="@Html.IdFor(model => model.Length)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Breedte
+        </td>
+        <td>
+            <input type="number" id="@Html.IdFor(model => model.Width)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            <input type="text" id="@Html.IdFor(model => model.Name)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Date
+        </td>
+        <td>
+            <input type="date" id="@Html.IdFor(model => model.Date)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Deuren
+        </td>
+        <td>
+            <select id="@Html.IdFor(model => model.Deuren)">
+                <option value="Zonder">Zonder deur</option>
+                <option value="Enkel">Enkele deur</option>
+                <option value="Dubbel">Dubbele deur</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <Button onclick="ConfigurationCalculate()">Calculate</Button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Prijs
+        </td>
+        <td>
+            <input type="number" id="@Html.IdFor(model => model.Price)" readonly="readonly" />
+        </td>
+    </tr>
+
+</table>
+
+
