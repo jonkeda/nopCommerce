@@ -13,5 +13,7 @@ namespace Nop.Web.Prototype.Models
         public PublicConfiguratorField<DateTime> Date { get; set; }
 
         public PublicConfiguratorField<Deuren> Deuren { get; set; }
+
+        public bool IsConfiguratorEnabled { get; set; }
     }
 }

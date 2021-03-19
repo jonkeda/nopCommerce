@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "Kozijnen",
+  "SystemName": "Misc.Kozijnen",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.40" ],
+  "Author": "KozijnenKopen",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.Kozijnen.dll",
+  "Description": ""
+}

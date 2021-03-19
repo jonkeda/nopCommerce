@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Nop.Core.Domain.Catalog;
 using Nop.Services.Catalog;
 using Nop.Services.Localization;
@@ -15,6 +16,7 @@ namespace Nop.Web.Areas.Admin.Factories
 {
     /// <summary>
     /// Represents the ProductConfigurator model factory implementation
+    /// PCFG
     /// </summary>
     public partial class ProductConfiguratorModelFactory : IProductConfiguratorModelFactory
     {
@@ -92,6 +94,38 @@ namespace Nop.Web.Areas.Admin.Factories
             searchModel.SetGridPageSize();
 
             return searchModel;
+        }
+
+        /// <summary>
+        /// Prepare ProductConfigurator configuration model
+        /// </summary>
+        /// <param name="configurationModel">ProductConfigurator configuration model</param>
+        /// <returns>ProductConfigurator search model</returns>
+        public virtual async Task<ProductConfiguratorConfigurationModel> PrepareProductConfiguratorConfigurationModelAsync(ProductConfiguratorConfigurationModel configurationModel)
+        {
+            if (configurationModel == null)
+                throw new ArgumentNullException(nameof(configurationModel));
+
+            //prepare available tax categories
+            await this.PrepareProductConfiguratorsAsync(configurationModel.AvailableConfigurators);
+
+            return configurationModel;
+        }
+
+        public async Task PrepareProductConfiguratorsAsync(IList<SelectListItem> items, bool withSpecialDefaultItem = true, string defaultItemText = null)
+        {
+            if (items == null)
+                throw new ArgumentNullException(nameof(items));
+
+            //prepare available product configurators
+            var availableProductConfigurators = await _productConfiguratorService.GetAllProductConfiguratorsAsync();
+            foreach (var productConfigurator in availableProductConfigurators)
+            {
+                items.Add(new SelectListItem { Value = productConfigurator.Id.ToString(), Text = productConfigurator.Name });
+            }
+
+            //insert special item for the default value
+            items.Insert(0, new SelectListItem { Text = await _localizationService.GetResourceAsync("Admin.Catalog.ProductConfigurator.None"), Value = "0" });
         }
 
         /// <summary>

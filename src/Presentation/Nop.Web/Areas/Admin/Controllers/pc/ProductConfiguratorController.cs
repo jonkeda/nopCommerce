@@ -17,8 +17,6 @@ using Nop.Services.Security;
 using Nop.Web.Areas.Admin.Factories;
 using Nop.Web.Areas.Admin.Infrastructure.Mapper.Extensions;
 using Nop.Web.Areas.Admin.Models.Catalog;
-using Nop.Web.Framework.Controllers;
-using Nop.Web.Framework.Mvc;
 using Nop.Web.Framework.Mvc.Filters;
 
 namespace Nop.Web.Areas.Admin.Controllers
@@ -34,6 +32,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         private readonly ILocalizedEntityService _localizedEntityService;
         private readonly IProductConfiguratorModelFactory _productConfiguratorModelFactory;
         private readonly IProductConfiguratorService _productConfiguratorService;
+        private readonly IProductConfiguratorPluginManager _productConfiguratorPluginManager;
         private readonly INotificationService _notificationService;
         private readonly IPermissionService _permissionService;
         private readonly IPictureService _pictureService;
@@ -52,6 +51,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             ILocalizedEntityService localizedEntityService,
             IProductConfiguratorModelFactory productConfiguratorModelFactory,
             IProductConfiguratorService productConfiguratorService,
+            IProductConfiguratorPluginManager productConfiguratorPluginManager,
             INotificationService notificationService,
             IPermissionService permissionService,
             IPictureService pictureService,
@@ -65,6 +65,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             _localizedEntityService = localizedEntityService;
             _productConfiguratorModelFactory = productConfiguratorModelFactory;
             _productConfiguratorService = productConfiguratorService;
+            _productConfiguratorPluginManager = productConfiguratorPluginManager;
             _notificationService = notificationService;
             _permissionService = permissionService;
             _pictureService = pictureService;
@@ -478,6 +479,70 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         //    return View(new AddProductToProductConfiguratorSearchModel());
         //}
+
+        #endregion
+
+        #region Configuration
+
+        public virtual async Task<IActionResult> Configuration(int id)
+        {
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProductConfigurators))
+                return AccessDeniedView();
+
+            //prepare model
+            var model = await _productConfiguratorModelFactory.PrepareProductConfiguratorConfigurationModelAsync(
+                new ProductConfiguratorConfigurationModel
+                {
+                    ConfiguratorId = id
+                });
+
+            await LoadConfiguratorPlugin(model);
+
+            return View(model);
+        }
+
+        private async Task LoadConfiguratorPlugin(ProductConfiguratorConfigurationModel model)
+        {
+            var productConfigurator = await _productConfiguratorPluginManager
+                .GetProductConfiguratorProvider(model.ConfiguratorId);
+            if (productConfigurator == null)
+            {
+                model.ViewName = "Message";
+                model.DefaultModel = new ProductConfiguratorMessageModel();
+                model.ModelType = typeof(ProductConfiguratorMessageModel);
+            }
+            else
+            {
+                model.ViewName = productConfigurator.GetViewName();
+                model.DefaultModel = productConfigurator.GetDefaultModel();
+                model.ModelType = productConfigurator.GetModelType();
+            }
+        }
+
+        [HttpPost]
+        public virtual async Task<IActionResult> Configuration(ProductConfiguratorConfigurationModel model)
+        {
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProductConfigurators))
+                return AccessDeniedView();
+
+            //prepare model
+            model = await _productConfiguratorModelFactory.PrepareProductConfiguratorConfigurationModelAsync(model);
+
+            await LoadConfiguratorPlugin(model);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Calculate(ProductConfiguratorCalculationModel model)
+        {
+            var productConfigurator = await _productConfiguratorPluginManager.GetProductConfiguratorProvider(model.ConfiguratorId);
+            if (productConfigurator != null)
+            {
+                model.Json = productConfigurator.Calculate(model.Json);
+            }
+            return Json(model);
+        }
 
         #endregion
     }

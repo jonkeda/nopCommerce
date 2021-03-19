@@ -2,6 +2,18 @@ $.fn.showField = function () {
   this.css('display', 'flex');
 }
 
+// PCFG
+function valField(selector, context, value) {
+  var el = $(selector, context);
+  if (el) {
+    if (el.attr('data-role') === 'numerictextbox') {
+      el.data('kendoNumericTextBox').value(value);
+    } else {
+      return el.val(value);
+    }
+  }
+}
+
 function setLocation(url) {
     window.location.href = url;
 }
@@ -10,7 +22,7 @@ function OpenWindow(query, w, h, scroll) {
     var l = (screen.width - w) / 2;
     var t = (screen.height - h) / 2;
 
-    winprops = 'resizable=1, height=' + h + ',width=' + w + ',top=' + t + ',left=' + l + 'w';
+    var winprops = 'resizable=1, height=' + h + ',width=' + w + ',top=' + t + ',left=' + l + 'w';
     if (scroll) winprops += ',scrollbars=1';
     var f = window.open(query, "_blank", winprops);
 }

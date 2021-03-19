@@ -2,6 +2,8 @@
 
 namespace Nop.Services.Plugins
 {
+
+
     /// <summary>
     /// Interface denoting plug-in attributes that are displayed throughout 
     /// the editing interface.

@@ -1,0 +1,164 @@
+﻿@using Nop.Services
+@using Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
+@*@model Nop.Web.Areas.Admin.Models.Catalog.ProductConfiguratorConfigurationModel*@
+@model AluminiumVouwwandModel
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="AantalDelen" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="AantalDelen.Value" asp-items="@await Model.AantalDelen.Value.GetValueOrDefault(AantalDelen.Delen2).ToSelectListAsync()" />
+        <span asp-validation-for="AantalDelen.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="MetDeur" />
+    </div>
+    <div class="col-md-9">
+        <nop-editor asp-for="MetDeur.Value" />
+        <span asp-validation-for="MetDeur.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="Schuifrichting" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="Schuifrichting.Value" asp-items="@await Model.Schuifrichting.Value.ToSelectListAsync()" />
+        <span asp-validation-for="Schuifrichting.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="Vouwrichting" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="Vouwrichting.Value" asp-items="@await Model.Vouwrichting.Value.ToSelectListAsync()" />
+        <span asp-validation-for="Vouwrichting.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="LocatieLoopdeuren" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="LocatieLoopdeuren.Value" asp-items="@await Model.LocatieLoopdeuren.Value.ToSelectListAsync()" />
+        <span asp-validation-for="LocatieLoopdeuren.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="BreedteKozijn" />
+    </div>
+    <div class="col-md-9">
+        <nop-editor asp-for="BreedteKozijn.Value" />
+        <span asp-validation-for="BreedteKozijn.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="HoogteKozijn" />
+    </div>
+    <div class="col-md-9">
+        <nop-editor asp-for="HoogteKozijn.Value" />
+        <span asp-validation-for="HoogteKozijn"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="TypeProfiel" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="TypeProfiel.Value" asp-items="@await Model.TypeProfiel.Value.ToSelectListAsync()" />
+        <span asp-validation-for="TypeProfiel.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="MetAanslag" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="MetAanslag.Value" asp-items="@await Model.MetAanslag.Value.ToSelectListAsync()" />
+        <span asp-validation-for="MetAanslag.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="Glas" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="Glas.Value" asp-items="@await Model.Glas.Value.ToSelectListAsync()" />
+        <span asp-validation-for="Glas.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="Roeden" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="Roeden.Value" asp-items="@await Model.Roeden.Value.ToSelectListAsync()" />
+        <span asp-validation-for="Roeden.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="Structuur" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="Structuur.Value" asp-items="@await Model.Structuur.Value.ToSelectListAsync()" />
+        <span asp-validation-for="Structuur.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="KleurBinnenkant" />
+    </div>
+    <div class="col-md-9">
+        <nop-editor asp-for="KleurBinnenkant.Value" />
+        <span asp-validation-for="KleurBinnenkant.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="KleurBuitenkant" />
+    </div>
+    <div class="col-md-9">
+        <nop-editor asp-for="KleurBuitenkant.Value" />
+        <span asp-validation-for="KleurBuitenkant"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="KleurAfstandHouders" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="KleurAfstandHouders.Value" asp-items="@await Model.KleurAfstandHouders.Value.ToSelectListAsync()" />
+        <span asp-validation-for="KleurAfstandHouders.Value"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <nop-label asp-for="VouwKlink" />
+    </div>
+    <div class="col-md-9">
+        <nop-select asp-for="VouwKlink.Value" asp-items="@await Model.VouwKlink.Value.ToSelectListAsync()" />
+        <span asp-validation-for="VouwKlink.Value"></span>
+    </div>
+</div>

@@ -45,6 +45,10 @@
     const string hideCrossSellsProductsBlockAttributeName = "ProductPage.HideCrossSellsProductsBlock";
     var hideCrossSellsProductsBlock = await genericAttributeService.GetAttributeAsync<bool>(await workContext.GetCurrentCustomerAsync(), hideCrossSellsProductsBlockAttributeName, defaultValue: true);
 
+    // PCFG
+    const string hideProductConfiguratorBlockAttributeName = "ProductPage.HideProductConfiguratorBlock";
+    var hideProductConfiguratorBlock = await genericAttributeService.GetAttributeAsync<bool>(await workContext.GetCurrentCustomerAsync(), hideProductConfiguratorBlockAttributeName, defaultValue: true);
+
     const string hidePurchasedWithOrdersBlockAttributeName = "ProductPage.HidePurchasedWithOrdersBlock";
     var hidePurchasedWithOrdersBlock = await genericAttributeService.GetAttributeAsync<bool>(await workContext.GetCurrentCustomerAsync(), hidePurchasedWithOrdersBlockAttributeName, defaultValue: true);
 
@@ -88,6 +92,8 @@
                 <nop-card asp-name="product-seo" asp-icon="fas fa-search-plus" asp-title="@T("Admin.Common.SEO")" asp-hide-block-attribute-name="@hideSeoBlockAttributeName" asp-hide="@hideSeoBlock" asp-advanced="@(!Model.ProductEditorSettingsModel.Seo)">@await Html.PartialAsync("_CreateOrUpdate.Seo", Model)</nop-card>
                 <nop-card asp-name="product-related-products" asp-icon="fas fa-object-group" asp-title="@T("Admin.Catalog.Products.RelatedProducts")" asp-hide-block-attribute-name="@hideRelatedProductsBlockAttributeName" asp-hide="@hideRelatedProductsBlock" asp-advanced="@(!Model.ProductEditorSettingsModel.RelatedProducts)">@await Html.PartialAsync("_CreateOrUpdate.RelatedProducts", Model)</nop-card>
                 <nop-card asp-name="product-crosssells-products" asp-icon="fas fa-random" asp-title="@T("Admin.Catalog.Products.CrossSells")" asp-hide-block-attribute-name="@hideCrossSellsProductsBlockAttributeName" asp-hide="@hideCrossSellsProductsBlock" asp-advanced="@(!Model.ProductEditorSettingsModel.CrossSellsProducts)">@await Html.PartialAsync("_CreateOrUpdate.CrossSellsProducts", Model)</nop-card>
+                @*// pcfg*@
+                <nop-card asp-name="product-productconfigurator" asp-icon="fas fa-cogs" asp-title="@T("Admin.Catalog.ProductConfigurator")" asp-hide-block-attribute-name="@hideProductConfiguratorBlockAttributeName" asp-hide="@hideProductConfiguratorBlock" >@await Html.PartialAsync("_CreateOrUpdate.ProductConfigurator", Model)</nop-card>
 
                 @if (Model.Id > 0)
                 {

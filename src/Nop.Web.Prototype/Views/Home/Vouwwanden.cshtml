@@ -1,0 +1,172 @@
+﻿@using System.Reflection
+@model VouwwandenModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script asp-location="Footer">
+    var Configurationfields = [];
+    @{
+        foreach (PropertyInfo info in typeof(VouwwandenModel)
+            .GetProperties()
+            .Where(p => p.PropertyType.IsAssignableTo(typeof(IPublicConfiguratorField))))
+        {
+             @:Configurationfields.push('@info.Name');
+        }
+    }
+    var ConfigurationGetValue = function(id) {
+        var value = {}
+        value.value = $('#' + id).val();
+        return value;
+    }
+    var ConfigurationSetValue = function(id, data) {
+        if (data) {
+            var el = $('#' + id);
+            if (el) {
+                el.val(data.value);
+                if (data.isVisible) {
+                    el.show();
+                    //el.showField();
+                } else {
+                    el.hide();
+                }
+                // todo error messages
+            }
+        }
+    }
+    var ConfigurationName = function(field) {
+        return field.substr(0, 1).toLowerCase() + field.substr(1);
+    }
+    var ConfigurationGetCfg = function() {
+        var cfg = {}
+        var i, field, name;
+        for (i = 0; i < Configurationfields.length; i++) {
+            field = Configurationfields[i];
+            name = ConfigurationName(field);
+            cfg[name] = ConfigurationGetValue(field);
+        }
+        return cfg;
+    }
+    var ConfigurationSetCfg = function(data) {
+        var i, field, name;
+        for (i = 0; i < Configurationfields.length; i++) {
+            field = Configurationfields[i];
+            name = ConfigurationName(field);
+            ConfigurationSetValue(field, data[name]);
+        }
+    }
+    var ConfigurationCalculate = function (cfg) {
+        if (!cfg) {
+            cfg = ConfigurationGetCfg();
+        }
+        //addAntiForgeryToken(cfg);
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Calculate", "home")',
+            dataType: 'json',
+            data: cfg,
+            success: function (data) {
+                ConfigurationSetCfg(data);
+            },
+            error: function (ex) {
+                //window.alert(ex);
+            }
+        });
+    }
+    var ConfigurationCancel = function () {
+        window.close();
+    }
+    var ConfigurationOk = function () {
+        $("#Configuration", window.opener.document).val(JSON.stringify(ConfigurationGetCfg()));
+        window.close();
+    }
+    $(document).ready(function () {
+        if (window.opener) {
+            var cfg = $("#Configuration", window.opener.document).val();
+            window.alert(cfg);
+            var data = JSON.parse(cfg);
+            ConfigurationCalculate(data);
+        }
+        var i;
+        for (i = 0; i < Configurationfields.length; i++) {
+            var field = Configurationfields[i];
+            $("#" + field).change(function () {
+                ConfigurationCalculate();
+            });
+        }
+    });
+
+</script>
+
+<table>
+    <tr>
+        <th colspan="2">
+            Vouwwanden
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Lengte
+        </td>
+        <td>
+            <input type="number" id="@Html.IdFor(model => model.Length)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Breedte
+        </td>
+        <td>
+            <input type="number" id="@Html.IdFor(model => model.Width)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            <input type="text" id="@Html.IdFor(model => model.Name)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Date
+        </td>
+        <td>
+            <input type="date" id="@Html.IdFor(model => model.Date)" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Deuren
+        </td>
+        <td>
+            <select id="@Html.IdFor(model => model.Deuren)">
+                <option value="Zonder">Zonder deur</option>
+                <option value="Enkel">Enkele deur</option>
+                <option value="Dubbel">Dubbele deur</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <Button onclick="ConfigurationCalculate()">Calculate</Button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Prijs
+        </td>
+        <td>
+            <input type="number" id="@Html.IdFor(model => model.Price)" readonly="readonly" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <Button onclick="ConfigurationOk()">Ok</Button>
+            <Button onclick="ConfigurationCancel()">Cancel</Button>
+        </td>
+    </tr>
+
+</table>

@@ -24,6 +24,16 @@ namespace Nop.Web.Prototype.Controllers
             return View();
         }
 
+        public IActionResult Product()
+        {
+            return View();
+        }
+
+        public IActionResult Vouwwanden()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

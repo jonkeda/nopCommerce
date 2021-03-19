@@ -43,6 +43,8 @@ namespace Nop.Data.Migrations.UpgradeTo441
             {
                 //add new columns
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Product)))
+                    .AddColumn(nameof(Product.IsConfiguratorEnabled)).AsBoolean().WithDefaultValue(false);
+                Alter.Table(NameCompatibilityManager.GetTableName(typeof(Product)))
                     .AddColumn(nameof(Product.ConfiguratorId)).AsInt32();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Product)))
                     .AddColumn(nameof(Product.Configuration)).AsString(int.MaxValue).Nullable();

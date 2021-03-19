@@ -210,7 +210,27 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.RentalPricePeriod")]
         public int RentalPricePeriodId { get; set; }
+        
+        // PCFG
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.IsConfiguratorEnabled")]
+        public bool IsConfiguratorEnabled { get; set; }
 
+        // PCFG
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.ConfiguratorId")]
+        public int ConfiguratorId { get; set; }
+
+        // PCFG
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.Configuration")]
+        public string Configuration { get; set; }
+
+        // PCFG
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.ConfigurationDescription")]
+        public string ConfigurationDescription { get; set; }
+
+        // PCFG
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.ConfigurationPictureId")]
+        public int ConfigurationPictureId { get; set; }
+        
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.IsShipEnabled")]
         public bool IsShipEnabled { get; set; }
 

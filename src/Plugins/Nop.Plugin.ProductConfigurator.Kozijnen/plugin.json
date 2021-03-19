@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "Kozijn",
+  "SystemName": "ProductConfigurator.Kozijn",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.40" ],
+  "Author": "Kozijn",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.ProductConfigurator.Kozijn.dll",
+  "Description": "This plugin allows to configurate with products for the kozijn service"
+}

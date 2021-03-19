@@ -617,10 +617,16 @@ namespace Nop.Core.Domain.Catalog
         /// Gets or sets the id of the product configurator
         /// PCFG
         /// </summary>
+        public int IsConfiguratorEnabled { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the id of the product configurator
+        /// PCFG
+        /// </summary>
         public int ConfiguratorId { get; set; }
 
         /// <summary>
-        /// Gets or sets the configurationdata of the configured product. This is defined in JSON
+        /// Gets or sets the configuration data of the configured product. This is defined in JSON
         /// PCFG
         /// </summary>
         public string Configuration { get; set; }

@@ -1,6 +1,8 @@
 ﻿namespace Nop.Web.Prototype.Models
 {
-    public class PublicConfiguratorField<T>
+    public interface IPublicConfiguratorField { }
+
+    public class PublicConfiguratorField<T> : IPublicConfiguratorField
     {
         public T Value { get; set; }
         //public T Default { get; set; }

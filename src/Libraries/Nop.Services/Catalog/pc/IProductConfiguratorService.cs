@@ -11,6 +11,13 @@ namespace Nop.Services.Catalog
     public partial interface IProductConfiguratorService
     {
         /// <summary>
+        /// Get the product configurator
+        /// </summary>
+        /// <param name="fullClassName">Full class name of the product configurator</param>
+        /// <returns>Entity entry</returns>
+        Task<ProductConfigurator> GetByFullClassNameAsync(string fullClassName);
+
+        /// <summary>
         /// Deletes a ProductConfigurator
         /// </summary>
         /// <param name="productConfigurator">ProductConfigurator</param>

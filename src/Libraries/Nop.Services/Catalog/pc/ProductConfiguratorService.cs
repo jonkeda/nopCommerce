@@ -29,6 +29,13 @@ namespace Nop.Services.Catalog
 
         #region Methods
 
+        public async Task<ProductConfigurator> GetByFullClassNameAsync(string fullClassName)
+        {
+            var list = await _productConfiguratorRepository
+                .GetAllAsync(p => p.Where(c => c.FullClassName == fullClassName));
+            return list.FirstOrDefault();
+        }
+
         /// <summary>
         /// Deletes a ProductConfigurator
         /// </summary>
