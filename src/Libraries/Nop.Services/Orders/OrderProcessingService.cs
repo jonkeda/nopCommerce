@@ -1320,7 +1320,14 @@ namespace Nop.Services.Orders
                     LicenseDownloadId = 0,
                     ItemWeight = itemWeight,
                     RentalStartDateUtc = sc.RentalStartDateUtc,
-                    RentalEndDateUtc = sc.RentalEndDateUtc
+                    RentalEndDateUtc = sc.RentalEndDateUtc,
+
+                    // pcfg
+                    Configuration =  sc.Configuration,
+                    ConfigurationPictureId = sc.ConfigurationPictureId,
+                    ConfigurationPrice = sc.ConfigurationPrice,
+                    ConfigurationDescription = sc.ConfigurationDescription
+
                 };
 
                 await _orderService.InsertOrderItemAsync(orderItem);

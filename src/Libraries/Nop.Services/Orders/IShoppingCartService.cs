@@ -160,6 +160,7 @@ namespace Nop.Services.Orders
         /// <param name="customerEnteredPrice">Customer entered price (if specified)</param>
         /// <param name="rentalStartDate">Rental start date (null for not rental products)</param>
         /// <param name="rentalEndDate">Rental end date (null for not rental products)</param>
+        /// <param name="configurationPrice">Price of the configuration</param>
         /// <param name="includeDiscounts">A value indicating whether include discounts or not for price computation</param>
         /// <returns>Shopping cart unit price (one item)</returns>
         Task<(decimal unitPrice, decimal discountAmount, List<Discount> appliedDiscounts)> GetUnitPriceAsync(Product product,
@@ -169,6 +170,7 @@ namespace Nop.Services.Orders
             string attributesXml,
             decimal customerEnteredPrice,
             DateTime? rentalStartDate, DateTime? rentalEndDate,
+            decimal configurationPrice,
             bool includeDiscounts);
 
         /// <summary>

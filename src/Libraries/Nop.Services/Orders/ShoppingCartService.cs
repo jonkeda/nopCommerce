@@ -1305,6 +1305,7 @@ namespace Nop.Services.Orders
                 shoppingCartItem.CustomerEnteredPrice,
                 shoppingCartItem.RentalStartDateUtc,
                 shoppingCartItem.RentalEndDateUtc,
+                shoppingCartItem.ConfigurationPrice,
                 includeDiscounts);
         }
 
@@ -1319,6 +1320,7 @@ namespace Nop.Services.Orders
         /// <param name="customerEnteredPrice">Customer entered price (if specified)</param>
         /// <param name="rentalStartDate">Rental start date (null for not rental products)</param>
         /// <param name="rentalEndDate">Rental end date (null for not rental products)</param>
+        /// <param name="configurationPrice">Price of the configuration</param>
         /// <param name="includeDiscounts">A value indicating whether include discounts or not for price computation</param>
         /// <returns>Shopping cart unit price (one item). Applied discount amount. Applied discounts</returns>
         public virtual async Task<(decimal unitPrice, decimal discountAmount, List<Discount> appliedDiscounts)> GetUnitPriceAsync(Product product,
@@ -1328,6 +1330,7 @@ namespace Nop.Services.Orders
             string attributesXml,
             decimal customerEnteredPrice,
             DateTime? rentalStartDate, DateTime? rentalEndDate,
+            decimal configurationPrice,
             bool includeDiscounts)
         {
             if (product == null)
@@ -1366,10 +1369,24 @@ namespace Nop.Services.Orders
                     }
                 }
 
+                
                 //get price of a product (with previously calculated price of all attributes)
                 if (product.CustomerEntersPrice)
                 {
                     finalPrice = customerEnteredPrice;
+                }
+                // PCFG
+                else if (product.IsConfiguratorEnabled)
+                {
+                    (_, finalPrice, discountAmount, appliedDiscounts) = await _priceCalculationService.GetFinalPriceAsync(
+                        product,
+                        customer,
+                        configurationPrice,
+                        attributesTotalPrice,
+                        includeDiscounts,
+                        quantity,
+                        product.IsRental ? rentalStartDate : null,
+                        product.IsRental ? rentalEndDate : null);
                 }
                 else
                 {

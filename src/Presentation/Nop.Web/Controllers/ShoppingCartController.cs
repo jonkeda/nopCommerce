@@ -851,7 +851,7 @@ namespace Nop.Web.Controllers
                     await _workContext.GetCurrentCustomerAsync(),
                     ShoppingCartType.ShoppingCart,
                     1, attributeXml, 0,
-                    rentalStartDate, rentalEndDate, true);
+                    rentalStartDate, rentalEndDate, 0, true);
                 var (finalPriceWithDiscountBase, _) = await _taxService.GetProductPriceAsync(product, finalPrice);
                 var finalPriceWithDiscount = await _currencyService.ConvertFromPrimaryStoreCurrencyAsync(finalPriceWithDiscountBase, await _workContext.GetWorkingCurrencyAsync());
                 price = await _priceFormatter.FormatPriceAsync(finalPriceWithDiscount);
