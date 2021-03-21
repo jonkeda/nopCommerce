@@ -36,15 +36,16 @@ namespace Nop.Services.Catalog
 
         protected abstract T CreateDefaultModel();
 
-        public string Calculate(string json)
+        public (string model, decimal price)  Calculate(string json)
         {
             var model = (T)JsonConvert.DeserializeObject(json, typeof(T));
 
-            model = Calculate(model);
+            decimal price;
+            (model, price) = Calculate(model);
 
-            return JsonConvert.SerializeObject(model);
+            return (JsonConvert.SerializeObject(model), price);
         }
 
-        protected abstract T Calculate(T model);
+        protected abstract (T model, decimal price) Calculate(T model);
     }
 }

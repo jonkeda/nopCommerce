@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Orders;
+using Nop.Web.Areas.Admin.Models.Catalog;
 using Nop.Web.Framework.Models;
 using Nop.Web.Framework.Mvc.ModelBinding;
 using Nop.Web.Models.Media;
@@ -24,6 +25,7 @@ namespace Nop.Web.Models.Catalog
             AssociatedProducts = new List<ProductDetailsModel>();
             VendorModel = new VendorBriefInfoModel();
             Breadcrumb = new ProductBreadcrumbModel();
+            ProductConfigurator = new ProductConfiguratorModel();
             ProductTags = new List<ProductTagModel>();
             ProductSpecificationModel = new ProductSpecificationModel();
             ProductManufacturers = new List<ManufacturerBriefInfoModel>();
@@ -117,7 +119,28 @@ namespace Nop.Web.Models.Catalog
 
         public bool AllowAddingOnlyExistingAttributeCombinations { get; set; }
 
+        public ProductConfiguratorModel ProductConfigurator { get; set; }
+
         #region Nested Classes
+
+        // PCFG
+        public partial record ProductConfiguratorModel : BaseNopModel
+        {
+            public int ConfiguratorId { get; set; }
+            public string ViewName { get; set; }
+            public object DefaultModel { get; set; }
+            public Type ModelType { get; set; }
+
+            [NopResourceDisplayName("Price")]
+            public ProductConfiguratorField<decimal> Price { get; set; } = new();
+
+            [NopResourceDisplayName("Tax")]
+            public ProductConfiguratorField<decimal> Tax { get; set; } = new();
+
+            [NopResourceDisplayName("SubTotal")]
+            public ProductConfiguratorField<decimal> SubTotal { get; set; } = new();
+
+        }
 
         public partial record ProductBreadcrumbModel : BaseNopModel
         {

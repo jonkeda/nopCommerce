@@ -20,10 +20,10 @@ namespace Nop.Plugin.Misc.Kozijnen.Services
             return defaultModel;
         }
 
-        protected override AluminiumVouwwandModel Calculate(AluminiumVouwwandModel model)
+        protected override (AluminiumVouwwandModel model, decimal price)  Calculate(AluminiumVouwwandModel model)
         {
-            model.Price.Value = model.BreedteKozijn.Value + model.HoogteKozijn.Value;
-            return model;
+            decimal price = (model.BreedteKozijn.Value * model.HoogteKozijn.Value) / 10000;
+            return (model, price);
         }
     }
 

@@ -43,6 +43,8 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         public Type ModelType { get; set; }
 
+        public bool Initial { get; set; }
+
         #endregion
     }
 }

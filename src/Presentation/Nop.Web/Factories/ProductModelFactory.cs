@@ -27,10 +27,17 @@ using Nop.Services.Seo;
 using Nop.Services.Shipping.Date;
 using Nop.Services.Tax;
 using Nop.Services.Vendors;
+using Nop.Web.Areas.Admin.Models.Catalog;
 using Nop.Web.Infrastructure.Cache;
 using Nop.Web.Models.Catalog;
 using Nop.Web.Models.Common;
 using Nop.Web.Models.Media;
+using ProductAttributeModel = Nop.Web.Models.Catalog.ProductAttributeModel;
+using ProductReviewModel = Nop.Web.Models.Catalog.ProductReviewModel;
+using ProductReviewReviewTypeMappingModel = Nop.Web.Models.Catalog.ProductReviewReviewTypeMappingModel;
+using ProductSpecificationAttributeModel = Nop.Web.Models.Catalog.ProductSpecificationAttributeModel;
+using ProductTagModel = Nop.Web.Models.Catalog.ProductTagModel;
+using ReviewTypeModel = Nop.Web.Models.Catalog.ReviewTypeModel;
 
 namespace Nop.Web.Factories
 {
@@ -59,6 +66,7 @@ namespace Nop.Web.Factories
         private readonly IPriceFormatter _priceFormatter;
         private readonly IProductAttributeParser _productAttributeParser;
         private readonly IProductAttributeService _productAttributeService;
+        private readonly IProductConfiguratorPluginManager _productConfiguratorPluginManager;
         private readonly IProductService _productService;
         private readonly IProductTagService _productTagService;
         private readonly IProductTemplateService _productTemplateService;
@@ -100,6 +108,7 @@ namespace Nop.Web.Factories
             IPriceFormatter priceFormatter,
             IProductAttributeParser productAttributeParser,
             IProductAttributeService productAttributeService,
+            IProductConfiguratorPluginManager productConfiguratorPluginManager,
             IProductService productService,
             IProductTagService productTagService,
             IProductTemplateService productTemplateService,
@@ -137,6 +146,7 @@ namespace Nop.Web.Factories
             _priceFormatter = priceFormatter;
             _productAttributeParser = productAttributeParser;
             _productAttributeService = productAttributeService;
+            _productConfiguratorPluginManager = productConfiguratorPluginManager;
             _productService = productService;
             _productTagService = productTagService;
             _productTemplateService = productTemplateService;
@@ -1489,6 +1499,19 @@ namespace Nop.Web.Factories
                     var associatedProducts = await _productService.GetAssociatedProductsAsync(product.Id, (await _storeContext.GetCurrentStoreAsync()).Id);
                     foreach (var associatedProduct in associatedProducts)
                         model.AssociatedProducts.Add(await PrepareProductDetailsModelAsync(associatedProduct, null, true));
+                }
+            }
+
+            if (product.IsConfiguratorEnabled)
+            {
+                var productConfigurator = await _productConfiguratorPluginManager
+                    .GetProductConfiguratorProvider(product.ConfiguratorId);
+                if (productConfigurator != null)
+                {
+                    model.ProductConfigurator.ConfiguratorId = product.ConfiguratorId;
+                    model.ProductConfigurator.ViewName = productConfigurator.GetViewName();
+                    model.ProductConfigurator.DefaultModel = productConfigurator.GetDefaultModel();
+                    model.ProductConfigurator.ModelType = productConfigurator.GetModelType();
                 }
             }
 

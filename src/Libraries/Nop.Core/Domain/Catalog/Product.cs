@@ -617,7 +617,7 @@ namespace Nop.Core.Domain.Catalog
         /// Gets or sets the id of the product configurator
         /// PCFG
         /// </summary>
-        public int IsConfiguratorEnabled { get; set; }
+        public bool IsConfiguratorEnabled { get; set; }
         
         /// <summary>
         /// Gets or sets the id of the product configurator

@@ -13,6 +13,6 @@ namespace Nop.Services.Catalog
 
         public Type GetModelType();
 
-        public string Calculate(string json);
+        public (string model, decimal price) Calculate(string json);
     }
 }

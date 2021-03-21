@@ -493,7 +493,8 @@ namespace Nop.Web.Areas.Admin.Controllers
             var model = await _productConfiguratorModelFactory.PrepareProductConfiguratorConfigurationModelAsync(
                 new ProductConfiguratorConfigurationModel
                 {
-                    ConfiguratorId = id
+                    ConfiguratorId = id,
+                    Initial = true
                 });
 
             await LoadConfiguratorPlugin(model);
@@ -539,7 +540,11 @@ namespace Nop.Web.Areas.Admin.Controllers
             var productConfigurator = await _productConfiguratorPluginManager.GetProductConfiguratorProvider(model.ConfiguratorId);
             if (productConfigurator != null)
             {
-                model.Json = productConfigurator.Calculate(model.Json);
+                decimal price;
+                (model.Json, price) = productConfigurator.Calculate(model.Json);
+                model.Price = price.ToString();
+                model.Tax = "btw";
+                model.SubTotal = "sub total";
             }
             return Json(model);
         }
