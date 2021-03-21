@@ -541,7 +541,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             if (productConfigurator != null)
             {
                 decimal price;
-                (model.Json, price) = productConfigurator.Calculate(model.Json);
+                (model.Json, price) = productConfigurator.CalculateToJson(model.Json);
                 model.Price = price.ToString();
                 model.Tax = "btw";
                 model.SubTotal = "sub total";

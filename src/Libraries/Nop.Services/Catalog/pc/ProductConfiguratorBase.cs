@@ -29,6 +29,13 @@ namespace Nop.Services.Catalog
             return CreateDefaultModel();
         }
 
+        public (object model, decimal price) Calculate(string json)
+        {
+            var model = (T)JsonConvert.DeserializeObject(json, typeof(T));
+
+            return Calculate(model);
+        }
+
         public Type GetModelType()
         {
             return _modelType;
@@ -36,12 +43,11 @@ namespace Nop.Services.Catalog
 
         protected abstract T CreateDefaultModel();
 
-        public (string model, decimal price)  Calculate(string json)
+        public (string model, decimal price) CalculateToJson(string json)
         {
-            var model = (T)JsonConvert.DeserializeObject(json, typeof(T));
-
+            object model;
             decimal price;
-            (model, price) = Calculate(model);
+            (model, price) = Calculate(json);
 
             return (JsonConvert.SerializeObject(model), price);
         }

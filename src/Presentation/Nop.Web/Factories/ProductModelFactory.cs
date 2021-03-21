@@ -1508,9 +1508,13 @@ namespace Nop.Web.Factories
                     .GetProductConfiguratorProvider(product.ConfiguratorId);
                 if (productConfigurator != null)
                 {
+                    //product.Configuration
                     model.ProductConfigurator.ConfiguratorId = product.ConfiguratorId;
                     model.ProductConfigurator.ViewName = productConfigurator.GetViewName();
-                    model.ProductConfigurator.DefaultModel = productConfigurator.GetDefaultModel();
+                    
+                    (model.ProductConfigurator.DefaultModel, model.ProductConfigurator.Price)
+                        = productConfigurator.Calculate(product.Configuration);
+                    
                     model.ProductConfigurator.ModelType = productConfigurator.GetModelType();
                 }
             }

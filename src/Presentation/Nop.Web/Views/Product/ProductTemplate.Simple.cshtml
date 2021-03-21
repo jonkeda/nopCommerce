@@ -84,7 +84,7 @@
                                 @Html.Raw(Model.ShortDescription)
                             </div>
                         }
-                        @if (!string.IsNullOrEmpty(Model.ProductConfigurator.ViewName))
+                        @if (Model.ProductConfigurator.IsEnabled)
                         {
                             <input type="hidden" id="ConfiguratorId" value="@Model.ProductConfigurator.ConfiguratorId" />
                             <div class="card-body">

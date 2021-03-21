@@ -126,19 +126,21 @@ namespace Nop.Web.Models.Catalog
         // PCFG
         public partial record ProductConfiguratorModel : BaseNopModel
         {
+            public bool IsEnabled => !string.IsNullOrEmpty(ViewName);
+
             public int ConfiguratorId { get; set; }
             public string ViewName { get; set; }
             public object DefaultModel { get; set; }
             public Type ModelType { get; set; }
 
             [NopResourceDisplayName("Price")]
-            public ProductConfiguratorField<decimal> Price { get; set; } = new();
+            public decimal Price { get; set; }
 
             [NopResourceDisplayName("Tax")]
-            public ProductConfiguratorField<decimal> Tax { get; set; } = new();
+            public decimal Tax { get; set; }
 
             [NopResourceDisplayName("SubTotal")]
-            public ProductConfiguratorField<decimal> SubTotal { get; set; } = new();
+            public decimal SubTotal { get; set; }
 
         }
 
