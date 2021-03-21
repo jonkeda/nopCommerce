@@ -64,6 +64,8 @@ namespace Nop.Data.Migrations.UpgradeTo441
                     .AddColumn(nameof(OrderItem.ConfigurationDescription)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(OrderItem)))
                     .AddColumn(nameof(OrderItem.ConfigurationPictureId)).AsInt32();
+                Alter.Table(NameCompatibilityManager.GetTableName(typeof(ShoppingCartItem)))
+                    .AddColumn(nameof(ShoppingCartItem.ConfigurationPrice)).AsDecimal(18, 4).Nullable();
             }
 
             if (!Schema.Table(NameCompatibilityManager.GetTableName(typeof(ShoppingCartItem)))
@@ -76,6 +78,8 @@ namespace Nop.Data.Migrations.UpgradeTo441
                     .AddColumn(nameof(ShoppingCartItem.ConfigurationDescription)).AsString(int.MaxValue).Nullable();
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(ShoppingCartItem)))
                     .AddColumn(nameof(ShoppingCartItem.ConfigurationPictureId)).AsInt32();
+                Alter.Table(NameCompatibilityManager.GetTableName(typeof(ShoppingCartItem)))
+                    .AddColumn(nameof(ShoppingCartItem.ConfigurationPrice)).AsDecimal(18, 4).Nullable();
             }
         }
 

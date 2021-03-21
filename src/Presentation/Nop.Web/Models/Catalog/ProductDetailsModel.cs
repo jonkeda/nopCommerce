@@ -129,8 +129,11 @@ namespace Nop.Web.Models.Catalog
             public bool IsEnabled => !string.IsNullOrEmpty(ViewName);
 
             public int ConfiguratorId { get; set; }
+
             public string ViewName { get; set; }
+
             public object DefaultModel { get; set; }
+
             public Type ModelType { get; set; }
 
             [NopResourceDisplayName("Price")]

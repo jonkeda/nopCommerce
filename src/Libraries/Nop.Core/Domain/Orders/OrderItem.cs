@@ -121,5 +121,11 @@ namespace Nop.Core.Domain.Orders
         /// PCFG
         /// </summary>
         public int ConfigurationPictureId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the price of the configured product
+        /// PCFG
+        /// </summary>
+        public decimal ConfigurationPrice { get; set; }
     }
 }

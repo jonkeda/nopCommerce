@@ -117,6 +117,7 @@ namespace Nop.Web.Framework.Infrastructure
             services.AddScoped<IProductAttributeFormatter, ProductAttributeFormatter>();
             services.AddScoped<IProductAttributeParser, ProductAttributeParser>();
             services.AddScoped<IProductAttributeService, ProductAttributeService>();
+            services.AddScoped<IProductConfiguratorParser, ProductConfiguratorParser>();
             services.AddScoped<IProductConfiguratorService, ProductConfiguratorService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICopyProductService, CopyProductService>();

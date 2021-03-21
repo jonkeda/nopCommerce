@@ -136,13 +136,15 @@ namespace Nop.Services.Orders
         /// <param name="customerEnteredPrice">Price entered by a customer</param>
         /// <param name="rentalStartDate">Rental start date</param>
         /// <param name="rentalEndDate">Rental end date</param>
+        /// <param name="productConfigurator">Product configurator items</param>
         /// <returns>Shopping cart item is equal</returns>
         protected virtual async Task<bool> ShoppingCartItemIsEqualAsync(ShoppingCartItem shoppingCartItem,
             Product product,
             string attributesXml,
             decimal customerEnteredPrice,
             DateTime? rentalStartDate,
-            DateTime? rentalEndDate)
+            DateTime? rentalEndDate, 
+            ProductConfiguratorParsed productConfigurator)
         {
             if (shoppingCartItem.ProductId != product.Id)
                 return false;
@@ -173,7 +175,16 @@ namespace Nop.Services.Orders
                 if (!customerEnteredPricesEqual)
                     return false;
             }
-            
+
+            if (product.IsConfiguratorEnabled 
+                && productConfigurator != null)
+            {
+                if (shoppingCartItem.Configuration != productConfigurator.Configuration)
+                {
+                    return false;
+                }
+            }
+
             if (!product.IsRental) 
                 return true;
 
@@ -1031,7 +1042,8 @@ namespace Nop.Services.Orders
             int quantity = 1, bool addRequiredProducts = true, int shoppingCartItemId = 0,
             bool getStandardWarnings = true, bool getAttributesWarnings = true,
             bool getGiftCardWarnings = true, bool getRequiredProductWarnings = true,
-            bool getRentalWarnings = true)
+            bool getRentalWarnings = true,
+            ProductConfiguratorParsed productConfigurator = null)
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1057,6 +1069,18 @@ namespace Nop.Services.Orders
             //rental products
             if (getRentalWarnings)
                 warnings.AddRange(await GetRentalProductWarningsAsync(product, rentalStartDate, rentalEndDate));
+
+            //pcfg
+            if (productConfigurator != null)
+                warnings.AddRange(await GetProductConfiguratorAsync(productConfigurator));
+
+            return warnings;
+        }
+
+        private async Task<IEnumerable<string>> GetProductConfiguratorAsync(ProductConfiguratorParsed productConfigurator)
+        {
+            // pcfg todo
+            var warnings = new List<string>();
 
             return warnings;
         }
@@ -1394,14 +1418,17 @@ namespace Nop.Services.Orders
         /// <param name="customerEnteredPrice">Price entered by a customer</param>
         /// <param name="rentalStartDate">Rental start date</param>
         /// <param name="rentalEndDate">Rental end date</param>
+        /// <param name="productConfigurator">Product configurator items</param>
         /// <returns>Found shopping cart item</returns>
-        public virtual async Task<ShoppingCartItem> FindShoppingCartItemInTheCartAsync(IList<ShoppingCartItem> shoppingCart,
+        public virtual async Task<ShoppingCartItem> FindShoppingCartItemInTheCartAsync(
+            IList<ShoppingCartItem> shoppingCart,
             ShoppingCartType shoppingCartType,
             Product product,
             string attributesXml = "",
             decimal customerEnteredPrice = decimal.Zero,
             DateTime? rentalStartDate = null,
-            DateTime? rentalEndDate = null)
+            DateTime? rentalEndDate = null, 
+            ProductConfiguratorParsed productConfigurator = null)
         {
             if (shoppingCart == null)
                 throw new ArgumentNullException(nameof(shoppingCart));
@@ -1410,7 +1437,7 @@ namespace Nop.Services.Orders
                 throw new ArgumentNullException(nameof(product));
 
             return await shoppingCart.Where(sci => sci.ShoppingCartType == shoppingCartType)
-                .FirstOrDefaultAwaitAsync(async sci => await ShoppingCartItemIsEqualAsync(sci, product, attributesXml, customerEnteredPrice, rentalStartDate, rentalEndDate));
+                .FirstOrDefaultAwaitAsync(async sci => await ShoppingCartItemIsEqualAsync(sci, product, attributesXml, customerEnteredPrice, rentalStartDate, rentalEndDate, productConfigurator));
         }
 
         /// <summary>
@@ -1426,12 +1453,13 @@ namespace Nop.Services.Orders
         /// <param name="rentalEndDate">Rental end date</param>
         /// <param name="quantity">Quantity</param>
         /// <param name="addRequiredProducts">Whether to add required products</param>
+        /// <param name="productConfigurator">Product configurator items</param>
         /// <returns>Warnings</returns>
         public virtual async Task<IList<string>> AddToCartAsync(Customer customer, Product product,
             ShoppingCartType shoppingCartType, int storeId, string attributesXml = null,
             decimal customerEnteredPrice = decimal.Zero,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool addRequiredProducts = true)
+            int quantity = 1, bool addRequiredProducts = true, ProductConfiguratorParsed productConfigurator = null)
         {
             if (customer == null)
                 throw new ArgumentNullException(nameof(customer));
@@ -1471,7 +1499,7 @@ namespace Nop.Services.Orders
 
             var shoppingCartItem = await FindShoppingCartItemInTheCartAsync(cart,
                 shoppingCartType, product, attributesXml, customerEnteredPrice,
-                rentalStartDate, rentalEndDate);
+                rentalStartDate, rentalEndDate, productConfigurator);
 
             if (shoppingCartItem != null)
             {
@@ -1480,7 +1508,7 @@ namespace Nop.Services.Orders
                 warnings.AddRange(await GetShoppingCartItemWarningsAsync(customer, shoppingCartType, product,
                     storeId, attributesXml,
                     customerEnteredPrice, rentalStartDate, rentalEndDate,
-                    newQuantity, addRequiredProducts, shoppingCartItem.Id));
+                    newQuantity, addRequiredProducts, shoppingCartItem.Id, productConfigurator: productConfigurator));
 
                 if (warnings.Any())
                     return warnings;
@@ -1497,7 +1525,7 @@ namespace Nop.Services.Orders
                 warnings.AddRange(await GetShoppingCartItemWarningsAsync(customer, shoppingCartType, product,
                     storeId, attributesXml, customerEnteredPrice,
                     rentalStartDate, rentalEndDate,
-                    quantity, addRequiredProducts));
+                    quantity, addRequiredProducts, productConfigurator: productConfigurator));
 
                 if (warnings.Any())
                     return warnings;
@@ -1540,6 +1568,13 @@ namespace Nop.Services.Orders
                     UpdatedOnUtc = now,
                     CustomerId = customer.Id
                 };
+                if (productConfigurator != null)
+                {
+                    
+                    shoppingCartItem.Configuration = productConfigurator.Configuration;
+                    shoppingCartItem.ConfigurationDescription = productConfigurator.Description;
+                    shoppingCartItem.ConfigurationPrice = productConfigurator.Price;
+                }
 
                 await _sciRepository.InsertAsync(shoppingCartItem);
 

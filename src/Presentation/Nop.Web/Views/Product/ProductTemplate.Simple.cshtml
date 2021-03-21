@@ -84,54 +84,8 @@
                                 @Html.Raw(Model.ShortDescription)
                             </div>
                         }
-                        @if (Model.ProductConfigurator.IsEnabled)
-                        {
-                            <input type="hidden" id="ConfiguratorId" value="@Model.ProductConfigurator.ConfiguratorId" />
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-                                            @await Component.InvokeAsync(Model.ProductConfigurator.ViewName, Model.ProductConfigurator.DefaultModel)
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <div class="card-body">
+                        @await Html.PartialAsync("_ProductConfigurator", Model)
 
-                                                <div class="form-group row">
-                                                    <div class="col-md-3">
-                                                        <nop-label asp-for="ProductConfigurator.SubTotal" />
-                                                    </div>
-                                                    <div class="col-md-9">
-                                                        <div id="ProductConfigurator_SubTotal" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <div class="col-md-3">
-                                                        <nop-label asp-for="ProductConfigurator.Tax" />
-                                                    </div>
-                                                    <div class="col-md-9">
-                                                        <div id="ProductConfigurator_Tax" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <div class="col-md-3">
-                                                        <nop-label asp-for="ProductConfigurator.Price" />
-                                                    </div>
-                                                    <div class="col-md-9">
-                                                        <div id="ProductConfigurator_Price" />
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        }
                         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsOverviewTop, additionalData = Model })
                         <!--product reviews-->
                         @await Html.PartialAsync("_ProductReviewOverview", Model.ProductReviewOverview)

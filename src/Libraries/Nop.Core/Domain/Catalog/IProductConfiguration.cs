@@ -7,7 +7,7 @@
     public interface IProductConfiguration
     {
         /// <summary>
-        /// Gets or sets the configurationdata of the configured product. This is defined in JSON
+        /// Gets or sets the configuration data of the configured product. This is defined in JSON
         /// PCFG
         /// </summary>
         public string Configuration { get; set; }

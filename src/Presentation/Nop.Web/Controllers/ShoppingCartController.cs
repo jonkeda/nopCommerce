@@ -64,6 +64,7 @@ namespace Nop.Web.Controllers
         private readonly IPriceFormatter _priceFormatter;
         private readonly IProductAttributeParser _productAttributeParser;
         private readonly IProductAttributeService _productAttributeService;
+        private readonly IProductConfiguratorParser _productConfiguratorParser;
         private readonly IProductService _productService;
         private readonly IShippingService _shippingService;
         private readonly IShoppingCartModelFactory _shoppingCartModelFactory;
@@ -102,6 +103,7 @@ namespace Nop.Web.Controllers
             IPriceFormatter priceFormatter,
             IProductAttributeParser productAttributeParser,
             IProductAttributeService productAttributeService,
+            IProductConfiguratorParser productConfiguratorParser,
             IProductService productService,
             IShippingService shippingService,
             IShoppingCartModelFactory shoppingCartModelFactory,
@@ -136,6 +138,7 @@ namespace Nop.Web.Controllers
             _priceFormatter = priceFormatter;
             _productAttributeParser = productAttributeParser;
             _productAttributeService = productAttributeService;
+            _productConfiguratorParser = productConfiguratorParser;
             _productService = productService;
             _shippingService = shippingService;
             _shoppingCartModelFactory = shoppingCartModelFactory;
@@ -282,9 +285,13 @@ namespace Nop.Web.Controllers
             await _genericAttributeService.SaveAttributeAsync(await _workContext.GetCurrentCustomerAsync(), NopCustomerDefaults.CheckoutAttributes, attributesXml, (await _storeContext.GetCurrentStoreAsync()).Id);
         }
 
-        protected virtual async Task SaveItemAsync(ShoppingCartItem updatecartitem, List<string> addToCartWarnings, Product product,
-           ShoppingCartType cartType, string attributes, decimal customerEnteredPriceConverted, DateTime? rentalStartDate,
-           DateTime? rentalEndDate, int quantity)
+        protected virtual async Task SaveItemAsync(ShoppingCartItem updatecartitem, List<string> addToCartWarnings,
+            Product product,
+            ShoppingCartType cartType, string attributes, decimal customerEnteredPriceConverted,
+            DateTime? rentalStartDate,
+            DateTime? rentalEndDate, int quantity, 
+            // pcfg
+            ProductConfiguratorParsed productConfigurator)
         {
             if (updatecartitem == null)
             {
@@ -292,7 +299,7 @@ namespace Nop.Web.Controllers
                 addToCartWarnings.AddRange(await _shoppingCartService.AddToCartAsync(await _workContext.GetCurrentCustomerAsync(),
                     product, cartType, (await _storeContext.GetCurrentStoreAsync()).Id,
                     attributes, customerEnteredPriceConverted,
-                    rentalStartDate, rentalEndDate, quantity, true));
+                    rentalStartDate, rentalEndDate, quantity, true, productConfigurator));
             }
             else
             {
@@ -772,7 +779,14 @@ namespace Nop.Web.Controllers
                 //if the item to update is found, then we ignore the specified "shoppingCartTypeId" parameter
                 updatecartitem.ShoppingCartType;
 
-            await SaveItemAsync(updatecartitem, addToCartWarnings, product, cartType, attributes, customerEnteredPriceConverted, rentalStartDate, rentalEndDate, quantity);
+            //PCFG
+            ProductConfiguratorParsed productConfigurator = null;
+            if (product.IsConfiguratorEnabled)
+            {
+                productConfigurator = await _productConfiguratorParser.ParseProductConfiguratorAsync(form);
+            }
+
+            await SaveItemAsync(updatecartitem, addToCartWarnings, product, cartType, attributes, customerEnteredPriceConverted, rentalStartDate, rentalEndDate, quantity, productConfigurator);
 
             //return result
             return await GetProductToCartDetailsAsync(addToCartWarnings, cartType, product);

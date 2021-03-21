@@ -5,6 +5,7 @@ using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Discounts;
 using Nop.Core.Domain.Orders;
+using Nop.Services.Catalog;
 
 namespace Nop.Services.Orders
 {
@@ -117,6 +118,7 @@ namespace Nop.Services.Orders
         /// <param name="getGiftCardWarnings">A value indicating whether we should validate gift card properties</param>
         /// <param name="getRequiredProductWarnings">A value indicating whether we should validate required products (products which require other products to be added to the cart)</param>
         /// <param name="getRentalWarnings">A value indicating whether we should validate rental properties</param>
+        /// <param name="productConfigurator">The product configurator items</param>
         /// <returns>Warnings</returns>
         Task<IList<string>> GetShoppingCartItemWarningsAsync(Customer customer, ShoppingCartType shoppingCartType,
             Product product, int storeId,
@@ -125,7 +127,8 @@ namespace Nop.Services.Orders
             int quantity = 1, bool addRequiredProducts = true, int shoppingCartItemId = 0,
             bool getStandardWarnings = true, bool getAttributesWarnings = true,
             bool getGiftCardWarnings = true, bool getRequiredProductWarnings = true,
-            bool getRentalWarnings = true);
+            bool getRentalWarnings = true,
+            ProductConfiguratorParsed productConfigurator = null);
 
         /// <summary>
         /// Validates whether this shopping cart is valid
@@ -188,6 +191,7 @@ namespace Nop.Services.Orders
         /// <param name="customerEnteredPrice">Price entered by a customer</param>
         /// <param name="rentalStartDate">Rental start date</param>
         /// <param name="rentalEndDate">Rental end date</param>
+        /// <param name="productConfigurator">The product configurator items</param>
         /// <returns>Found shopping cart item</returns>
         Task<ShoppingCartItem> FindShoppingCartItemInTheCartAsync(IList<ShoppingCartItem> shoppingCart,
             ShoppingCartType shoppingCartType,
@@ -195,7 +199,8 @@ namespace Nop.Services.Orders
             string attributesXml = "",
             decimal customerEnteredPrice = decimal.Zero,
             DateTime? rentalStartDate = null,
-            DateTime? rentalEndDate = null);
+            DateTime? rentalEndDate = null,
+            ProductConfiguratorParsed productConfigurator = null);
 
         /// <summary>
         /// Add a product to shopping cart
@@ -210,12 +215,13 @@ namespace Nop.Services.Orders
         /// <param name="rentalEndDate">Rental end date</param>
         /// <param name="quantity">Quantity</param>
         /// <param name="addRequiredProducts">Whether to add required products</param>
+        /// <param name="productConfigurator">Product configurator items</param>
         /// <returns>Warnings</returns>
         Task<IList<string>> AddToCartAsync(Customer customer, Product product,
             ShoppingCartType shoppingCartType, int storeId, string attributesXml = null,
             decimal customerEnteredPrice = decimal.Zero,
             DateTime? rentalStartDate = null, DateTime? rentalEndDate = null,
-            int quantity = 1, bool addRequiredProducts = true);
+            int quantity = 1, bool addRequiredProducts = true, ProductConfiguratorParsed productConfigurator = null);
 
         /// <summary>
         /// Updates the shopping cart item
