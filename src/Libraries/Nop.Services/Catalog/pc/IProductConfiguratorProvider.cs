@@ -11,10 +11,10 @@ namespace Nop.Services.Catalog
 
         public object GetDefaultModel();
 
-        public (object model, decimal price) Calculate(string model);
+        public (object model, string description, decimal price, bool isValid) Calculate(string model);
 
         public Type GetModelType();
 
-        public (string model, decimal price) CalculateToJson(string json);
+        public (string model, string description, decimal price, bool isValid) CalculateToJson(string json);
     }
 }

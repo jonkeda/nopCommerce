@@ -1511,10 +1511,19 @@ namespace Nop.Web.Factories
                     //product.Configuration
                     model.ProductConfigurator.ConfiguratorId = product.ConfiguratorId;
                     model.ProductConfigurator.ViewName = productConfigurator.GetViewName();
-                    
-                    (model.ProductConfigurator.DefaultModel, model.ProductConfigurator.Price)
-                        = productConfigurator.Calculate(product.Configuration);
-                    
+
+                    object configuratorModel;
+                    decimal price;
+                    string description;
+                    bool isValid;
+
+                    (configuratorModel, description, price, isValid) = productConfigurator.Calculate(product.Configuration);
+
+                    model.ProductConfigurator.DefaultModel = configuratorModel;
+                    model.ProductConfigurator.Price = price;
+                    model.ProductConfigurator.Description = description;
+                    model.ProductConfigurator.IsValid = isValid;
+
                     model.ProductConfigurator.ModelType = productConfigurator.GetModelType();
                 }
             }

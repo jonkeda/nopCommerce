@@ -3,6 +3,7 @@ var productConfigurator = {
   Fields: [],
   CalculateUrl: '',
   Initial: false,
+  IsValid: true,
 
   init(enabled, fields, calculateUrl, initial) {
     this.Enabled = enabled;
@@ -72,9 +73,11 @@ var productConfigurator = {
   },
 
   SetPrice: function (data) {
+    this.IsValid = data.IsValid;
     $('#ProductConfigurator_Price').text(data.Price);
     $('#ProductConfigurator_Tax').text(data.Tax);
     $('#ProductConfigurator_SubTotal').text(data.SubTotal);
+    $('#ProductConfigurator_Description').val(data.Description);
   },
 
   Calculate: function (cfg) {
@@ -91,6 +94,7 @@ var productConfigurator = {
       dataType: 'json',
       data: model,
       success: function (data) {
+
         productConfigurator.SetPrice(data);
         productConfigurator.SetCfg(JSON.parse(data.Json));
       },
@@ -107,6 +111,7 @@ var productConfigurator = {
   Ok: function () {
     $("#Configuration", window.opener.document).val(JSON.stringify(this.GetCfg()));
     $("#ConfiguratorId", window.opener.document).val($('#ConfiguratorId').val());
+    $("#ConfigurationDescription", window.opener.document).val($('#ProductConfigurator_Description').val());
     window.close();
   }
 }

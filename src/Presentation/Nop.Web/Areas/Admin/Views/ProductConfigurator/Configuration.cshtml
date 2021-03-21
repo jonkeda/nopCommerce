@@ -15,6 +15,7 @@
 </script>
  
 <form asp-controller="ProductConfigurator" asp-action="Configuration">
+    <input id="ProductConfigurator_Description" type="hidden" />
     <div class="content-header clearfix">
         <h1 class="float-left">
             @T("Admin.Catalog.ProductConfigurator.Configuration")
@@ -40,10 +41,10 @@
                                         <div class="card-body">
                                             <div class="form-group row">
                                                 <div class="col-md-3">
-                                                    <nop-label asp-for="Price" />
+                                                    <nop-label asp-for="Price"/>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <div id="ProductConfigurator_Price" />
+                                                    <div id="ProductConfigurator_Price"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,10 +65,10 @@
                                 <div class="col-sm-12">
                                     <div class="form-group row">
                                         <div class="col-sm-5">
-                                            <nop-label asp-for="ConfiguratorId" />
+                                            <nop-label asp-for="ConfiguratorId"/>
                                         </div>
                                         <div class="col-sm-7">
-                                            <nop-select asp-for="ConfiguratorId" asp-items="Model.AvailableConfigurators" />
+                                            <nop-select asp-for="ConfiguratorId" asp-items="Model.AvailableConfigurators"/>
                                         </div>
                                     </div>
                                 </div>

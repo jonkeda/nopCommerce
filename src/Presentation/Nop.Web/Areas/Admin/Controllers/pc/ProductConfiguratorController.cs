@@ -540,8 +540,16 @@ namespace Nop.Web.Areas.Admin.Controllers
             var productConfigurator = await _productConfiguratorPluginManager.GetProductConfiguratorProvider(model.ConfiguratorId);
             if (productConfigurator != null)
             {
+                string json;
                 decimal price;
-                (model.Json, price) = productConfigurator.CalculateToJson(model.Json);
+                string description;
+                bool isValid;
+
+                (json, description, price, isValid) = productConfigurator.CalculateToJson(model.Json);
+
+                model.Json = json;
+                model.Description = description;
+                model.IsValid = isValid;
                 model.Price = price.ToString();
                 model.Tax = "btw";
                 model.SubTotal = "sub total";

@@ -142,6 +142,9 @@ namespace Nop.Web.Models.Catalog
             [NopResourceDisplayName("SubTotal")]
             public decimal SubTotal { get; set; }
 
+            public string Description { get; set; }
+
+            public bool IsValid { get; set; }
         }
 
         public partial record ProductBreadcrumbModel : BaseNopModel

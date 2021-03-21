@@ -29,12 +29,23 @@ namespace Nop.Services.Catalog
             return CreateDefaultModel();
         }
 
-        public (object model, decimal price) Calculate(string json)
+        public (object model, string description, decimal price, bool isValid) Calculate(string json)
         {
             var model = (T)JsonConvert.DeserializeObject(json, typeof(T));
 
-            return Calculate(model);
+            bool isValid;
+               (model, isValid) = Validate(model);
+            var description = CreateDescription(model);
+
+            decimal price;
+            (model, price) = CalculatePrice(model);
+
+            return (model, description, price, isValid);
         }
+
+        protected abstract (T, bool) Validate(T model);
+
+        protected abstract string CreateDescription(T model);
 
         public Type GetModelType()
         {
@@ -43,15 +54,17 @@ namespace Nop.Services.Catalog
 
         protected abstract T CreateDefaultModel();
 
-        public (string model, decimal price) CalculateToJson(string json)
+        public (string model, string description, decimal price, bool isValid) CalculateToJson(string json)
         {
             object model;
             decimal price;
-            (model, price) = Calculate(json);
+            string description;
+            bool isValid;
+            (model, description, price, isValid) = Calculate(json);
 
-            return (JsonConvert.SerializeObject(model), price);
+            return (JsonConvert.SerializeObject(model), description, price, isValid);
         }
 
-        protected abstract (T model, decimal price) Calculate(T model);
+        protected abstract (T model, decimal price) CalculatePrice(T model);
     }
 }
