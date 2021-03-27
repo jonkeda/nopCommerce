@@ -97,6 +97,12 @@
                         </td>
                         <td style="width: 15%;" class="text-left">
                             <em><a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId">@item.ProductName</a></em>
+                            @if (!string.IsNullOrEmpty(item.ConfigurationDescription))
+                            {
+                                <p>
+                                    @Html.Raw(item.ConfigurationDescription)
+                                </p>
+                            }
                             @if (!string.IsNullOrEmpty(item.AttributeInfo))
                             {
                                 <p>

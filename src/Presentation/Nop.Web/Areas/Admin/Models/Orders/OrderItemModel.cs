@@ -78,6 +78,8 @@ namespace Nop.Web.Areas.Admin.Models.Orders
 
         public Guid LicenseDownloadGuid { get; set; }
 
+        public string ConfigurationDescription { get; set; }
+
         #endregion
 
         #region Nested Classes

@@ -36,7 +36,10 @@ namespace Nop.Web.Models.Catalog
         //price
         public ProductReviewOverviewModel ReviewOverviewModel { get; set; }
 
-		#region Nested Classes
+        // PCFG
+        public bool IsConfiguratorEnabled { get; set; }
+
+        #region Nested Classes
 
         public partial record ProductPriceModel : BaseNopModel
         {

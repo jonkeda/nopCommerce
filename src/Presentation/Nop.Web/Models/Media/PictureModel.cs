@@ -1,4 +1,5 @@
-﻿using Nop.Web.Framework.Models;
+﻿using Nop.Core.Domain.Media;
+using Nop.Web.Framework.Models;
 
 namespace Nop.Web.Models.Media
 {
@@ -13,5 +14,7 @@ namespace Nop.Web.Models.Media
         public string Title { get; set; }
 
         public string AlternateText { get; set; }
+
+        public MediaType MediaType { get; set; }
     }
 }

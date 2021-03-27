@@ -1,7 +1,8 @@
-namespace Nop.Core.Domain.Media
+﻿namespace Nop.Core.Domain.Media
 {
     /// <summary>
     /// Represents a picture item type
+    /// NEWMEDIA
     /// </summary>
     public enum PictureType
     {

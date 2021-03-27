@@ -5,8 +5,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
     public enum Structuur
     {
         [Display(Name = "Glas lak")]
-        GladdeLak,
+        GladdeLak = 0,
+
         [Display(Name = "Structuur lak")]
-        StructuurLak,
+        StructuurLak = 1
     }
 }

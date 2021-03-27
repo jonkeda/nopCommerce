@@ -1074,6 +1074,10 @@ namespace Nop.Web.Areas.Admin.Controllers
                 await _settingService.SaveSettingOverridablePerStoreAsync(mediaSettings, x => x.DefaultImageQuality, model.DefaultImageQuality_OverrideForStore, storeScope, false);
                 await _settingService.SaveSettingOverridablePerStoreAsync(mediaSettings, x => x.ImportProductImagesUsingHash, model.ImportProductImagesUsingHash_OverrideForStore, storeScope, false);
                 await _settingService.SaveSettingOverridablePerStoreAsync(mediaSettings, x => x.DefaultPictureZoomEnabled, model.DefaultPictureZoomEnabled_OverrideForStore, storeScope, false);
+                // NEWMEDIA
+                await _settingService.SaveSettingOverridablePerStoreAsync(mediaSettings, x => x.VideoAllowed, model.VideoAllowed_OverrideForStore, storeScope, false);
+                await _settingService.SaveSettingOverridablePerStoreAsync(mediaSettings, x => x.AudioAllowed, model.AudioAllowed_OverrideForStore, storeScope, false);
+                await _settingService.SaveSettingOverridablePerStoreAsync(mediaSettings, x => x.SvgAllowed, model.SvgAllowed_OverrideForStore, storeScope, false);
 
                 //now clear settings cache
                 await _settingService.ClearCacheAsync();

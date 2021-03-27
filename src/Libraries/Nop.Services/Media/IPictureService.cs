@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Nop.Core;
 using Nop.Core.Domain.Catalog;
@@ -124,10 +125,13 @@ namespace Nop.Services.Media
         /// <param name="titleAttribute">"title" attribute for "img" HTML element</param>
         /// <param name="isNew">A value indicating whether the picture is new</param>
         /// <param name="validateBinary">A value indicating whether to validated provided picture binary</param>
+        /// <param name="mediaType">A value indicating what the media is NEWMEDIA</param>
+        /// <param name="name">The unique name of the picture NEWMEDIA</param>
         /// <returns>Picture</returns>
         Task<Picture> InsertPictureAsync(byte[] pictureBinary, string mimeType, string seoFilename,
             string altAttribute = null, string titleAttribute = null,
-            bool isNew = true, bool validateBinary = true);
+            bool isNew = true, bool validateBinary = true, MediaType mediaType = MediaType.Image, 
+            string name = null);
 
         /// <summary>
         /// Inserts a picture
@@ -149,10 +153,13 @@ namespace Nop.Services.Media
         /// <param name="titleAttribute">"title" attribute for "img" HTML element</param>
         /// <param name="isNew">A value indicating whether the picture is new</param>
         /// <param name="validateBinary">A value indicating whether to validated provided picture binary</param>
+        /// <param name="mediaType">A value indicating what the media is NEWMEDIA</param>
+        /// <param name="name">The unique name of the picture NEWMEDIA</param>
         /// <returns>Picture</returns>
         Task<Picture> UpdatePictureAsync(int pictureId, byte[] pictureBinary, string mimeType,
             string seoFilename, string altAttribute = null, string titleAttribute = null,
-            bool isNew = true, bool validateBinary = true);
+            bool isNew = true, bool validateBinary = true, MediaType mediaType = MediaType.Image,
+            string name = null);
 
         /// <summary>
         /// Updates the picture

@@ -16,6 +16,7 @@ using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Payments;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.Tax;
+using Nop.Core.Html;
 using Nop.Services.Affiliates;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
@@ -249,7 +250,8 @@ namespace Nop.Web.Areas.Admin.Factories
                     DiscountExclTaxValue = orderItem.DiscountAmountExclTax,
                     SubTotalInclTaxValue = orderItem.PriceInclTax,
                     SubTotalExclTaxValue = orderItem.PriceExclTax,
-                    AttributeInfo = orderItem.AttributeDescription
+                    AttributeInfo = orderItem.AttributeDescription,
+                    ConfigurationDescription = HtmlHelper.FormatText(orderItem.ConfigurationDescription, true, true, false, true, false, false)
                 };
 
                 //fill in additional values (not existing in the entity)
@@ -731,6 +733,8 @@ namespace Nop.Web.Areas.Admin.Factories
             model.ProductName = product.Name;
             model.Sku = await _productService.FormatSkuAsync(product, orderItem.AttributesXml);
             model.AttributeInfo = orderItem.AttributeDescription;
+            model.ConfigurationDescription = HtmlHelper.FormatText(orderItem.ConfigurationDescription, true, true,
+                false, true, false, false);
             model.ShipSeparately = product.ShipSeparately;
             model.QuantityOrdered = orderItem.Quantity;
             model.QuantityInAllShipments = await _orderService.GetTotalNumberOfItemsInAllShipmentAsync(orderItem);

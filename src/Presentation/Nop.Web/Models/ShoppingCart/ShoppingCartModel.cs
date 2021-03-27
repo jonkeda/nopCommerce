@@ -80,6 +80,8 @@ namespace Nop.Web.Models.ShoppingCart
             
             public string AttributeInfo { get; set; }
 
+            public string ConfigurationDescription { get; set; }
+
             public string RecurringInfo { get; set; }
 
             public string RentalInfo { get; set; }
@@ -89,6 +91,7 @@ namespace Nop.Web.Models.ShoppingCart
             public bool DisableRemoval { get; set; }
 
             public IList<string> Warnings { get; set; }
+
         }
 
         public partial record CheckoutAttributeModel : BaseNopEntityModel

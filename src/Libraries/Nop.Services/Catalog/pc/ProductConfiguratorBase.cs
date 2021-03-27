@@ -31,7 +31,14 @@ namespace Nop.Services.Catalog
 
         public (object model, string description, decimal price, bool isValid) Calculate(string json)
         {
-            var model = (T)JsonConvert.DeserializeObject(json, typeof(T));
+            T model = default;
+            try
+            {
+                model = (T)JsonConvert.DeserializeObject(json, typeof(T));
+            }
+            catch (Exception e)
+            {
+            }
 
             bool isValid;
                (model, isValid) = Validate(model);

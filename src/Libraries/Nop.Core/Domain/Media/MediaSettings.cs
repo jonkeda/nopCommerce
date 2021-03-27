@@ -111,5 +111,23 @@ namespace Nop.Core.Domain.Media
         /// Gets or sets a value indicating whether need to use absolute pictures path
         /// </summary>
         public bool UseAbsoluteImagePath { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value if video is allowed
+        /// NEWMEDIA
+        /// </summary>
+        public bool VideoAllowed { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value if audio is allowed
+        /// NEWMEDIA
+        /// </summary>
+        public bool AudioAllowed { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value if svg is allowed
+        /// NEWMEDIA
+        /// </summary>
+        public bool SvgAllowed { get; set; }
     }
 }

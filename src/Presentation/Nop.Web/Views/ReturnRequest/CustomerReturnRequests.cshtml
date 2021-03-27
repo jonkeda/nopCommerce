@@ -27,6 +27,13 @@
                     <li class="product">
                         <label>@T("Account.CustomerReturnRequests.Item")</label>
                         <a href="@Url.RouteUrl("Product", new { SeName = item.ProductSeName })">@item.ProductName</a>
+                        @if (!string.IsNullOrEmpty(item.ConfigurationDescription))
+                        {
+                            <p>
+                                @Html.Raw(item.ConfigurationDescription)
+                            </p>
+                        }
+
                         <span>x @item.Quantity</span>
                     </li>
                     <li class="reason">

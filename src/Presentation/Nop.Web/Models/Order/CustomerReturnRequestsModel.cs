@@ -30,6 +30,8 @@ namespace Nop.Web.Models.Order
             public Guid UploadedFileGuid { get; set; }
 
             public DateTime CreatedOn { get; set; }
+
+            public string ConfigurationDescription { get; set; }
         }
 
         #endregion

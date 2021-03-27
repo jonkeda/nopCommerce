@@ -17,6 +17,7 @@ using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Vendors;
+using Nop.Core.Html;
 using Nop.Core.Http.Extensions;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
@@ -383,16 +384,18 @@ namespace Nop.Web.Factories
                 ProductSeName = await _urlRecordService.GetSeNameAsync(product),
                 Quantity = sci.Quantity,
                 AttributeInfo = await _productAttributeFormatter.FormatAttributesAsync(product, sci.AttributesXml),
+                ConfigurationDescription = HtmlHelper.FormatText(sci.ConfigurationDescription, true, true, false, true, false, false)
             };
 
             //allow editing?
             //1. setting enabled?
             //2. simple product?
-            //3. has attribute or gift card?
+            //3. has attribute or gift card or has ConfigurationDescription?
             //4. visible individually?
             cartItemModel.AllowItemEditing = _shoppingCartSettings.AllowCartItemEditing &&
                                              product.ProductType == ProductType.SimpleProduct &&
                                              (!string.IsNullOrEmpty(cartItemModel.AttributeInfo) ||
+                                              !string.IsNullOrEmpty(cartItemModel.ConfigurationDescription) ||
                                               product.IsGiftCard) &&
                                              product.VisibleIndividually;
 

@@ -31,6 +31,8 @@ namespace Nop.Web.Areas.Admin.Models.Orders
 
         public string AttributeInfo { get; set; }
 
+        public string ConfigurationDescription { get; set; }
+
         public string RentalInfo { get; set; }
 
         public bool ShipSeparately { get; set; }

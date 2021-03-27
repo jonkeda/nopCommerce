@@ -75,6 +75,21 @@ namespace Nop.Web.Areas.Admin.Models.Settings
         public bool DefaultPictureZoomEnabled { get; set; }
         public bool DefaultPictureZoomEnabled_OverrideForStore { get; set; }
 
+        // NEWMEDIA
+        [NopResourceDisplayName("Admin.Configuration.Settings.Media.VideoAllowed")]
+        public bool VideoAllowed { get; set; }
+        public bool VideoAllowed_OverrideForStore { get; set; }
+
+        // NEWMEDIA
+        [NopResourceDisplayName("Admin.Configuration.Settings.Media.AudioAllowed")]
+        public bool AudioAllowed { get; set; }
+        public bool AudioAllowed_OverrideForStore { get; set; }
+
+        // NEWMEDIA
+        [NopResourceDisplayName("Admin.Configuration.Settings.Media.SvgAllowed")]
+        public bool SvgAllowed { get; set; }
+        public bool SvgAllowed_OverrideForStore { get; set; }
+
         #endregion
     }
 }

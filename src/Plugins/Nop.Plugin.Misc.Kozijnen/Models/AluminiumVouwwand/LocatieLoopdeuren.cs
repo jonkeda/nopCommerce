@@ -5,8 +5,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
     public enum LocatieLoopdeuren
     {
         [Display(Name = "Links")]
-        Links,
+        Links = 0,
+
         [Display(Name = "Rechts")]
-        Rechts
+        Rechts = 1
     }
 }

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Nop.Core;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Tax;
+using Nop.Core.Html;
 using Nop.Services.Catalog;
 using Nop.Services.Directory;
 using Nop.Services.Helpers;
@@ -189,6 +190,8 @@ namespace Nop.Web.Factories
                         ProductId = product.Id,
                         ProductName = await _localizationService.GetLocalizedAsync(product, x => x.Name),
                         ProductSeName = await _urlRecordService.GetSeNameAsync(product),
+                        ConfigurationDescription = HtmlHelper.FormatText(orderItem.ConfigurationDescription, true, true,
+                            false, true, false, false),
                         Quantity = returnRequest.Quantity,
                         ReturnAction = returnRequest.RequestedAction,
                         ReturnReason = returnRequest.ReasonForReturn,

@@ -34,5 +34,17 @@
         /// Gets or sets the picture virtual path
         /// </summary>
         public string VirtualPath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the unique name of a picture
+        /// NEWMEDIA
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the media type
+        /// NEWMEDIA
+        /// </summary>
+        public MediaType MediaType { get; set; }
     }
 }

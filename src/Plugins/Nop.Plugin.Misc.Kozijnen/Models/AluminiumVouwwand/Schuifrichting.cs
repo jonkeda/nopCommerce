@@ -1,8 +1,13 @@
-﻿namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
 {
     public enum Schuifrichting
     {
-        NaarRechts,
-        NaarLinks
+        [Display(Name = "Naar rechts")]
+        NaarRechts = 0,
+
+        [Display(Name = "Naar links")]
+        NaarLinks = 1
     }
 }

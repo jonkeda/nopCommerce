@@ -92,6 +92,44 @@
         /// </summary>
         public const string ImageWebp = "image/webp";
 
+        /// <summary>
+        /// Type
+        /// </summary>
+        public const string ImageSvg = "application/svg+xml";
+
+        #endregion
+
+        #region video/*
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        public const string VideoMp4 = "video/mp4";
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        public const string VideoWebM = "video/webm";
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        public const string VideoOgg = "video/ogg";
+
+        #endregion
+
+        #region audio/*
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        public const string AudioMp3 = "audio/mp3";
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        public const string AudioWav = "audio/wav";
+
         #endregion
 
         #region text/*

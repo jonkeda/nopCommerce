@@ -79,4 +79,37 @@
             <span asp-validation-for="DefaultPictureZoomEnabled"></span>
         </div>
     </div>
+
+    <!-- NEWMEDIA -->
+    <div class="form-group row advanced-setting">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="AudioAllowed_OverrideForStore" asp-input="AudioAllowed" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="AudioAllowed" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="AudioAllowed" />
+            <span asp-validation-for="AudioAllowed"></span>
+        </div>
+    </div>
+    <div class="form-group row advanced-setting">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="VideoAllowed_OverrideForStore" asp-input="VideoAllowed" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="VideoAllowed" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="VideoAllowed" />
+            <span asp-validation-for="VideoAllowed"></span>
+        </div>
+    </div>
+    <div class="form-group row advanced-setting">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="SvgAllowed_OverrideForStore" asp-input="SvgAllowed" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="SvgAllowed" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="SvgAllowed" />
+            <span asp-validation-for="SvgAllowed"></span>
+        </div>
+    </div>
+
 </div>

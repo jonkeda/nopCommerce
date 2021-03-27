@@ -802,6 +802,16 @@ namespace Nop.Services.Common
                 var name = await _localizationService.GetLocalizedAsync(product, x => x.Name, lang.Id);
                 pAttribTable.AddCell(new Paragraph(name, font));
                 cellProductItem.AddElement(new Paragraph(name, font));
+
+                // Configuration
+                if (!string.IsNullOrEmpty(orderItem.ConfigurationDescription))
+                {
+                    var attributesParagraph =
+                        new Paragraph(HtmlHelper.ConvertHtmlToPlainText(orderItem.ConfigurationDescription, true, true),
+                            attributesFont);
+                    pAttribTable.AddCell(attributesParagraph);
+                }
+
                 //attributes
                 if (!string.IsNullOrEmpty(orderItem.AttributeDescription))
                 {
@@ -810,6 +820,7 @@ namespace Nop.Services.Common
                             attributesFont);
                     pAttribTable.AddCell(attributesParagraph);
                 }
+
 
                 //rental info
                 if (product.IsRental)
@@ -1450,11 +1461,21 @@ namespace Nop.Services.Common
 
                     var name = await _localizationService.GetLocalizedAsync(product, x => x.Name, lang.Id);
                     productAttribTable.AddCell(new Paragraph(name, font));
+                    
                     //attributes
                     if (!string.IsNullOrEmpty(orderItem.AttributeDescription))
                     {
                         var attributesParagraph = new Paragraph(HtmlHelper.ConvertHtmlToPlainText(orderItem.AttributeDescription, true, true), attributesFont);
                         productAttribTable.AddCell(attributesParagraph);
+                    }
+                    
+                    // Configuration
+                    if (!string.IsNullOrEmpty(orderItem.ConfigurationDescription))
+                    {
+                        var configurationDescriptionParagraph =
+                            new Paragraph(HtmlHelper.ConvertHtmlToPlainText(orderItem.ConfigurationDescription, true, true),
+                                attributesFont);
+                        productAttribTable.AddCell(configurationDescriptionParagraph);
                     }
 
                     //rental info

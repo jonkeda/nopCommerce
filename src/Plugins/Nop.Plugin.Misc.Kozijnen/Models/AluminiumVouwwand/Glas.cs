@@ -5,10 +5,12 @@ namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
     public enum Glas
     {
         [Display(Name = "Zonder glas")]
-        ZonderGlas,
+        ZonderGlas = 0,
+
         [Display(Name = "HR++ Dubbel glas")]
-        HrPpDubbelGlas,
+        HrPpDubbelGlas = 1,
+
         [Display(Name = "HR+++ Triple glas")]
-        HrPppTripleGlas,
+        HrPppTripleGlas = 2
     }
 }

@@ -719,10 +719,13 @@ namespace Nop.Services.Media
         /// <param name="titleAttribute">"title" attribute for "img" HTML element</param>
         /// <param name="isNew">A value indicating whether the picture is new</param>
         /// <param name="validateBinary">A value indicating whether to validated provided picture binary</param>
+        /// <param name="mediaType">A value indicating what the media is</param>
+        /// <param name="name">The unique name of the picture</param>
         /// <returns>Picture</returns>
         public virtual async Task<Picture> InsertPictureAsync(byte[] pictureBinary, string mimeType, string seoFilename,
             string altAttribute = null, string titleAttribute = null,
-            bool isNew = true, bool validateBinary = true)
+            bool isNew = true, bool validateBinary = true, MediaType mediaType = MediaType.Image,
+            string name = null)
         {
             mimeType = CommonHelper.EnsureNotNull(mimeType);
             mimeType = CommonHelper.EnsureMaximumLength(mimeType, 20);
@@ -758,22 +761,6 @@ namespace Nop.Services.Media
         /// <returns>Picture</returns>
         public virtual async Task<Picture> InsertPictureAsync(IFormFile formFile, string defaultFileName = "", string virtualPath = "")
         {
-            var imgExt = new List<string>
-            {
-                ".bmp",
-                ".gif",
-                ".webp",
-                ".jpeg",
-                ".jpg",
-                ".jpe",
-                ".jfif",
-                ".pjpeg",
-                ".pjp",
-                ".png",
-                ".tiff",
-                ".tif"
-            } as IReadOnlyCollection<string>;
-
             var fileName = formFile.FileName;
             if (string.IsNullOrEmpty(fileName) && !string.IsNullOrEmpty(defaultFileName))
                 fileName = defaultFileName;
@@ -787,47 +774,19 @@ namespace Nop.Services.Media
             if (!string.IsNullOrEmpty(fileExtension))
                 fileExtension = fileExtension.ToLowerInvariant();
 
-            if (imgExt.All(ext => !ext.Equals(fileExtension, StringComparison.CurrentCultureIgnoreCase)))
+            var mediaByExtension = MediaByExtension.Get(fileExtension);
+            if (mediaByExtension == null
+                || !mediaByExtension.IsAllowed(_mediaSettings))
                 return null;
 
             //contentType is not always available 
             //that's why we manually update it here
             //http://www.sfsu.edu/training/mimetype.htm
             if (string.IsNullOrEmpty(contentType))
-            {
-                switch (fileExtension)
-                {
-                    case ".bmp":
-                        contentType = MimeTypes.ImageBmp;
-                        break;
-                    case ".gif":
-                        contentType = MimeTypes.ImageGif;
-                        break;
-                    case ".jpeg":
-                    case ".jpg":
-                    case ".jpe":
-                    case ".jfif":
-                    case ".pjpeg":
-                    case ".pjp":
-                        contentType = MimeTypes.ImageJpeg;
-                        break;
-                    case ".webp":
-                        contentType = MimeTypes.ImageWebp;
-                        break;
-                    case ".png":
-                        contentType = MimeTypes.ImagePng;
-                        break;
-                    case ".tiff":
-                    case ".tif":
-                        contentType = MimeTypes.ImageTiff;
-                        break;
-                    default:
-                        break;
-                }
-            }
+                contentType = mediaByExtension.ContentType;
 
-            var picture = await InsertPictureAsync(await _downloadService.GetDownloadBitsAsync(formFile), contentType, _fileProvider.GetFileNameWithoutExtension(fileName));
-
+            var picture = await InsertPictureAsync(await _downloadService.GetDownloadBitsAsync(formFile), contentType, _fileProvider.GetFileNameWithoutExtension(fileName), mediaType: mediaByExtension.MediaType);
+            
             if (string.IsNullOrEmpty(virtualPath))
                 return picture;
 
@@ -848,10 +807,13 @@ namespace Nop.Services.Media
         /// <param name="titleAttribute">"title" attribute for "img" HTML element</param>
         /// <param name="isNew">A value indicating whether the picture is new</param>
         /// <param name="validateBinary">A value indicating whether to validated provided picture binary</param>
+        /// <param name="mediaType">A value indicating what the media is</param>
+        /// <param name="name">The unique name of the picture</param>
         /// <returns>Picture</returns>
         public virtual async Task<Picture> UpdatePictureAsync(int pictureId, byte[] pictureBinary, string mimeType,
             string seoFilename, string altAttribute = null, string titleAttribute = null,
-            bool isNew = true, bool validateBinary = true)
+            bool isNew = true, bool validateBinary = true, MediaType mediaType = MediaType.Image,
+            string name = null)
         {
             mimeType = CommonHelper.EnsureNotNull(mimeType);
             mimeType = CommonHelper.EnsureMaximumLength(mimeType, 20);
@@ -874,6 +836,8 @@ namespace Nop.Services.Media
             picture.AltAttribute = altAttribute;
             picture.TitleAttribute = titleAttribute;
             picture.IsNew = isNew;
+            picture.MediaType = mediaType;
+            picture.Name = name;
 
             await _pictureRepository.UpdateAsync(picture);
             await UpdatePictureBinaryAsync(picture, await IsStoreInDbAsync() ? pictureBinary : Array.Empty<byte>());
@@ -1106,6 +1070,94 @@ namespace Nop.Services.Media
                 // ignored
             }
         }
+
+        #endregion
+
+        #region 
+
+        /// <summary>
+        /// Container of extension with media types and content types
+        /// NEWMEDIA
+        /// </summary>
+        private class MediaByExtension
+        {
+            private MediaByExtension(string extension, MediaType mediaType, string contentType)
+            {
+                Extension = extension;
+                MediaType = mediaType;
+                ContentType = contentType;
+            }
+
+            public string Extension { get; }
+
+            public MediaType MediaType { get; }
+
+            public string ContentType { get; }
+
+            private static readonly List<MediaByExtension> _list = new List<MediaByExtension>
+            {
+                // image
+                new (".bmp", MediaType.Image, MimeTypes.ImageBmp),
+                new (".gif", MediaType.Image, MimeTypes.ImageGif),
+                new (".jpeg", MediaType.Image, MimeTypes.ImageJpeg),
+                new (".jpg", MediaType.Image, MimeTypes.ImageJpeg),
+                new (".jpe", MediaType.Image, MimeTypes.ImageJpeg),
+                new (".jfif", MediaType.Image, MimeTypes.ImageJpeg),
+                new (".pjpeg", MediaType.Image, MimeTypes.ImageJpeg),
+                new (".pjp", MediaType.Image, MimeTypes.ImageJpeg),
+
+                new (".webp", MediaType.Image, MimeTypes.ImageWebp),
+
+                new (".png", MediaType.Image, MimeTypes.ImagePng),
+
+                new (".tiff", MediaType.Image, MimeTypes.ImageTiff),
+                new (".tif", MediaType.Image, MimeTypes.ImageTiff),
+
+                // svg
+                new (".svg", MediaType.Svg, MimeTypes.ImageSvg),
+
+                // video
+                new (".mp4", MediaType.Video, MimeTypes.VideoMp4),
+                new (".webm", MediaType.Video, MimeTypes.VideoWebM),
+                new (".ogg", MediaType.Video, MimeTypes.VideoOgg),
+
+                // audio
+                new (".mp3", MediaType.Audio, MimeTypes.AudioMp3),
+                new (".wav", MediaType.Audio, MimeTypes.AudioWav),
+
+            };
+
+            public static MediaByExtension Get(string extension)
+            {
+                return _list.FirstOrDefault(i => string.Equals(i.Extension, extension, StringComparison.InvariantCultureIgnoreCase));
+            }
+
+            /// <summary>
+            /// Check if media is allowed in these settings
+            /// </summary>
+            /// <param name="mediaSettings"></param>
+            /// <returns></returns>
+            public bool IsAllowed(MediaSettings mediaSettings)
+            {
+                if (MediaType == MediaType.Image)
+                    return true;
+
+                if (MediaType == MediaType.Audio
+                    && !mediaSettings.AudioAllowed)
+                    return true;
+
+                if (MediaType == MediaType.Svg
+                    && !mediaSettings.SvgAllowed)
+                    return true;
+
+                if (MediaType == MediaType.Video
+                    && !mediaSettings.VideoAllowed)
+                    return true;
+
+                return false;
+            }
+        }
+
 
         #endregion
     }

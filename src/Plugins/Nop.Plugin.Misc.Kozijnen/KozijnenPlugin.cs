@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Nop.Plugin.Misc.Kozijnen.Services;
 using Nop.Services.Catalog;
+using Nop.Services.Media;
 
 namespace Nop.Plugin.Misc.Kozijnen
 {
@@ -9,7 +10,9 @@ namespace Nop.Plugin.Misc.Kozijnen
     /// </summary>
     public class KozijnenPlugin : ProductConfiguratorBasePlugin
     {
-        public KozijnenPlugin(IProductConfiguratorService service) : base(service)
+        public KozijnenPlugin(IProductConfiguratorService productConfiguratorService,
+            IProductService productService,
+            IPictureService pictureService) : base(productConfiguratorService, productService, pictureService)
         {
             
         }

@@ -1092,7 +1092,11 @@ namespace Nop.Web.Areas.Admin.Infrastructure.Mapper
                 .ForMember(model => model.ProductDetailsPictureSize_OverrideForStore, options => options.Ignore())
                 .ForMember(model => model.ProductThumbPictureSizeOnProductDetailsPage_OverrideForStore, options => options.Ignore())
                 .ForMember(model => model.ProductThumbPictureSize_OverrideForStore, options => options.Ignore())
-                .ForMember(model => model.VendorThumbPictureSize_OverrideForStore, options => options.Ignore());
+                .ForMember(model => model.VendorThumbPictureSize_OverrideForStore, options => options.Ignore())
+                // NEWMEDIA
+                .ForMember(model => model.AudioAllowed_OverrideForStore, options => options.Ignore())
+                .ForMember(model => model.VideoAllowed_OverrideForStore, options => options.Ignore())
+                .ForMember(model => model.SvgAllowed_OverrideForStore, options => options.Ignore());
             CreateMap<MediaSettingsModel, MediaSettings>()
                 .ForMember(settings => settings.AutoCompleteSearchThumbPictureSize, options => options.Ignore())
                 .ForMember(settings => settings.AzureCacheControlHeader, options => options.Ignore())

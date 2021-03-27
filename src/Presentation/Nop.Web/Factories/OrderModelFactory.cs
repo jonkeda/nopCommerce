@@ -10,6 +10,7 @@ using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Vendors;
+using Nop.Core.Html;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
 using Nop.Services.Customers;
@@ -437,6 +438,7 @@ namespace Nop.Web.Factories
                     ProductSeName = await _urlRecordService.GetSeNameAsync(product),
                     Quantity = orderItem.Quantity,
                     AttributeInfo = orderItem.AttributeDescription,
+                    ConfigurationDescription = HtmlHelper.FormatText(orderItem.ConfigurationDescription, true, true, false, true, false, false)
                 };
                 //rental info
                 if (product.IsRental)

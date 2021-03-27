@@ -1,8 +1,13 @@
-﻿namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
 {
     public enum VouwKlink
     {
-        MetCilinder,
-        ZonderCilinder
+        [Display(Name = "Met cilinder")]
+        MetCilinder = 0,
+
+        [Display(Name = "Zonder cilinder")]
+        ZonderCilinder = 1
     }
 }

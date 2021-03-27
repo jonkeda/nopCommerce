@@ -1343,7 +1343,10 @@ namespace Nop.Web.Areas.Admin.Factories
             model.DefaultImageQuality_OverrideForStore = await _settingService.SettingExistsAsync(mediaSettings, x => x.DefaultImageQuality, storeId);
             model.ImportProductImagesUsingHash_OverrideForStore = await _settingService.SettingExistsAsync(mediaSettings, x => x.ImportProductImagesUsingHash, storeId);
             model.DefaultPictureZoomEnabled_OverrideForStore = await _settingService.SettingExistsAsync(mediaSettings, x => x.DefaultPictureZoomEnabled, storeId);
-
+            // NEWMEDIA
+            model.VideoAllowed_OverrideForStore = await _settingService.SettingExistsAsync(mediaSettings, x => x.VideoAllowed, storeId);
+            model.AudioAllowed_OverrideForStore = await _settingService.SettingExistsAsync(mediaSettings, x => x.AudioAllowed, storeId);
+            model.SvgAllowed_OverrideForStore = await _settingService.SettingExistsAsync(mediaSettings, x => x.SvgAllowed, storeId);
             return model;
         }
 
