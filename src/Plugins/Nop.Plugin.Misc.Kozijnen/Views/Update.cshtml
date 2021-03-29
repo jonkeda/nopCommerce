@@ -1,0 +1,11 @@
+﻿@model Nop.Plugin.Misc.Kozijnen.Models.UpdateModel
+
+@using Nop.Plugin.Misc.Kozijnen
+
+@{
+    Layout = "_ConfigurePlugin";
+}
+
+<form asp-controller="Kozijnen" asp-action="Update" method="post">
+    <button type="submit" name="update" class="btn btn-primary">@T("Admin.Common.Update")</button>
+</form>

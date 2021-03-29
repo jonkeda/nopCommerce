@@ -77,7 +77,7 @@ namespace Nop.Services.Catalog
                 query = query.Where(m => !m.Deleted);
 
                 if (!string.IsNullOrWhiteSpace(productConfiguratorName))
-                    query = query.Where(m => m.Name.Contains(productConfiguratorName));
+                    query = query.Where(m => m.Name == productConfiguratorName);
 
                 return query.OrderBy(m => m.Id);
             }, pageIndex, pageSize);

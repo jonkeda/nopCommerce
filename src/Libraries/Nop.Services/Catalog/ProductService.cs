@@ -1127,6 +1127,29 @@ namespace Nop.Services.Catalog
         }
 
         /// <summary>
+        /// Gets a product by Name
+        /// PCFG
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <returns>Product</returns>
+        public virtual async Task<Product> GetProductByNameAsync(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return null;
+
+            name = name.Trim();
+
+            var query = from p in _productRepository.Table
+                orderby p.Id
+                where p.Name == name
+                select p;
+            var product = await query.FirstOrDefaultAsync();
+
+            return product;
+        }
+
+
+        /// <summary>
         /// Gets a products by SKU array
         /// </summary>
         /// <param name="skuArray">SKU array</param>

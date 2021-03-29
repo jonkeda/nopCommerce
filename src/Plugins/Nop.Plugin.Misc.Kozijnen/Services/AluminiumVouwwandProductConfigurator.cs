@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand;
@@ -107,7 +106,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Services
             {
                 AantalDelen = { Value = AantalDelen.Delen3 },
                 HoogteKozijn = { Value = 2000 },
-                BreedteKozijn = { Value = 1700 }
+                BreedteKozijn = { Value = 1700 },
+                KleurBinnenkant = { Value = "RAL9016" },
+                KleurBuitenkant = { Value = "RAL9016" }
             };
             return defaultModel;
         }

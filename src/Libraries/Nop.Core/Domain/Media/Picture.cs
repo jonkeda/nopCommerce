@@ -45,6 +45,16 @@
         /// Gets or sets the media type
         /// NEWMEDIA
         /// </summary>
-        public MediaType MediaType { get; set; }
+        public int MediaTypeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the media type
+        /// NEWMEDIA
+        /// </summary>
+        public MediaType MediaType
+        {
+            get => (MediaType) MediaTypeId;
+            set => MediaTypeId = (int) value;
+        }
     }
 }

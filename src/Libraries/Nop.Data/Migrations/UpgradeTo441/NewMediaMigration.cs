@@ -37,11 +37,16 @@ namespace Nop.Data.Migrations.UpgradeTo441
         public override void Up()
         {
             if (!Schema.Table(NameCompatibilityManager.GetTableName(typeof(Picture)))
-                .Column(nameof(Picture.MediaType)).Exists())
+                .Column(nameof(Picture.MediaTypeId)).Exists())
             {
                 //add new columns
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Picture)))
-                    .AddColumn(nameof(Picture.MediaType)).AsInt32().WithDefaultValue(0);
+                    .AddColumn(nameof(Picture.MediaTypeId)).AsInt32().WithDefaultValue(0);
+            }
+            if (!Schema.Table(NameCompatibilityManager.GetTableName(typeof(Picture)))
+                .Column(nameof(Picture.Name)).Exists())
+            {
+                //add new columns
                 Alter.Table(NameCompatibilityManager.GetTableName(typeof(Picture)))
                     .AddColumn(nameof(Picture.Name)).AsString(300).Nullable();
             }

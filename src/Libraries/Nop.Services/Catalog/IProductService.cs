@@ -207,6 +207,13 @@ namespace Nop.Services.Catalog
         Task<Product> GetProductBySkuAsync(string sku);
 
         /// <summary>
+        /// Gets a product by Name
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <returns>Product</returns>
+        Task<Product> GetProductByNameAsync(string name);
+
+        /// <summary>
         /// Gets a products by SKU array
         /// </summary>
         /// <param name="skuArray">SKU array</param>

@@ -15,7 +15,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Infrastructure
         /// <param name="appSettings">App settings</param>
         public void Register(IServiceCollection services, ITypeFinder typeFinder, AppSettings appSettings)
         {
-            //services.AddScoped<CustomModelFactory, ICustomerModelFactory>();
+            services.AddScoped<IKozijnenInstaller, KozijnenInstaller>();
         }
 
         public int Order => 1;

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
+using Nop.Core;
 using Nop.Plugin.Misc.Kozijnen.Services;
 using Nop.Services.Catalog;
-using Nop.Services.Media;
 
 namespace Nop.Plugin.Misc.Kozijnen
 {
@@ -10,21 +10,32 @@ namespace Nop.Plugin.Misc.Kozijnen
     /// </summary>
     public class KozijnenPlugin : ProductConfiguratorBasePlugin
     {
-        public KozijnenPlugin(IProductConfiguratorService productConfiguratorService,
-            IProductService productService,
-            IPictureService pictureService) : base(productConfiguratorService, productService, pictureService)
+        private readonly IKozijnenInstaller _kozijnenInstaller;
+        private readonly IWebHelper _webHelper;
+
+        public KozijnenPlugin(IKozijnenInstaller kozijnenInstaller,
+            IWebHelper webHelper)
         {
-            
+            _kozijnenInstaller = kozijnenInstaller;
+            _webHelper = webHelper;
         }
 
         #region Methods
+
+        /// <summary>
+        /// Gets a configuration page URL
+        /// </summary>
+        public override string GetConfigurationPageUrl()
+        {
+            return $"{_webHelper.GetStoreLocation()}Admin/Kozijnen/Update";
+        }
 
         /// <summary>
         /// Install the plugin
         /// </summary>
         public override async Task InstallAsync()
         {
-            await InstallProductConfigurator(new AluminiumVouwwandProductConfigurator());
+            await _kozijnenInstaller.InstallData();
 
             await base.InstallAsync();
         }
@@ -48,5 +59,6 @@ namespace Nop.Plugin.Misc.Kozijnen
         }
 
         #endregion
+        
     }
 }

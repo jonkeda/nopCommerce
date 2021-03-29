@@ -29,25 +29,29 @@ namespace Nop.Services.Catalog
             return CreateDefaultModel();
         }
 
-        public (object model, string description, decimal price, bool isValid) Calculate(string json)
+        public (object model, string description, decimal price, bool isValid) Calculate(T model)
         {
-            T model = default;
-            try
-            {
-                model = (T)JsonConvert.DeserializeObject(json, typeof(T));
-            }
-            catch (Exception e)
-            {
-            }
-
             bool isValid;
-               (model, isValid) = Validate(model);
+            (model, isValid) = Validate(model);
             var description = CreateDescription(model);
 
             decimal price;
             (model, price) = CalculatePrice(model);
 
             return (model, description, price, isValid);
+        }
+
+        public (object model, string description, decimal price, bool isValid) Calculate(string json)
+        {
+            try
+            {
+                var model = (T)JsonConvert.DeserializeObject(json, typeof(T));
+                return Calculate(model);
+            }
+            catch
+            {
+                return (null, null, 0, false);
+            }
         }
 
         protected abstract (T, bool) Validate(T model);
@@ -57,6 +61,11 @@ namespace Nop.Services.Catalog
         public Type GetModelType()
         {
             return _modelType;
+        }
+
+        public T GetDefault()
+        {
+            return CreateDefaultModel();
         }
 
         protected abstract T CreateDefaultModel();
@@ -70,6 +79,17 @@ namespace Nop.Services.Catalog
             (model, description, price, isValid) = Calculate(json);
 
             return (JsonConvert.SerializeObject(model), description, price, isValid);
+        }
+
+        public (string model, string description, decimal price, bool isValid) CalculateToJson(T model)
+        {
+            object modelOut;
+            decimal price;
+            string description;
+            bool isValid;
+            (modelOut, description, price, isValid) = Calculate(model);
+
+            return (JsonConvert.SerializeObject(modelOut), description, price, isValid);
         }
 
         protected abstract (T model, decimal price) CalculatePrice(T model);
