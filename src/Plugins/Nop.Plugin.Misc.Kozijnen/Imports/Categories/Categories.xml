@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Imports xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Category>
+		<Name>Kozijnen</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>true</ShowOnHomePage>
+		<DisplayOrder>10</DisplayOrder>
+		<PictureName>Kozijnen.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Kozijnen</ParentCategory>
+		<Name>Aluminium kozijnen</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>10</DisplayOrder>
+		<PictureName>Aluminium kozijnen.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Kozijnen</ParentCategory>
+		<Name>Kunstof kozijnen</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>20</DisplayOrder>
+		<PictureName>Kunstof kozijnen.png</PictureName>
+	</Category>
+	<Category>
+		<Name>Deuren</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>true</ShowOnHomePage>
+		<DisplayOrder>20</DisplayOrder>
+		<PictureName>Deuren.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Deuren</ParentCategory>
+		<Name>Aluminium deuren</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>10</DisplayOrder>
+		<PictureName>Aluminium deuren.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Deuren</ParentCategory>
+		<Name>Kunstof deuren</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>20</DisplayOrder>
+		<PictureName>Kunstof deuren.png</PictureName>
+	</Category>
+	<Category>
+		<Name>Schuifpuien</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>true</ShowOnHomePage>
+		<DisplayOrder>30</DisplayOrder>
+		<PictureName>Schuifpuien.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Schuifpuien</ParentCategory>
+		<Name>Aluminium schuifpuien</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>10</DisplayOrder>
+		<PictureName>Aluminium schuifpuien.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Schuifpuien</ParentCategory>
+		<Name>Kunstof schuifpuien</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>20</DisplayOrder>
+		<PictureName>Kunstof schuifpuien.png</PictureName>
+	</Category>
+	<Category>
+		<Name>Vouwwanden</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>true</ShowOnHomePage>
+		<DisplayOrder>40</DisplayOrder>
+		<PictureName>Vouwwanden.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Vouwwanden</ParentCategory>
+		<Name>Aluminium vouwwanden</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>10</DisplayOrder>
+		<PictureName>Aluminium vouwwanden.png</PictureName>
+	</Category>
+	<Category>
+		<ParentCategory>Vouwwanden</ParentCategory>
+		<Name>Kunstof vouwwanden</Name>
+		<Published>true</Published>
+		<ShowOnHomePage>false</ShowOnHomePage>
+		<DisplayOrder>20</DisplayOrder>
+		<PictureName>Kunstof vouwwanden.png</PictureName>
+	</Category>
+</Imports>

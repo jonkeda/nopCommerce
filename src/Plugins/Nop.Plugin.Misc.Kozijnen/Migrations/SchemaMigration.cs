@@ -1,7 +1,4 @@
-﻿using FluentMigrator;
-using Nop.Data.Migrations;
-
-namespace Nop.Plugin.Misc.Kozijnen.Migrations
+﻿namespace Nop.Plugin.Misc.Kozijnen.Migrations
 {
     //[SkipMigrationOnUpdate]
     //[NopMigration("", "Nop.Plugin.Misc.Kozijnen schema")]

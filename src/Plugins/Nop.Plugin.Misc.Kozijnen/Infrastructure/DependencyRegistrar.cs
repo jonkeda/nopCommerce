@@ -2,6 +2,7 @@
 using Nop.Core.Configuration;
 using Nop.Core.Infrastructure;
 using Nop.Core.Infrastructure.DependencyManagement;
+using Nop.Plugin.Misc.Kozijnen.Imports;
 
 namespace Nop.Plugin.Misc.Kozijnen.Infrastructure
 {
@@ -16,6 +17,8 @@ namespace Nop.Plugin.Misc.Kozijnen.Infrastructure
         public void Register(IServiceCollection services, ITypeFinder typeFinder, AppSettings appSettings)
         {
             services.AddScoped<IKozijnenInstaller, KozijnenInstaller>();
+
+            services.AddScoped<IImporter, Importer>();
         }
 
         public int Order => 1;

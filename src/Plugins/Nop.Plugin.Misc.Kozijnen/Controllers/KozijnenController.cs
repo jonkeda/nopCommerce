@@ -52,7 +52,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Controllers
         [Area(AreaNames.Admin)]
         [HttpPost, ActionName("Update")]
         [FormValueRequired("update")]
-        public async Task<IActionResult> Configure(UpdateModel model)
+        public async Task<IActionResult> Update(UpdateModel model)
         {
             if (!ModelState.IsValid)
                 return await Update();

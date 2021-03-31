@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
 {

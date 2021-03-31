@@ -11,6 +11,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Vouwwanden\2_delig.PNG" />
+    <None Remove="Images\Vouwwanden\3_delig_andere_kant.PNG" />
+    <None Remove="Images\Vouwwanden\3_delig_zelfde_richting.PNG" />
+    <None Remove="Images\Vouwwanden\4_delig_andere_kant.PNG" />
+    <None Remove="Images\Vouwwanden\4_delig_symmetrisch.PNG" />
+    <None Remove="Images\Vouwwanden\4_delig_zelfde_kant.PNG" />
+    <None Remove="Images\Vouwwanden\6_delig_symmetrisch.PNG" />
+    <None Remove="Imports\Categories\Categories.xml" />
+    <None Remove="Imports\Vouwwanden\2_delig.PNG" />
+    <None Remove="Imports\Vouwwanden\3_delig_andere_kant.PNG" />
+    <None Remove="Imports\Vouwwanden\3_delig_zelfde_richting.PNG" />
+    <None Remove="Imports\Vouwwanden\4_delig_andere_kant.PNG" />
+    <None Remove="Imports\Vouwwanden\4_delig_symmetrisch.PNG" />
+    <None Remove="Imports\Vouwwanden\4_delig_zelfde_kant.PNG" />
+    <None Remove="Imports\Vouwwanden\6_delig_symmetrisch.PNG" />
+    <None Remove="Imports\Vouwwanden\AluminiumVouwwanden\Products.xml" />
+    <None Remove="Imports\Vouwwanden\Categories.xml" />
     <None Remove="logo.jpg" />
 	<None Remove="plugin.json" />
 	<None Remove="Views\Update.cshtml" />
@@ -18,6 +35,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Vouwwanden\2_delig.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Vouwwanden\3_delig_andere_kant.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Vouwwanden\3_delig_zelfde_richting.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Vouwwanden\4_delig_andere_kant.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Vouwwanden\4_delig_symmetrisch.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Vouwwanden\4_delig_zelfde_kant.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Vouwwanden\6_delig_symmetrisch.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="logo.jpg">
 		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -42,6 +80,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\Vouwwanden\2_delig.PNG" />
+    <EmbeddedResource Include="Images\Vouwwanden\3_delig_andere_kant.PNG" />
+    <EmbeddedResource Include="Images\Vouwwanden\3_delig_zelfde_richting.PNG" />
+    <EmbeddedResource Include="Images\Vouwwanden\4_delig_andere_kant.PNG" />
+    <EmbeddedResource Include="Images\Vouwwanden\4_delig_symmetrisch.PNG" />
+    <EmbeddedResource Include="Images\Vouwwanden\4_delig_zelfde_kant.PNG" />
+    <EmbeddedResource Include="Images\Vouwwanden\6_delig_symmetrisch.PNG" />
+    <EmbeddedResource Include="Imports\Categories\Categories.xml" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\2_delig.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\3_delig_andere_kant.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\3_delig_zelfde_richting.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\4_delig_andere_kant.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\4_delig_symmetrisch.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\4_delig_zelfde_kant.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\6_delig_symmetrisch.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\Products.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -55,7 +112,6 @@
     <Folder Include="Areas\Admin\Extensions\" />
     <Folder Include="Areas\Admin\Factories\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Extensions\" />
     <Folder Include="Factories\" />
   </ItemGroup>
  

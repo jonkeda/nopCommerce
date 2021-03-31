@@ -11,7 +11,6 @@ namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
         [NopResourceDisplayName("Hoogte kozijn")]
         public ProductConfiguratorField<int> HoogteKozijn { get; set; } = new();
 
-
         [NopResourceDisplayName("Aantal delen")]
         public ProductConfiguratorField<AantalDelen?> AantalDelen { get; set; } = new();
 
