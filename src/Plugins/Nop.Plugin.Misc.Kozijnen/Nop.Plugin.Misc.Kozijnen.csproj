@@ -18,7 +18,20 @@
     <None Remove="Images\Vouwwanden\4_delig_symmetrisch.PNG" />
     <None Remove="Images\Vouwwanden\4_delig_zelfde_kant.PNG" />
     <None Remove="Images\Vouwwanden\6_delig_symmetrisch.PNG" />
+    <None Remove="Imports\Categories\Aluminium deuren.png" />
+    <None Remove="Imports\Categories\Aluminium kozijnen.png" />
+    <None Remove="Imports\Categories\Aluminium schuifpuien.png" />
+    <None Remove="Imports\Categories\Aluminium vouwwanden.png" />
     <None Remove="Imports\Categories\Categories.xml" />
+    <None Remove="Imports\Categories\Deuren.png" />
+    <None Remove="Imports\Categories\Kozijnen.png" />
+    <None Remove="Imports\Categories\Kunstof deuren.png" />
+    <None Remove="Imports\Categories\Kunstof kozijnen.png" />
+    <None Remove="Imports\Categories\Kunstof schuifpuien.png" />
+    <None Remove="Imports\Categories\Kunstof vouwwanden.png" />
+    <None Remove="Imports\Categories\Schuifpuien.png" />
+    <None Remove="Imports\Categories\Vouwwanden.png" />
+    <None Remove="Imports\Languages\Language_pack.nl-NL.xml" />
     <None Remove="Imports\Vouwwanden\2_delig.PNG" />
     <None Remove="Imports\Vouwwanden\3_delig_andere_kant.PNG" />
     <None Remove="Imports\Vouwwanden\3_delig_zelfde_richting.PNG" />
@@ -56,6 +69,9 @@
     <Resource Include="Images\Vouwwanden\6_delig_symmetrisch.PNG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <EmbeddedResource Include="Imports\Languages\Language_pack.nl-NL.xml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </EmbeddedResource>
     <Content Include="logo.jpg">
 		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -87,7 +103,19 @@
     <EmbeddedResource Include="Images\Vouwwanden\4_delig_symmetrisch.PNG" />
     <EmbeddedResource Include="Images\Vouwwanden\4_delig_zelfde_kant.PNG" />
     <EmbeddedResource Include="Images\Vouwwanden\6_delig_symmetrisch.PNG" />
+    <EmbeddedResource Include="Imports\Categories\Aluminium deuren.png" />
+    <EmbeddedResource Include="Imports\Categories\Aluminium kozijnen.png" />
+    <EmbeddedResource Include="Imports\Categories\Aluminium schuifpuien.png" />
+    <EmbeddedResource Include="Imports\Categories\Aluminium vouwwanden.png" />
     <EmbeddedResource Include="Imports\Categories\Categories.xml" />
+    <EmbeddedResource Include="Imports\Categories\Deuren.png" />
+    <EmbeddedResource Include="Imports\Categories\Kozijnen.png" />
+    <EmbeddedResource Include="Imports\Categories\Kunstof deuren.png" />
+    <EmbeddedResource Include="Imports\Categories\Kunstof kozijnen.png" />
+    <EmbeddedResource Include="Imports\Categories\Kunstof schuifpuien.png" />
+    <EmbeddedResource Include="Imports\Categories\Kunstof vouwwanden.png" />
+    <EmbeddedResource Include="Imports\Categories\Schuifpuien.png" />
+    <EmbeddedResource Include="Imports\Categories\Vouwwanden.png" />
     <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\2_delig.PNG" />
     <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\3_delig_andere_kant.PNG" />
     <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\3_delig_zelfde_richting.PNG" />

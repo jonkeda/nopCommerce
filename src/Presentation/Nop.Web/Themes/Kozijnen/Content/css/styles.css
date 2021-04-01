@@ -976,6 +976,7 @@ label, label + * {
 }
 
 .header-lower {
+  display: none;
   position: relative;
   z-index: 0;
   padding: 35px 0;
@@ -7919,7 +7920,7 @@ pre {
   }
 
   .header-lower {
-    display: table;
+    display: none;
     width: 100%;
   }
 
@@ -7952,7 +7953,6 @@ pre {
     margin: 0 auto 30px;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    padding: 25px 0;
     text-align: center;
   }
 

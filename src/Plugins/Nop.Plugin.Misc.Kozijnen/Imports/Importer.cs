@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Nop.Core;
@@ -7,6 +9,7 @@ using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Media;
 using Nop.Plugin.Misc.Kozijnen.Extensions;
 using Nop.Services.Catalog;
+using Nop.Services.Localization;
 using Nop.Services.Media;
 using Nop.Services.Seo;
 
@@ -21,6 +24,8 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
         private readonly IProductService _productService;
         private readonly IPictureService _pictureService;
         private readonly IUrlRecordService _urlRecordService;
+        private readonly ILocalizationService _localizationService;
+        private readonly ILanguageService _languageService;
 
         #endregion
 
@@ -30,13 +35,17 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             ICategoryService categoryService,
             IProductService productService,
             IPictureService pictureService,
-            IUrlRecordService urlRecordService)
+            IUrlRecordService urlRecordService,
+            ILocalizationService localizationService,
+            ILanguageService languageService)
         {
             _productConfiguratorService = productConfiguratorService;
             _categoryService = categoryService;
             _productService = productService;
             _pictureService = pictureService;
             _urlRecordService = urlRecordService;
+            _localizationService = localizationService;
+            _languageService = languageService;
         }
 
         #endregion
@@ -59,6 +68,29 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             if (definition is IProductImportDefinition product)
             {
                 await ImportProduct(product, configuratorId, configurator);
+            }
+            if (definition is ILanguageImportDefinition language)
+            {
+                await ImportLanguage(language);
+            }
+
+        }
+
+        #endregion
+
+        #region Language
+
+        private async Task ImportLanguage(ILanguageImportDefinition definition)
+        {
+            foreach (var import in definition.LanguageFileNames)
+            {
+                var language = (await _languageService.GetAllLanguagesAsync()).FirstOrDefault(l => l.Name == import.Name);
+                if (language != null)
+                {
+                    await using var s = definition.GetType().GetStream(import.FileName);
+                    using var sr = new StreamReader(s);
+                    await _localizationService.ImportResourcesFromXmlAsync(language, sr);
+                }
             }
         }
 
@@ -133,14 +165,30 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
 
             category.UpdatedOnUtc = DateTime.UtcNow;
 
-            if (isNew || category.PictureId == 0)
+            if (!string.IsNullOrEmpty(pictureName))
             {
-                var picture = await _pictureService.InsertPictureAsync(
-                    definition.GetType().ReadAsBytes(pictureName),
-                    MimeTypes.ImagePng,
-                    await _pictureService.GetPictureSeNameAsync(category.Name), mediaType: MediaType.Image,
-                    name: $"Category_{category.Name}");
-                category.PictureId = picture.Id;
+                var bytes = definition.GetType().ReadAsBytes(pictureName);
+                if (bytes != null)
+                {
+                    if (isNew || category.PictureId == 0)
+                    {
+                        var picture = await _pictureService.InsertPictureAsync(
+                            bytes,
+                            MimeTypes.ImagePng,
+                            await _pictureService.GetPictureSeNameAsync(category.Name), mediaType: MediaType.Image,
+                            name: $"Category_{category.Name}");
+                        category.PictureId = picture.Id;
+                    }
+                    else
+                    {
+                        var picture = await _pictureService.UpdatePictureAsync(category.PictureId,
+                            bytes,
+                            MimeTypes.ImagePng,
+                            await _pictureService.GetPictureSeNameAsync(category.Name), mediaType: MediaType.Image,
+                            name: $"Category_{category.Name}");
+                        category.PictureId = picture.Id;
+                    }
+                }
             }
 
             if (isNew)
