@@ -279,6 +279,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             product.IsShipEnabled = true;
             product.TaxCategoryId = TaxCategoryHighId;
 
+            product.OrderMinimumQuantity = 1;
+            product.OrderMaximumQuantity = 10000;
+
             product.IsConfiguratorEnabled = true;
             product.ConfiguratorId = configuratorId;
             product.Configuration = configuration;
