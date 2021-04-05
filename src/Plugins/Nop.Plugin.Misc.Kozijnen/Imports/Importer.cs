@@ -246,10 +246,6 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             bool isValid;
 
             (configuration, description, price, isValid) = configurator.CalculateToJson(JsonConvert.SerializeObject(configurationModel));
-            if (!isValid)
-            {
-                return 0;
-            }
 
             var product = await _productService.GetProductByNameAsync(name);
 
@@ -268,6 +264,8 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             product.VisibleIndividually = true;
             product.ShortDescription = null;
             product.FullDescription = null;
+
+            product.Price = price;
 
             product.MetaKeywords = null;
             product.MetaDescription = null;

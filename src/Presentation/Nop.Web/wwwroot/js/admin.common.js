@@ -2,18 +2,6 @@ $.fn.showField = function () {
   this.css('display', 'flex');
 }
 
-// PCFG
-function valField(selector, context, value) {
-  var el = $(selector, context);
-  if (el) {
-    if (el.attr('data-role') === 'numerictextbox') {
-      el.data('kendoNumericTextBox').value(value);
-    } else {
-      return el.val(value);
-    }
-  }
-}
-
 function setLocation(url) {
     window.location.href = url;
 }

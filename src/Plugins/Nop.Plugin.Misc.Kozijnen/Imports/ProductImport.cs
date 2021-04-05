@@ -1,8 +1,5 @@
 ﻿namespace Nop.Plugin.Misc.Kozijnen.Imports
 {
-    public interface IProductImport
-    { }
-
     public abstract class ProductImport : IProductImport
     {
         public string Name { get; set; }

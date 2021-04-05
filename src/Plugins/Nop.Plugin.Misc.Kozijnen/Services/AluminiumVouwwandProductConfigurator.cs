@@ -11,11 +11,91 @@ namespace Nop.Plugin.Misc.Kozijnen.Services
             : base("AluminiumVouwwand")
         { }
 
+        private const int MINIMUM_HOOGTE = 2000;
+        private const int MAXIMUM_HOOGTE = 2000;
+
+
         protected override (AluminiumVouwwandModel, bool) Validate(AluminiumVouwwandModel model)
         {
             var isValid = true;
 
+            if (model.HoogteKozijn.Value < MINIMUM_HOOGTE)
+            {
+                isValid = false;
+                model.HoogteKozijn.Error = $"Neem contact op bij hoogtes kleiner dan {MAXIMUM_HOOGTE}";
+            }
+
+            if (model.HoogteKozijn.Value > MAXIMUM_HOOGTE)
+            {
+                isValid = false;
+                model.HoogteKozijn.Error = $"Neem contact op bij hoogtes groter dan {MAXIMUM_HOOGTE}";
+            }
+
+            var minimumBreedte = GetMinimumBreedte(model);
+            if (model.BreedteKozijn.Value < minimumBreedte)
+            {
+                isValid = false;
+                model.BreedteKozijn.Error = $"Neem contact op bij breedtes kleiner dan {minimumBreedte}";
+            }
+
+            var maximumBreedte = GetMaximumBreedte(model);
+            if (model.BreedteKozijn.Value > maximumBreedte)
+            {
+                isValid = false;
+                model.BreedteKozijn.Error = $"Neem contact op bij breedtes groter dan {maximumBreedte}";
+            }
+
+            if (string.IsNullOrEmpty(model.KleurBinnenkant.Value))
+            {
+                isValid = false;
+                model.KleurBinnenkant.Error = $"Vul een kleur in voor de binnenkant";
+            }
+
+            if (string.IsNullOrEmpty(model.KleurBuitenkant.Value))
+            {
+                isValid = false;
+                model.KleurBuitenkant.Error = $"Vul een kleur in voor de buitenkant";
+            }
+
             return (model, isValid);
+        }
+
+        private int GetMinimumBreedte(AluminiumVouwwandModel model)
+        {
+            switch (model.AantalDelen.Value)
+            {
+                case AantalDelen.Delen2:
+                    return 1700;
+                case AantalDelen.Delen3:
+                    return 2300;
+                case AantalDelen.Delen4:
+                    return 3000;
+                case AantalDelen.Delen5:
+                    return 3800;
+                case AantalDelen.Delen6:
+                    return 4400;
+            }
+
+            return 0;
+        }
+
+        private int GetMaximumBreedte(AluminiumVouwwandModel model)
+        {
+            switch (model.AantalDelen.Value)
+            {
+                case AantalDelen.Delen2 : 
+                    return 2050;
+                case AantalDelen.Delen3:
+                    return 3000;
+                case AantalDelen.Delen4:
+                    return 4000;
+                case AantalDelen.Delen5:
+                    return 5000;
+                case AantalDelen.Delen6:
+                    return 6000;
+            }
+
+            return 0;
         }
 
         protected override string CreateDescription(AluminiumVouwwandModel model)

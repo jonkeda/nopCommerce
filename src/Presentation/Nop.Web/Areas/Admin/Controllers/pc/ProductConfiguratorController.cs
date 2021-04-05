@@ -38,6 +38,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         private readonly IPictureService _pictureService;
         private readonly IProductService _productService;
         private readonly IWorkContext _workContext;
+        private readonly IPriceFormatter _priceFormatter;
 
         #endregion
 
@@ -56,7 +57,8 @@ namespace Nop.Web.Areas.Admin.Controllers
             IPermissionService permissionService,
             IPictureService pictureService,
             IProductService productService,
-            IWorkContext workContext)
+            IWorkContext workContext,
+            IPriceFormatter priceFormatter)
         {
             _customerActivityService = customerActivityService;
             _exportManager = exportManager;
@@ -71,6 +73,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             _pictureService = pictureService;
             _productService = productService;
             _workContext = workContext;
+            _priceFormatter = priceFormatter;
         }
 
         #endregion
@@ -550,9 +553,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 model.Json = json;
                 model.Description = description;
                 model.IsValid = isValid;
-                model.Price = price.ToString();
-                model.Tax = "btw";
-                model.SubTotal = "sub total";
+                model.Price = await _priceFormatter.FormatPriceAsync(price);
             }
             return Json(model);
         }

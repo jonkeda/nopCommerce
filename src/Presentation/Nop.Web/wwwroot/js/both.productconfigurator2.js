@@ -1,3 +1,15 @@
+// PCFG
+function valField(selector, context, value) {
+  var el = $(selector, context);
+  if (el) {
+    if (el.attr('data-role') === 'numerictextbox') {
+      el.data('kendoNumericTextBox').value(value);
+    } else {
+      return el.val(value);
+    }
+  }
+}
+
 var productConfigurator = {
   Enabled: true,
   Fields: [],
@@ -40,17 +52,14 @@ var productConfigurator = {
   SetValue: function (id, data) {
     if (data) {
       valField('#' + id + '_Value', null, data.Value);
-      //var el = $('#' + id + '_Value');
-      //if (el) {
-      //el.valField(data.Value);
-      //if (data.isVisible) {
-      //    //el.show();
-      //    el.showField();
-      //} else {
-      //    el.hide();
-      //}
-      // todo error messages
-      //}
+      if (data.Error) {
+        $('#' + id + '_Value').next('span').text(data.Error);
+      }
+      if (data.IsVisible) {
+          $('#' + id + '_Value').parent().parent().show();
+      } else {
+        $('#' + id + '_Value').parent().parent().hide();
+      }
     }
   },
 
@@ -74,6 +83,7 @@ var productConfigurator = {
 
   SetPrice: function (data) {
     this.IsValid = data.IsValid;
+    $('.product-price').children('span').text(data.Price);
     $('#ProductConfigurator_Price').text(data.Price);
     $('#ProductConfigurator_Tax').text(data.Tax);
     $('#ProductConfigurator_SubTotal').text(data.SubTotal);
