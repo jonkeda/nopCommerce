@@ -1518,7 +1518,16 @@ namespace Nop.Web.Factories
                     string description;
                     bool isValid;
 
-                    (configuratorModel, description, price, isValid) = productConfigurator.Calculate(product.Configuration);
+                    string configuration;
+                    if (updatecartitem != null)
+                    {
+                        configuration = updatecartitem.Configuration;
+                    }
+                    else
+                    {
+                        configuration = product.Configuration;
+                    }
+                    (configuratorModel, description, price, isValid) = productConfigurator.Calculate(  configuration );
 
                     model.ProductConfigurator.DefaultModel = configuratorModel;
                     model.ProductConfigurator.Price = price;

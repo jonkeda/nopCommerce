@@ -24,17 +24,17 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         public int CurrentConfiguratorId { get; set; }
 
-        [NopResourceDisplayName("Configurator")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.Name")]
         public int ConfiguratorId { get; set; }
         public IList<SelectListItem> AvailableConfigurators { get; set; }
 
-        [NopResourceDisplayName("Price")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.Price")]
         public ProductConfiguratorField<decimal> Price { get; set; } = new();
 
-        [NopResourceDisplayName("Tax")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.Tax")]
         public ProductConfiguratorField<decimal> Tax { get; set; } = new();
 
-        [NopResourceDisplayName("PriceIncludingTax")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.PriceIncludingTax")]
         public ProductConfiguratorField<decimal> PriceIncludingTax { get; set; } = new();
 
         public string ViewName { get; set; }

@@ -23,22 +23,22 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         #region Properties
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.Fields.Name")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.Name")]
         public string Name { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.Fields.Description")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.Description")]
         public string Description { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.Fields.MetaKeywords")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.MetaKeywords")]
         public string MetaKeywords { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.Fields.MetaDescription")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.MetaDescription")]
         public string MetaDescription { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.Fields.MetaTitle")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.MetaTitle")]
         public string MetaTitle { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.Fields.Deleted")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Fields.Deleted")]
         public bool Deleted { get; set; }
        
         public IList<ProductConfiguratorLocalizedModel> Locales { get; set; }

@@ -31,7 +31,7 @@
     <None Remove="Imports\Categories\Kunstof vouwwanden.png" />
     <None Remove="Imports\Categories\Schuifpuien.png" />
     <None Remove="Imports\Categories\Vouwwanden.png" />
-    <None Remove="Imports\Languages\Language_pack.nl-NL.xml" />
+    <None Remove="Imports\Languages\Language_pack_nl_NL.xml" />
     <None Remove="Imports\Vouwwanden\2_delig.PNG" />
     <None Remove="Imports\Vouwwanden\3_delig_andere_kant.PNG" />
     <None Remove="Imports\Vouwwanden\3_delig_zelfde_richting.PNG" />
@@ -69,7 +69,7 @@
     <Resource Include="Images\Vouwwanden\6_delig_symmetrisch.PNG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <EmbeddedResource Include="Imports\Languages\Language_pack.nl-NL.xml">
+    <EmbeddedResource Include="Imports\Languages\Language_pack_nl_NL.xml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </EmbeddedResource>
     <Content Include="logo.jpg">

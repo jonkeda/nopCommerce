@@ -11,7 +11,7 @@ namespace Nop.Web.Areas.Admin.Validators.Catalog
     {
         public ProductConfiguratorValidator(ILocalizationService localizationService, INopDataProvider dataProvider)
         {
-            RuleFor(x => x.Name).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Admin.Catalog.ProductConfigurator.Fields.Name.Required"));
+            RuleFor(x => x.Name).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Admin.Catalog.Products.ProductConfigurator.Fields.Name.Required"));
 
             SetDatabaseValidationRules<ProductConfigurator>(dataProvider);
         }

@@ -2,7 +2,7 @@
 
 @{
     //page title
-    ViewBag.PageTitle = T("Admin.Catalog.ProductConfigurators.EditProductConfiguratorDetails").Text;
+    ViewBag.PageTitle = T("Admin.Catalog.ProductConfigurator.Edit").Text;
     //active menu item (system name)
     Html.SetActiveMenuItemSystemName("ProductConfigurators");
 }
@@ -10,10 +10,10 @@
 <form asp-controller="ProductConfigurator" asp-action="Edit" method="post" id="ProductConfigurator-form">
     <div class="content-header clearfix">
         <h1 class="float-left">
-            @T("Admin.Catalog.ProductConfigurators.EditProductConfiguratorDetails") - @Model.Name
+            @T("Admin.Catalog.ProductConfigurator.Edit") - @Model.Name
             <small>
                 <i class="fas fa-arrow-circle-left"></i>
-                <a asp-action="List">@T("Admin.Catalog.ProductConfigurators.BackToList")</a>
+                <a asp-action="List">@T("Admin.Catalog.ProductConfigurator.BackToList")</a>
             </small>
         </h1>
         <div class="float-right">

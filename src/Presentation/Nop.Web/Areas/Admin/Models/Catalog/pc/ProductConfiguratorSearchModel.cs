@@ -18,7 +18,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         #region Properties
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.List.SearchProductConfiguratorName")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.List.SearchProductConfiguratorName")]
         public string SearchProductConfiguratorName { get; set; }
 
         #endregion

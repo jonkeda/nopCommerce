@@ -125,7 +125,7 @@ namespace Nop.Web.Areas.Admin.Factories
             }
 
             //insert special item for the default value
-            items.Insert(0, new SelectListItem { Text = await _localizationService.GetResourceAsync("Admin.Catalog.ProductConfigurator.None"), Value = "0" });
+            items.Insert(0, new SelectListItem { Text = await _localizationService.GetResourceAsync("Admin.Catalog.Products.ProductConfigurator.None"), Value = "0" });
         }
 
         /// <summary>

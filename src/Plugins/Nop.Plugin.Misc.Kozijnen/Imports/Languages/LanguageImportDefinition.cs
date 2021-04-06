@@ -2,6 +2,6 @@
 {
     public class LanguageImportDefinition : ILanguageImportDefinition
     {
-        public LanguageImport[] LanguageFileNames { get; set; } =  { new ("Nederlands", "Language_pack.nl-NL.xml") };
+        public LanguageImport[] LanguageFileNames { get; set; } =  { new ("NL", "Language_pack_nl_NL.xml") };
     }
 }

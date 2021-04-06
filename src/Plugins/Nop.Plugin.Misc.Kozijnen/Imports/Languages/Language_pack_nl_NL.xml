@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language Name="Nederlands">
+  <LocaleResource Name="ShoppingCart.CalculatePrice">
+    <Value>Bereken prijs</Value>
+  </LocaleResource>
+    <LocaleResource Name="nop.plugin.misc.kozijnen.updated">
+        <Value>Kozijnen plugin bijgewerkt</Value>
+    </LocaleResource>
+
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.List.SearchProductConfiguratorName">
+    <Value>Zoek product configurator</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.Description">
+    <Value>Omschrijving</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.MetaKeywords">
+    <Value>Meta sleutelwoorden</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.MetaDescription">
+    <Value>Meta omschrijving</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.MetaTitle">
+    <Value>Meta titel</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.Deleted">
+    <Value>Verwijderd</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.Name">
+    <Value>Naam</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.Price">
+    <Value>Prijs</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.Tax">
+    <Value>BTW</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Fields.PriceIncludingTax">
+    <Value>Prijs inc. BTW</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Info">
+    <Value>Informatie</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Products">
+    <Value>Producten</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Products.Fields.Product">
+    <Value>Product</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.AddNew">
+    <Value>Nieuwe product configuratie toevoegen</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.BackToList">
+    <Value>Terug naar de lijst</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator.Edit">
+    <Value>Bewerken</Value>
+  </LocaleResource>
+  
+  <LocaleResource Name="Admin.Catalog.ProductConfigurator">
+      <Value>Product configurator</Value>
+  </LocaleResource>
+    <LocaleResource Name="Admin.Catalog.ProductConfigurators">
+        <Value>Product configuratoren</Value>
+    </LocaleResource>
+
+  <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator">
+    <Value>Product configurator</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.Configure">
+    <Value>Configureer product</Value>
+  </LocaleResource>
+    <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.Configuration">
+        <Value>Product configuratie</Value>
+    </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.None">
+    <Value>Geen</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.Fields.Name.Required">
+    <Value>Naam is verplicht</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.Fields.IsConfiguratorEnabled">
+    <Value>Is geconfigureerd</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.Fields.ConfiguratorId">
+    <Value>Configurator id</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.Fields.Configuration">
+    <Value>Configuratie</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.Fields.ConfigurationDescription">
+    <Value>Configuratie beschrijving</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.Fields.ConfigurationPictureId">
+    <Value>Configuratie afbeelding</Value>
+  </LocaleResource>
+
+</Language>

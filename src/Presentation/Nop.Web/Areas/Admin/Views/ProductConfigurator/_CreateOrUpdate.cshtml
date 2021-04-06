@@ -35,9 +35,9 @@
             </div>
 
             <nop-cards id="ProductConfigurator-cards">
-                <nop-card asp-name="ProductConfigurator-info" asp-icon="fas fa-info" asp-title="@T("Admin.Catalog.ProductConfigurators.Info")" asp-hide-block-attribute-name="@hideInfoBlockAttributeName" asp-hide="@hideInfoBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdate.Info", Model)</nop-card>
+                <nop-card asp-name="ProductConfigurator-info" asp-icon="fas fa-info" asp-title="@T("Admin.Catalog.ProductConfigurator.Info")" asp-hide-block-attribute-name="@hideInfoBlockAttributeName" asp-hide="@hideInfoBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdate.Info", Model)</nop-card>
                 <nop-card asp-name="ProductConfigurator-seo" asp-icon="fas fa-search-plus" asp-title="@T("Admin.Common.SEO")" asp-hide-block-attribute-name="@hideSeoBlockAttributeName" asp-hide="@hideSeoBlock" asp-advanced="true">@await Html.PartialAsync("_CreateOrUpdate.Seo", Model)</nop-card>
-                <nop-card asp-name="ProductConfigurator-products" asp-icon="fas fa-th-list" asp-title="@T("Admin.Catalog.ProductConfigurators.Products")" asp-hide-block-attribute-name="@hideProductsBlockAttributeName" asp-hide="@hideProductsBlock" asp-advanced="true">@await Html.PartialAsync("_CreateOrUpdate.Products", Model)</nop-card>
+                <nop-card asp-name="ProductConfigurator-products" asp-icon="fas fa-th-list" asp-title="@T("Admin.Catalog.ProductConfigurator.Products")" asp-hide-block-attribute-name="@hideProductsBlockAttributeName" asp-hide="@hideProductsBlock" asp-advanced="true">@await Html.PartialAsync("_CreateOrUpdate.Products", Model)</nop-card>
 
                 @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.ProductConfiguratorDetailsBlock, additionalData = Model })
             </nop-cards>

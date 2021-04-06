@@ -14,7 +14,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         public int ProductId { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.ProductConfigurators.Products.Fields.Product")]
+        [NopResourceDisplayName("Admin.Catalog.ProductConfigurator.Products.Fields.Product")]
         public string ProductName { get; set; }
 
         #endregion
