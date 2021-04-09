@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "Settings",
+  "SystemName": "Misc.Settings",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.40" ],
+  "Author": "KozijnenKopen",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.Settings.dll",
+  "Description": ""
+}

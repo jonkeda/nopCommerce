@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<MessageTemplatesSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CaseInvariantReplacement>false</CaseInvariantReplacement>
+  <Color1>#b9babe</Color1>
+  <Color2>#ebecee</Color2>
+  <Color3>#dde2e6</Color3>
+</MessageTemplatesSettings>

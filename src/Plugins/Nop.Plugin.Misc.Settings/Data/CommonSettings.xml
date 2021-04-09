@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<CommonSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SubjectFieldOnContactUsForm>false</SubjectFieldOnContactUsForm>
+  <UseSystemEmailForContactUsForm>true</UseSystemEmailForContactUsForm>
+  <DisplayJavaScriptDisabledWarning>false</DisplayJavaScriptDisabledWarning>
+  <Log404Errors>true</Log404Errors>
+  <BreadcrumbDelimiter>/</BreadcrumbDelimiter>
+  <IgnoreLogWordlist />
+  <BbcodeEditorOpenLinksInNewWindow>false</BbcodeEditorOpenLinksInNewWindow>
+  <PopupForTermsOfServiceLinks>true</PopupForTermsOfServiceLinks>
+  <JqueryMigrateScriptLoggingActive>false</JqueryMigrateScriptLoggingActive>
+  <UseResponseCompression>true</UseResponseCompression>
+  <FaviconAndAppIconsHeadCode>&lt;link rel="apple-touch-icon" sizes="180x180" href="/icons/icons_0/apple-touch-icon.png"&gt;&lt;link rel="icon" type="image/png" sizes="32x32" href="/icons/icons_0/favicon-32x32.png"&gt;&lt;link rel="icon" type="image/png" sizes="192x192" href="/icons/icons_0/android-chrome-192x192.png"&gt;&lt;link rel="icon" type="image/png" sizes="16x16" href="/icons/icons_0/favicon-16x16.png"&gt;&lt;link rel="manifest" href="/icons/icons_0/site.webmanifest"&gt;&lt;link rel="mask-icon" href="/icons/icons_0/safari-pinned-tab.svg" color="#5bbad5"&gt;&lt;link rel="shortcut icon" href="/icons/icons_0/favicon.ico"&gt;&lt;meta name="msapplication-TileColor" content="#2d89ef"&gt;&lt;meta name="msapplication-TileImage" content="/icons/icons_0/mstile-144x144.png"&gt;&lt;meta name="msapplication-config" content="/icons/icons_0/browserconfig.xml"&gt;&lt;meta name="theme-color" content="#ffffff"&gt;</FaviconAndAppIconsHeadCode>
+  <EnableHtmlMinification>true</EnableHtmlMinification>
+  <EnableJsBundling>false</EnableJsBundling>
+  <EnableCssBundling>false</EnableCssBundling>
+  <RestartTimeout>3000</RestartTimeout>
+</CommonSettings>

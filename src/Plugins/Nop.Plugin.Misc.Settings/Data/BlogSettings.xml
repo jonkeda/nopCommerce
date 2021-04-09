@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<BlogSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>false</Enabled>
+  <PostsPageSize>10</PostsPageSize>
+  <AllowNotRegisteredUsersToLeaveComments>true</AllowNotRegisteredUsersToLeaveComments>
+  <NotifyAboutNewBlogComments>false</NotifyAboutNewBlogComments>
+  <NumberOfTags>15</NumberOfTags>
+  <ShowHeaderRssUrl>false</ShowHeaderRssUrl>
+  <BlogCommentsMustBeApproved>false</BlogCommentsMustBeApproved>
+  <ShowBlogCommentsPerStore>false</ShowBlogCommentsPerStore>
+</BlogSettings>

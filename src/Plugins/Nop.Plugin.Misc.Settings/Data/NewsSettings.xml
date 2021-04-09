@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<NewsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>false</Enabled>
+  <AllowNotRegisteredUsersToLeaveComments>true</AllowNotRegisteredUsersToLeaveComments>
+  <NotifyAboutNewNewsComments>false</NotifyAboutNewNewsComments>
+  <ShowNewsOnMainPage>true</ShowNewsOnMainPage>
+  <MainPageNewsCount>3</MainPageNewsCount>
+  <NewsArchivePageSize>10</NewsArchivePageSize>
+  <ShowHeaderRssUrl>false</ShowHeaderRssUrl>
+  <NewsCommentsMustBeApproved>false</NewsCommentsMustBeApproved>
+  <ShowNewsCommentsPerStore>false</ShowNewsCommentsPerStore>
+</NewsSettings>

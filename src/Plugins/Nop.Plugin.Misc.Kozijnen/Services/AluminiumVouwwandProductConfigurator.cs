@@ -57,6 +57,41 @@ namespace Nop.Plugin.Misc.Kozijnen.Services
                 model.KleurBuitenkant.Error = $"Vul een kleur in voor de buitenkant";
             }
 
+            model.Verdeling2.IsVisible = false;
+            model.Verdeling3.IsVisible = false;
+            model.Verdeling4.IsVisible = false;
+            model.Verdeling5.IsVisible = false;
+            model.Verdeling6.IsVisible = false;
+            switch (model.AantalDelen.Value)
+            {
+                case AantalDelen.Delen2:
+                {
+                    model.Verdeling2.IsVisible = true;
+                    break;
+                }
+                case AantalDelen.Delen3:
+                {
+                    model.Verdeling3.IsVisible = true;
+                    break;
+                }
+                case AantalDelen.Delen4:
+                {
+                    model.Verdeling4.IsVisible = true;
+                    break;
+                }
+                case AantalDelen.Delen5:
+                {
+                    model.Verdeling5.IsVisible = true;
+                    break;
+                }
+                case AantalDelen.Delen6:
+                {
+                    model.Verdeling6.IsVisible = true;
+                    break;
+                }
+            }
+
+
             return (model, isValid);
         }
 
@@ -103,14 +138,45 @@ namespace Nop.Plugin.Misc.Kozijnen.Services
             var sb = new StringBuilder();
 
             sb.AppendLine($"{(int)model.AantalDelen.Value.GetValueOrDefault(AantalDelen.Delen3)} delige aluminium vouwwand");
-            
-            if (model.Deuren.Value != Deuren.Zonder)
+
+            //if (model.Deuren.Value != Deuren.Zonder)
+            //{
+            //    sb.AddLine(model.Deuren.Value);
+            //    sb.AddLine("Locatie loopdeuren: ", model.LocatieLoopdeuren.Value);
+            //}
+
+            //sb.AddLine("Schuifrichting: ", model.Schuifrichting.Value);
+
+            switch (model.AantalDelen.Value)
             {
-                sb.AddLine(model.Deuren.Value);
-                sb.AddLine("Locatie loopdeuren: ", model.LocatieLoopdeuren.Value);
+                case AantalDelen.Delen2:
+                {
+                    sb.AddLine("Type: ", model.Verdeling2.Value);
+                    break;
+                }
+                case AantalDelen.Delen3:
+                {
+                    sb.AddLine("Type: ", model.Verdeling3.Value);
+                    break;
+                }
+                case AantalDelen.Delen4:
+                {
+                    sb.AddLine("Type: ", model.Verdeling4.Value);
+                    break;
+                }
+                case AantalDelen.Delen5:
+                {
+                    sb.AddLine("Type: ", model.Verdeling5.Value);
+                    break;
+                }
+                case AantalDelen.Delen6:
+                {
+                    sb.AddLine("Type: ", model.Verdeling6.Value);
+                    break;
+                }
             }
 
-            sb.AddLine("Schuifrichting: ", model.Schuifrichting.Value);
+
             sb.AddLine("Vouwrichting: ", model.Vouwrichting.Value);
 
             sb.AppendLine($"Breedte kozijn: {model.BreedteKozijn.Value}mm");

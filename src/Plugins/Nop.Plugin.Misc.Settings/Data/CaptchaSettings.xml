@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<CaptchaSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>false</Enabled>
+  <CaptchaType>CheckBoxReCaptchaV2</CaptchaType>
+  <ShowOnLoginPage>false</ShowOnLoginPage>
+  <ShowOnRegistrationPage>false</ShowOnRegistrationPage>
+  <ShowOnContactUsPage>false</ShowOnContactUsPage>
+  <ShowOnEmailWishlistToFriendPage>false</ShowOnEmailWishlistToFriendPage>
+  <ShowOnEmailProductToFriendPage>false</ShowOnEmailProductToFriendPage>
+  <ShowOnBlogCommentPage>false</ShowOnBlogCommentPage>
+  <ShowOnNewsCommentPage>false</ShowOnNewsCommentPage>
+  <ShowOnProductReviewPage>false</ShowOnProductReviewPage>
+  <ShowOnApplyVendorPage>false</ShowOnApplyVendorPage>
+  <ShowOnForgotPasswordPage>false</ShowOnForgotPasswordPage>
+  <ShowOnForum>false</ShowOnForum>
+  <ReCaptchaApiUrl>https://www.google.com/recaptcha/</ReCaptchaApiUrl>
+  <ReCaptchaPublicKey />
+  <ReCaptchaPrivateKey />
+  <ReCaptchaV3ScoreThreshold>0.5</ReCaptchaV3ScoreThreshold>
+  <ReCaptchaTheme />
+  <ReCaptchaRequestTimeout>20</ReCaptchaRequestTimeout>
+  <ReCaptchaDefaultLanguage />
+  <AutomaticallyChooseLanguage>true</AutomaticallyChooseLanguage>
+</CaptchaSettings>

@@ -15,6 +15,10 @@ namespace Nop.Plugin.Misc.Kozijnen.Extensions
         /// <example><![CDATA[string desc = myEnumVariable.GetAttributeOfType<DescriptionAttribute>().Description;]]></example>
         public static T GetAttributeOfType<T>(this Enum enumVal) where T : System.Attribute
         {
+            if (enumVal == null)
+            {
+                return null;
+            }
             var type = enumVal.GetType();
             var memInfo = type.GetMember(enumVal.ToString());
             var attributes = memInfo[0].GetCustomAttributes(typeof(T), false);

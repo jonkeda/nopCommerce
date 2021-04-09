@@ -354,7 +354,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
         protected async Task<int> InstallProductConfigurator(IProductConfiguratorProvider provider)
         {
             var type = provider.GetType();
-            var model = _productConfiguratorService.GetByFullClassNameAsync(type.FullName);
+            var model = await _productConfiguratorService.GetByFullClassNameAsync(type.FullName);
             ProductConfigurator productConfigurator = null;
             if (model == null)
             {

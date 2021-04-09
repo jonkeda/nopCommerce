@@ -982,6 +982,23 @@ label, label + * {
   padding: 35px 0;
 }
 
+.header-upper-logo {
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.header-upper-logo a {
+  float: left;
+  max-width: 100%;
+  line-height: 0; /*firefox line-height bug fix*/
+}
+
+.header-upper-logo a img {
+  max-width: 100%;
+  opacity: 1;
+}
+
+
 .header-logo {
   margin: 0 0 20px;
   text-align: center;
@@ -996,6 +1013,10 @@ label, label + * {
 .header-logo a img {
   max-width: 100%;
   opacity: 1;
+}
+
+.search-box-upper {
+  display: inline;
 }
 
 .search-box form {
@@ -7935,6 +7956,10 @@ pre {
     display: table-cell;
     text-align: right;
     vertical-align: middle;
+  }
+
+  .search-box-upper {
+    display: inline;
   }
 
   .search-box input.search-box-text,

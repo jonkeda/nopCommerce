@@ -14,23 +14,26 @@ namespace Nop.Plugin.Misc.Kozijnen.Models.AluminiumVouwwand
         [NopResourceDisplayName("Aantal delen")]
         public ProductConfiguratorField<AantalDelen?> AantalDelen { get; set; } = new();
 
-        [NopResourceDisplayName("Schuifrichting")]
-        public ProductConfiguratorField<Schuifrichting> Schuifrichting { get; set; } = new();
+        [NopResourceDisplayName("Verdeling 2")]
+        public ProductConfiguratorField<Verdeling2> Verdeling2 { get; set; } = new();
+
+        [NopResourceDisplayName("Verdeling 3")]
+        public ProductConfiguratorField<Verdeling3> Verdeling3 { get; set; } = new();
+
+        [NopResourceDisplayName("Verdeling 4")]
+        public ProductConfiguratorField<Verdeling4> Verdeling4 { get; set; } = new();
+
+        [NopResourceDisplayName("Verdeling 5")]
+        public ProductConfiguratorField<Verdeling5> Verdeling5 { get; set; } = new();
+
+        [NopResourceDisplayName("Verdeling 6")]
+        public ProductConfiguratorField<Verdeling6> Verdeling6 { get; set; } = new();
 
         [NopResourceDisplayName("Vouwrichting")]
         public ProductConfiguratorField<Vouwrichting> Vouwrichting { get; set; } = new();
 
         [NopResourceDisplayName("Vouwklink")]
         public ProductConfiguratorField<VouwKlink> VouwKlink { get; set; } = new();
-
-        [NopResourceDisplayName("Met deur")]
-        public ProductConfiguratorField<bool> MetDeur { get; set; } = new ();
-
-        [NopResourceDisplayName("Deuren")]
-        public ProductConfiguratorField<Deuren> Deuren { get; set; } = new();
-
-        [NopResourceDisplayName("Locatie loopdeuren")]
-        public ProductConfiguratorField<LocatieLoopdeuren> LocatieLoopdeuren { get; set; } = new();
 
         [NopResourceDisplayName("Type profiel")]
         public ProductConfiguratorField<TypeProfiel> TypeProfiel { get; set; } = new();

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<PaymentSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ActivePaymentMethodSystemNames>
+    <string>Payments.CheckMoneyOrder</string>
+    <string>Payments.Manual</string>
+  </ActivePaymentMethodSystemNames>
+  <AllowRePostingPayments>true</AllowRePostingPayments>
+  <BypassPaymentMethodSelectionIfOnlyOne>true</BypassPaymentMethodSelectionIfOnlyOne>
+  <ShowPaymentMethodDescriptions>true</ShowPaymentMethodDescriptions>
+  <SkipPaymentInfoStepForRedirectionPaymentMethods>false</SkipPaymentInfoStepForRedirectionPaymentMethods>
+  <CancelRecurringPaymentsAfterFailedPayment>false</CancelRecurringPaymentsAfterFailedPayment>
+  <RegenerateOrderGuidInterval>180</RegenerateOrderGuidInterval>
+</PaymentSettings>

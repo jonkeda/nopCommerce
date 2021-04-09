@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<VendorSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DefaultVendorPageSizeOptions>6, 3, 9</DefaultVendorPageSizeOptions>
+  <VendorsBlockItemsToDisplay>0</VendorsBlockItemsToDisplay>
+  <ShowVendorOnProductDetailsPage>true</ShowVendorOnProductDetailsPage>
+  <ShowVendorOnOrderDetailsPage>false</ShowVendorOnOrderDetailsPage>
+  <AllowCustomersToContactVendors>false</AllowCustomersToContactVendors>
+  <AllowCustomersToApplyForVendorAccount>false</AllowCustomersToApplyForVendorAccount>
+  <TermsOfServiceEnabled>false</TermsOfServiceEnabled>
+  <AllowSearchByVendor>false</AllowSearchByVendor>
+  <AllowVendorsToEditInfo>false</AllowVendorsToEditInfo>
+  <NotifyStoreOwnerAboutVendorInformationChange>true</NotifyStoreOwnerAboutVendorInformationChange>
+  <MaximumProductNumber>3000</MaximumProductNumber>
+  <AllowVendorsToImportProducts>true</AllowVendorsToImportProducts>
+</VendorSettings>

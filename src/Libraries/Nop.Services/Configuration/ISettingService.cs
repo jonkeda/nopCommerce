@@ -106,6 +106,14 @@ namespace Nop.Services.Configuration
         /// <summary>
         /// Save settings object
         /// </summary>
+        /// <param name="type">type</param>
+        /// <param name="storeId">Store identifier</param>
+        /// <param name="settings">Setting instance</param>
+        Task SaveSettingAsync(Type type, object settings, int storeId = 0);
+
+        /// <summary>
+        /// Save settings object
+        /// </summary>
         /// <typeparam name="T">Entity type</typeparam>
         /// <typeparam name="TPropType">Property type</typeparam>
         /// <param name="settings">Settings</param>

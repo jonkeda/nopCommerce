@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Plugins\Nop.Plugin.Misc.Kozijnen\Nop.Plugin.Misc.Kozijnen.csproj" />
+    <ProjectReference Include="..\Plugins\Nop.Plugin.Misc.Settings\Nop.Plugin.Misc.Settings.csproj" />
   </ItemGroup>
 
 </Project>

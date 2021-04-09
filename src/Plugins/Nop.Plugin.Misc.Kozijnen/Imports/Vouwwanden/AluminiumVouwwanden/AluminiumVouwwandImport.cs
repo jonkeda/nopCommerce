@@ -10,17 +10,19 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports.Vouwwanden.AluminiumVouwwanden
 
         public AantalDelen? AantalDelen { get; set; } = Models.AluminiumVouwwand.AantalDelen.Delen2;
 
-        public Schuifrichting Schuifrichting { get; set; }
+        public Verdeling2 Verdeling2 { get; set; }
+
+        public Verdeling3 Verdeling3 { get; set; }
+
+        public Verdeling4 Verdeling4 { get; set; }
+
+        public Verdeling5 Verdeling5 { get; set; }
+
+        public Verdeling6 Verdeling6 { get; set; }
 
         public Vouwrichting Vouwrichting { get; set; }
 
         public VouwKlink VouwKlink { get; set; }
-
-        public bool MetDeur { get; set; } = new ();
-
-        public Deuren Deuren { get; set; }
-
-        public LocatieLoopdeuren LocatieLoopdeuren { get; set; }
 
         public TypeProfiel TypeProfiel { get; set; }
 
@@ -45,12 +47,13 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports.Vouwwanden.AluminiumVouwwanden
                 BreedteKozijn = BreedteKozijn,
                 HoogteKozijn = HoogteKozijn,
                 AantalDelen = AantalDelen,
-                Schuifrichting = Schuifrichting,
+                Verdeling2 = Verdeling2,
+                Verdeling3 = Verdeling3,
+                Verdeling4 = Verdeling4,
+                Verdeling5 = Verdeling5,
+                Verdeling6 = Verdeling6,
                 Vouwrichting = Vouwrichting,
                 VouwKlink = VouwKlink,
-                MetDeur = MetDeur,
-                Deuren = Deuren,
-                LocatieLoopdeuren = LocatieLoopdeuren,
                 TypeProfiel = TypeProfiel,
                 MetAanslag = MetAanslag,
                 Glas = Glas,

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<DisplayDefaultFooterItemSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DisplaySitemapFooterItem>true</DisplaySitemapFooterItem>
+  <DisplayContactUsFooterItem>true</DisplayContactUsFooterItem>
+  <DisplayProductSearchFooterItem>true</DisplayProductSearchFooterItem>
+  <DisplayNewsFooterItem>false</DisplayNewsFooterItem>
+  <DisplayBlogFooterItem>false</DisplayBlogFooterItem>
+  <DisplayForumsFooterItem>false</DisplayForumsFooterItem>
+  <DisplayRecentlyViewedProductsFooterItem>false</DisplayRecentlyViewedProductsFooterItem>
+  <DisplayCompareProductsFooterItem>false</DisplayCompareProductsFooterItem>
+  <DisplayNewProductsFooterItem>false</DisplayNewProductsFooterItem>
+  <DisplayCustomerInfoFooterItem>true</DisplayCustomerInfoFooterItem>
+  <DisplayCustomerOrdersFooterItem>true</DisplayCustomerOrdersFooterItem>
+  <DisplayCustomerAddressesFooterItem>false</DisplayCustomerAddressesFooterItem>
+  <DisplayShoppingCartFooterItem>true</DisplayShoppingCartFooterItem>
+  <DisplayWishlistFooterItem>true</DisplayWishlistFooterItem>
+  <DisplayApplyVendorAccountFooterItem>false</DisplayApplyVendorAccountFooterItem>
+</DisplayDefaultFooterItemSettings>

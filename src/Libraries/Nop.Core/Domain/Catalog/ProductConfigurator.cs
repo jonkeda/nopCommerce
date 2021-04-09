@@ -1,5 +1,4 @@
-﻿using Nop.Core.Domain.Common;
-using Nop.Core.Domain.Localization;
+﻿using Nop.Core.Domain.Localization;
 
 namespace Nop.Core.Domain.Catalog
 {
@@ -7,7 +6,7 @@ namespace Nop.Core.Domain.Catalog
     /// Represents a product configurator
     /// PCFG
     /// </summary>
-    public partial class ProductConfigurator : BaseEntity, ILocalizedEntity, ISoftDeletedEntity
+    public partial class ProductConfigurator : BaseEntity, ILocalizedEntity
     {
         /// <summary>
         /// Gets or sets the name

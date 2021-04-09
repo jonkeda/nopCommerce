@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 using Nop.Core.Configuration;
 
 namespace Nop.Core.Domain.Catalog
@@ -443,6 +444,7 @@ namespace Nop.Core.Domain.Catalog
         /// <summary>
         /// Gets or sets a display order of ProductSortingEnum values 
         /// </summary>
+        [XmlIgnore]
         public Dictionary<int, int> ProductSortingEnumDisplayOrder { get; set; }
 
         /// <summary>

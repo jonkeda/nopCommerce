@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<SecuritySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EncryptionKey>9265917252355689</EncryptionKey>
+  <AdminAreaAllowedIpAddresses />
+  <HoneypotEnabled>false</HoneypotEnabled>
+  <HoneypotInputName>hpinput</HoneypotInputName>
+  <AllowNonAsciiCharactersInHeaders>true</AllowNonAsciiCharactersInHeaders>
+</SecuritySettings>

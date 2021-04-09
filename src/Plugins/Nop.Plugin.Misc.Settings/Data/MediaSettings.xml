@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<MediaSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AvatarPictureSize>120</AvatarPictureSize>
+  <ProductThumbPictureSize>415</ProductThumbPictureSize>
+  <ProductDetailsPictureSize>300</ProductDetailsPictureSize>
+  <ProductThumbPictureSizeOnProductDetailsPage>100</ProductThumbPictureSizeOnProductDetailsPage>
+  <AssociatedProductPictureSize>220</AssociatedProductPictureSize>
+  <CategoryThumbPictureSize>450</CategoryThumbPictureSize>
+  <ManufacturerThumbPictureSize>420</ManufacturerThumbPictureSize>
+  <VendorThumbPictureSize>450</VendorThumbPictureSize>
+  <CartThumbPictureSize>80</CartThumbPictureSize>
+  <MiniCartThumbPictureSize>70</MiniCartThumbPictureSize>
+  <AutoCompleteSearchThumbPictureSize>20</AutoCompleteSearchThumbPictureSize>
+  <ImageSquarePictureSize>32</ImageSquarePictureSize>
+  <DefaultPictureZoomEnabled>false</DefaultPictureZoomEnabled>
+  <MaximumImageSize>1980</MaximumImageSize>
+  <DefaultImageQuality>80</DefaultImageQuality>
+  <MultipleThumbDirectories>false</MultipleThumbDirectories>
+  <ImportProductImagesUsingHash>true</ImportProductImagesUsingHash>
+  <AzureCacheControlHeader />
+  <UseAbsoluteImagePath>true</UseAbsoluteImagePath>
+  <VideoAllowed>false</VideoAllowed>
+  <AudioAllowed>false</AudioAllowed>
+  <SvgAllowed>false</SvgAllowed>
+</MediaSettings>

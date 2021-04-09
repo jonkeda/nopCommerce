@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<CookieSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CompareProductsCookieExpires>240</CompareProductsCookieExpires>
+  <RecentlyViewedProductsCookieExpires>240</RecentlyViewedProductsCookieExpires>
+  <CustomerCookieExpires>8760</CustomerCookieExpires>
+</CookieSettings>

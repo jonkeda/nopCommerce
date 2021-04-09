@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<RewardPointsSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>false</Enabled>
+  <ExchangeRate>1</ExchangeRate>
+  <MinimumRewardPointsToUse>0</MinimumRewardPointsToUse>
+  <MaximumRewardPointsToUsePerOrder>0</MaximumRewardPointsToUsePerOrder>
+  <PointsForRegistration>0</PointsForRegistration>
+  <RegistrationPointsValidity>30</RegistrationPointsValidity>
+  <PointsForPurchases_Amount>10</PointsForPurchases_Amount>
+  <PointsForPurchases_Points>1</PointsForPurchases_Points>
+  <PurchasesPointsValidity>45</PurchasesPointsValidity>
+  <MinOrderTotalToAwardPoints>0</MinOrderTotalToAwardPoints>
+  <ActivationDelay>0</ActivationDelay>
+  <ActivationDelayPeriodId>0</ActivationDelayPeriodId>
+  <DisplayHowMuchWillBeEarned>true</DisplayHowMuchWillBeEarned>
+  <PointsAccumulatedForAllStores>true</PointsAccumulatedForAllStores>
+  <PageSize>10</PageSize>
+</RewardPointsSettings>

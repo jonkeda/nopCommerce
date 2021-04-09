@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<StoreInformationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <HidePoweredByNopCommerce>false</HidePoweredByNopCommerce>
+  <StoreClosed>false</StoreClosed>
+  <LogoPictureId>27</LogoPictureId>
+  <DefaultStoreTheme>Kozijnen</DefaultStoreTheme>
+  <AllowCustomerToSelectTheme>false</AllowCustomerToSelectTheme>
+  <DisplayEuCookieLawWarning>true</DisplayEuCookieLawWarning>
+  <FacebookLink>https://www.facebook.com/nopCommerce</FacebookLink>
+  <TwitterLink>https://twitter.com/nopCommerce</TwitterLink>
+  <YoutubeLink>https://www.youtube.com/user/nopCommerce</YoutubeLink>
+</StoreInformationSettings>

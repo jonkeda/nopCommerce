@@ -1,0 +1,16 @@
+﻿@model Nop.Plugin.Misc.Settings.Models.UpdateModel
+
+@{
+    Layout = "_ConfigurePlugin";
+}
+
+<span>
+    <form asp-controller="Settings" asp-action="Update" method="post">
+        <button type="submit" name="update" class="btn btn-primary">@T("Admin.Common.Import")</button>
+    </form>
+</span>
+<span>
+    <form asp-controller="Settings" asp-action="Export" method="post">
+        <button type="submit" name="export" class="btn btn-primary">@T("Admin.Common.Export")</button>
+    </form>
+</span>

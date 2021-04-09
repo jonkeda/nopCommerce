@@ -1,0 +1,149 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+	  <OutputPath>..\..\Presentation\Nop.Web\Plugins\Nop.Plugin.Misc.Settings</OutputPath>
+    <OutDir>$(OutputPath)</OutDir>
+    <!--Set this parameter to true to get the dlls copied from the NuGet cache to the output of your project.
+    You need to set this parameter to true if your plugin has a nuget package 
+    to ensure that the dlls copied from the NuGet cache to the output of your project-->
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\AddressSettings.xml" />
+    <None Remove="Data\AdminAreaSettings.xml" />
+    <None Remove="Data\BlogSettings.xml" />
+    <None Remove="Data\CaptchaSettings.xml" />
+    <None Remove="Data\CatalogSettings.xml" />
+    <None Remove="Data\CheckMoneyOrderPaymentSettings.xml" />
+    <None Remove="Data\CommonSettings.xml" />
+    <None Remove="Data\CookieSettings.xml" />
+    <None Remove="Data\CurrencySettings.xml" />
+    <None Remove="Data\CustomerSettings.xml" />
+    <None Remove="Data\DateTimeSettings.xml" />
+    <None Remove="Data\DisplayDefaultFooterItemSettings.xml" />
+    <None Remove="Data\DisplayDefaultMenuItemSettings.xml" />
+    <None Remove="Data\EmailAccountSettings.xml" />
+    <None Remove="Data\ExternalAuthenticationSettings.xml" />
+    <None Remove="Data\FixedByWeightByTotalSettings.xml" />
+    <None Remove="Data\FixedOrByCountryStateZipTaxSettings.xml" />
+    <None Remove="Data\ForumSettings.xml" />
+    <None Remove="Data\GdprSettings.xml" />
+    <None Remove="Data\LocalizationSettings.xml" />
+    <None Remove="Data\MeasureSettings.xml" />
+    <None Remove="Data\MediaSettings.xml" />
+    <None Remove="Data\MessagesSettings.xml" />
+    <None Remove="Data\MessageTemplatesSettings.xml" />
+    <None Remove="Data\MultiFactorAuthenticationSettings.xml" />
+    <None Remove="Data\NewsSettings.xml" />
+    <None Remove="Data\OrderSettings.xml" />
+    <None Remove="Data\PaymentSettings.xml" />
+    <None Remove="Data\PdfSettings.xml" />
+    <None Remove="Data\ProductEditorSettings.xml" />
+    <None Remove="Data\ProxySettings.xml" />
+    <None Remove="Data\RewardPointsSettings.xml" />
+    <None Remove="Data\SecuritySettings.xml" />
+    <None Remove="Data\SeoSettings.xml" />
+    <None Remove="Data\ShippingSettings.xml" />
+    <None Remove="Data\ShoppingCartSettings.xml" />
+    <None Remove="Data\SitemapSettings.xml" />
+    <None Remove="Data\SitemapXmlSettings.xml" />
+    <None Remove="Data\StoreInformationSettings.xml" />
+    <None Remove="Data\TaxSettings.xml" />
+    <None Remove="Data\VendorSettings.xml" />
+    <None Remove="Data\WidgetSettings.xml" />
+    <None Remove="logo.jpg" />
+	<None Remove="plugin.json" />
+	<None Remove="Views\Update.cshtml" />
+	<None Remove="Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="logo.jpg">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugin.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Update.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj" />
+    <ProjectReference Include="..\..\Presentation\Nop.Web\Nop.Web.csproj" />
+    <ClearPluginAssemblies Include="$(MSBuildProjectDirectory)\..\..\Build\ClearPluginAssemblies.proj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\AddressSettings.xml" />
+    <EmbeddedResource Include="Data\AdminAreaSettings.xml" />
+    <EmbeddedResource Include="Data\BlogSettings.xml" />
+    <EmbeddedResource Include="Data\CaptchaSettings.xml" />
+    <EmbeddedResource Include="Data\CatalogSettings.xml" />
+    <EmbeddedResource Include="Data\CheckMoneyOrderPaymentSettings.xml" />
+    <EmbeddedResource Include="Data\CommonSettings.xml" />
+    <EmbeddedResource Include="Data\CookieSettings.xml" />
+    <EmbeddedResource Include="Data\CurrencySettings.xml" />
+    <EmbeddedResource Include="Data\CustomerSettings.xml" />
+    <EmbeddedResource Include="Data\DateTimeSettings.xml" />
+    <EmbeddedResource Include="Data\DisplayDefaultFooterItemSettings.xml" />
+    <EmbeddedResource Include="Data\DisplayDefaultMenuItemSettings.xml" />
+    <EmbeddedResource Include="Data\EmailAccountSettings.xml" />
+    <EmbeddedResource Include="Data\ExternalAuthenticationSettings.xml" />
+    <EmbeddedResource Include="Data\FixedByWeightByTotalSettings.xml" />
+    <EmbeddedResource Include="Data\FixedOrByCountryStateZipTaxSettings.xml" />
+    <EmbeddedResource Include="Data\ForumSettings.xml" />
+    <EmbeddedResource Include="Data\GdprSettings.xml" />
+    <EmbeddedResource Include="Data\LocalizationSettings.xml" />
+    <EmbeddedResource Include="Data\MeasureSettings.xml" />
+    <EmbeddedResource Include="Data\MediaSettings.xml" />
+    <EmbeddedResource Include="Data\MessagesSettings.xml" />
+    <EmbeddedResource Include="Data\MessageTemplatesSettings.xml" />
+    <EmbeddedResource Include="Data\MultiFactorAuthenticationSettings.xml" />
+    <EmbeddedResource Include="Data\NewsSettings.xml" />
+    <EmbeddedResource Include="Data\OrderSettings.xml" />
+    <EmbeddedResource Include="Data\PaymentSettings.xml" />
+    <EmbeddedResource Include="Data\PdfSettings.xml" />
+    <EmbeddedResource Include="Data\ProductEditorSettings.xml" />
+    <EmbeddedResource Include="Data\ProxySettings.xml" />
+    <EmbeddedResource Include="Data\RewardPointsSettings.xml" />
+    <EmbeddedResource Include="Data\SecuritySettings.xml" />
+    <EmbeddedResource Include="Data\SeoSettings.xml" />
+    <EmbeddedResource Include="Data\ShippingSettings.xml" />
+    <EmbeddedResource Include="Data\ShoppingCartSettings.xml" />
+    <EmbeddedResource Include="Data\SitemapSettings.xml" />
+    <EmbeddedResource Include="Data\SitemapXmlSettings.xml" />
+    <EmbeddedResource Include="Data\StoreInformationSettings.xml" />
+    <EmbeddedResource Include="Data\TaxSettings.xml" />
+    <EmbeddedResource Include="Data\VendorSettings.xml" />
+    <EmbeddedResource Include="Data\WidgetSettings.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\_ViewImports.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Extensions\" />
+    <Folder Include="Areas\Admin\Factories\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Components\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+ 
+  <!-- This target execute after "Build" target -->
+  <Target Name="NopTarget" AfterTargets="Build">
+    <MSBuild Projects="@(ClearPluginAssemblies)" Properties="PluginPath=$(MSBuildProjectDirectory)\$(OutDir)" Targets="NopClear" />
+  </Target>
+
+</Project>

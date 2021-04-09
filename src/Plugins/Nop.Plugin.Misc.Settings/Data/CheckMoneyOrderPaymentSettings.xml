@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<CheckMoneyOrderPaymentSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DescriptionText>&lt;p&gt;Mail Personal or Business Check, Cashier's Check or money order to:&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;b&gt;NOP SOLUTIONS&lt;/b&gt; &lt;br /&gt;&lt;b&gt;your address here,&lt;/b&gt; &lt;br /&gt;&lt;b&gt;New York, NY 10001 &lt;/b&gt; &lt;br /&gt;&lt;b&gt;USA&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Notice that if you pay by Personal or Business Check, your order may be held for up to 10 days after we receive your check to allow enough time for the check to clear.  If you want us to ship faster upon receipt of your payment, then we recommend your send a money order or Cashier's check.&lt;/p&gt;&lt;p&gt;P.S. You can edit this text from admin panel.&lt;/p&gt;</DescriptionText>
+  <AdditionalFeePercentage>false</AdditionalFeePercentage>
+  <AdditionalFee>0</AdditionalFee>
+  <ShippableProductRequired>false</ShippableProductRequired>
+</CheckMoneyOrderPaymentSettings>

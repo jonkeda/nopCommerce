@@ -36,34 +36,54 @@
 
     <dl>
         <dt>
-            <nop-label asp-for="MetDeur" />
+            <nop-label asp-for="Verdeling2" />
         </dt>
         <dd>
-            <nop-editor asp-for="MetDeur.Value" />
-            <span asp-validation-for="MetDeur.Value"></span>
+            <nop-select asp-for="Verdeling2.Value" asp-items="@await Model.Verdeling2.Value.ToSelectListAsync()" />
+            <span asp-validation-for="Verdeling2.Value"></span>
         </dd>
     </dl>
 
     <dl>
         <dt>
-            <nop-label asp-for="LocatieLoopdeuren" />
+            <nop-label asp-for="Verdeling3" />
         </dt>
         <dd>
-            <nop-select asp-for="LocatieLoopdeuren.Value" asp-items="@await Model.LocatieLoopdeuren.Value.ToSelectListAsync()" />
-            <span asp-validation-for="LocatieLoopdeuren.Value"></span>
+            <nop-select asp-for="Verdeling3.Value" asp-items="@await Model.Verdeling3.Value.ToSelectListAsync()" />
+            <span asp-validation-for="Verdeling3.Value"></span>
         </dd>
     </dl>
 
     <dl>
         <dt>
-            <nop-label asp-for="Schuifrichting" />
+            <nop-label asp-for="Verdeling4" />
         </dt>
         <dd>
-            <nop-select asp-for="Schuifrichting.Value" asp-items="@await Model.Schuifrichting.Value.ToSelectListAsync()" />
-            <span asp-validation-for="Schuifrichting.Value"></span>
+            <nop-select asp-for="Verdeling4.Value" asp-items="@await Model.Verdeling4.Value.ToSelectListAsync()" />
+            <span asp-validation-for="Verdeling4.Value"></span>
         </dd>
     </dl>
 
+    <dl>
+        <dt>
+            <nop-label asp-for="Verdeling5" />
+        </dt>
+        <dd>
+            <nop-select asp-for="Verdeling5.Value" asp-items="@await Model.Verdeling5.Value.ToSelectListAsync()" />
+            <span asp-validation-for="Verdeling5.Value"></span>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>
+            <nop-label asp-for="Verdeling6" />
+        </dt>
+        <dd>
+            <nop-select asp-for="Verdeling6.Value" asp-items="@await Model.Verdeling6.Value.ToSelectListAsync()" />
+            <span asp-validation-for="Verdeling6.Value"></span>
+        </dd>
+    </dl>
+    
     <dl>
         <dt>
             <nop-label asp-for="Vouwrichting" />

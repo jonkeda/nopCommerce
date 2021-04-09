@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ShippingSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ActiveShippingRateComputationMethodSystemNames>
+    <string>Shipping.FixedByWeightByTotal</string>
+  </ActiveShippingRateComputationMethodSystemNames>
+  <ActivePickupPointProviderSystemNames>
+    <string>Pickup.PickupInStore</string>
+  </ActivePickupPointProviderSystemNames>
+  <ShipToSameAddress>true</ShipToSameAddress>
+  <AllowPickupInStore>true</AllowPickupInStore>
+  <DisplayPickupPointsOnMap>false</DisplayPickupPointsOnMap>
+  <IgnoreAdditionalShippingChargeForPickupInStore>true</IgnoreAdditionalShippingChargeForPickupInStore>
+  <GoogleMapsApiKey />
+  <UseWarehouseLocation>false</UseWarehouseLocation>
+  <NotifyCustomerAboutShippingFromMultipleLocations>false</NotifyCustomerAboutShippingFromMultipleLocations>
+  <FreeShippingOverXEnabled>false</FreeShippingOverXEnabled>
+  <FreeShippingOverXValue>0</FreeShippingOverXValue>
+  <FreeShippingOverXIncludingTax>false</FreeShippingOverXIncludingTax>
+  <EstimateShippingCartPageEnabled>true</EstimateShippingCartPageEnabled>
+  <EstimateShippingProductPageEnabled>true</EstimateShippingProductPageEnabled>
+  <DisplayShipmentEventsToCustomers>false</DisplayShipmentEventsToCustomers>
+  <DisplayShipmentEventsToStoreOwner>false</DisplayShipmentEventsToStoreOwner>
+  <HideShippingTotal>false</HideShippingTotal>
+  <ShippingOriginAddressId>0</ShippingOriginAddressId>
+  <ReturnValidOptionsIfThereAreAny>true</ReturnValidOptionsIfThereAreAny>
+  <BypassShippingMethodSelectionIfOnlyOne>false</BypassShippingMethodSelectionIfOnlyOne>
+  <UseCubeRootMethod>true</UseCubeRootMethod>
+  <ConsiderAssociatedProductsDimensions>true</ConsiderAssociatedProductsDimensions>
+  <ShipSeparatelyOneItemEach>true</ShipSeparatelyOneItemEach>
+  <RequestDelay>300</RequestDelay>
+</ShippingSettings>

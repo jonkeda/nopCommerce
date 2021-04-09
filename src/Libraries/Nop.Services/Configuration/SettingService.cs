@@ -341,10 +341,21 @@ namespace Nop.Services.Configuration
         /// <param name="settings">Setting instance</param>
         public virtual async Task SaveSettingAsync<T>(T settings, int storeId = 0) where T : ISettings, new()
         {
+            await SaveSettingAsync(typeof(T), settings, storeId);
+        }
+
+        /// <summary>
+        /// Save settings object
+        /// </summary>
+        /// <param name="type">type</param>
+        /// <param name="storeId">Store identifier</param>
+        /// <param name="settings">Setting instance</param>
+        public virtual async Task SaveSettingAsync(Type type, object settings, int storeId = 0)
+        {
             /* We do not clear cache after each setting update.
              * This behavior can increase performance because cached settings will not be cleared 
              * and loaded from database after each update */
-            foreach (var prop in typeof(T).GetProperties())
+            foreach (var prop in type.GetProperties())
             {
                 // get properties we can read and write to
                 if (!prop.CanRead || !prop.CanWrite)
@@ -353,7 +364,7 @@ namespace Nop.Services.Configuration
                 if (!TypeDescriptor.GetConverter(prop.PropertyType).CanConvertFrom(typeof(string)))
                     continue;
 
-                var key = typeof(T).Name + "." + prop.Name;
+                var key = type.Name + "." + prop.Name;
                 var value = prop.GetValue(settings, null);
                 if (value != null)
                     await SetSettingAsync(prop.PropertyType, key, value, storeId, false);

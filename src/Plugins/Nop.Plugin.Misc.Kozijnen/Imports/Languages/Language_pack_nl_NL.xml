@@ -3,6 +3,9 @@
   <LocaleResource Name="ShoppingCart.CalculatePrice">
     <Value>Bereken prijs</Value>
   </LocaleResource>
+    <LocaleResource Name="ShoppingCart.ProductConfigurationError">
+        <Value>Dit is geen correcte configuratie en kan niet worden gekocht</Value>
+    </LocaleResource>
     <LocaleResource Name="nop.plugin.misc.kozijnen.updated">
         <Value>Kozijnen plugin bijgewerkt</Value>
     </LocaleResource>

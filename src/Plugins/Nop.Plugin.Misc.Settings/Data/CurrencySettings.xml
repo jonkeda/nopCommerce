@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<CurrencySettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DisplayCurrencyLabel>false</DisplayCurrencyLabel>
+  <PrimaryStoreCurrencyId>6</PrimaryStoreCurrencyId>
+  <PrimaryExchangeRateCurrencyId>6</PrimaryExchangeRateCurrencyId>
+  <ActiveExchangeRateProviderSystemName>CurrencyExchange.ECB</ActiveExchangeRateProviderSystemName>
+  <AutoUpdateEnabled>false</AutoUpdateEnabled>
+</CurrencySettings>

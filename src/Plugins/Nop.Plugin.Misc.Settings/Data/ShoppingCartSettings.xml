@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ShoppingCartSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DisplayCartAfterAddingProduct>false</DisplayCartAfterAddingProduct>
+  <DisplayWishlistAfterAddingProduct>false</DisplayWishlistAfterAddingProduct>
+  <MaximumShoppingCartItems>1000</MaximumShoppingCartItems>
+  <MaximumWishlistItems>1000</MaximumWishlistItems>
+  <AllowOutOfStockItemsToBeAddedToWishlist>false</AllowOutOfStockItemsToBeAddedToWishlist>
+  <MoveItemsFromWishlistToCart>true</MoveItemsFromWishlistToCart>
+  <CartsSharedBetweenStores>false</CartsSharedBetweenStores>
+  <ShowProductImagesOnShoppingCart>true</ShowProductImagesOnShoppingCart>
+  <ShowProductImagesOnWishList>true</ShowProductImagesOnWishList>
+  <ShowDiscountBox>true</ShowDiscountBox>
+  <ShowGiftCardBox>false</ShowGiftCardBox>
+  <CrossSellsNumber>4</CrossSellsNumber>
+  <EmailWishlistEnabled>true</EmailWishlistEnabled>
+  <AllowAnonymousUsersToEmailWishlist>false</AllowAnonymousUsersToEmailWishlist>
+  <MiniShoppingCartEnabled>true</MiniShoppingCartEnabled>
+  <ShowProductImagesInMiniShoppingCart>true</ShowProductImagesInMiniShoppingCart>
+  <MiniShoppingCartProductNumber>5</MiniShoppingCartProductNumber>
+  <RoundPricesDuringCalculation>true</RoundPricesDuringCalculation>
+  <GroupTierPricesForDistinctShoppingCartItems>false</GroupTierPricesForDistinctShoppingCartItems>
+  <AllowCartItemEditing>true</AllowCartItemEditing>
+  <RenderAssociatedAttributeValueQuantity>true</RenderAssociatedAttributeValueQuantity>
+</ShoppingCartSettings>

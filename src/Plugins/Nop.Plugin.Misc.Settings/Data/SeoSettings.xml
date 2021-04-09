@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<SeoSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PageTitleSeparator>. </PageTitleSeparator>
+  <PageTitleSeoAdjustment>PagenameAfterStorename</PageTitleSeoAdjustment>
+  <HomepageTitle>Home page title</HomepageTitle>
+  <HomepageDescription>Home page description</HomepageDescription>
+  <DefaultTitle>Your store</DefaultTitle>
+  <DefaultMetaKeywords />
+  <DefaultMetaDescription />
+  <GenerateProductMetaDescription>true</GenerateProductMetaDescription>
+  <ConvertNonWesternChars>false</ConvertNonWesternChars>
+  <AllowUnicodeCharsInUrls>true</AllowUnicodeCharsInUrls>
+  <CanonicalUrlsEnabled>false</CanonicalUrlsEnabled>
+  <QueryStringInCanonicalUrlsEnabled>false</QueryStringInCanonicalUrlsEnabled>
+  <WwwRequirement>NoMatter</WwwRequirement>
+  <TwitterMetaTags>true</TwitterMetaTags>
+  <OpenGraphMetaTags>true</OpenGraphMetaTags>
+  <ReservedUrlRecordSlugs>
+    <string>admin</string>
+    <string>blog</string>
+    <string>boards</string>
+    <string>cart</string>
+    <string>checkout</string>
+    <string>clearcomparelist</string>
+    <string>compareproducts</string>
+    <string>contactus</string>
+    <string>emailwishlist</string>
+    <string>install</string>
+    <string>login</string>
+    <string>logout</string>
+    <string>multi-factor-verification</string>
+    <string>newproducts</string>
+    <string>news</string>
+    <string>onepagecheckout</string>
+    <string>page-not-found</string>
+    <string>passwordrecovery</string>
+    <string>privatemessages</string>
+    <string>profile</string>
+    <string>recentlyviewedproducts</string>
+    <string>register</string>
+    <string>search</string>
+    <string>sitemap</string>
+    <string>storeclosed</string>
+    <string>wishlist</string>
+  </ReservedUrlRecordSlugs>
+  <CustomHeadTags />
+  <MicrodataEnabled>true</MicrodataEnabled>
+</SeoSettings>

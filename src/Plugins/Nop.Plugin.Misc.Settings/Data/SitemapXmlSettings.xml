@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<SitemapXmlSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SitemapXmlEnabled>true</SitemapXmlEnabled>
+  <SitemapXmlIncludeBlogPosts>true</SitemapXmlIncludeBlogPosts>
+  <SitemapXmlIncludeCategories>true</SitemapXmlIncludeCategories>
+  <SitemapXmlIncludeCustomUrls>true</SitemapXmlIncludeCustomUrls>
+  <SitemapXmlIncludeManufacturers>true</SitemapXmlIncludeManufacturers>
+  <SitemapXmlIncludeNews>true</SitemapXmlIncludeNews>
+  <SitemapXmlIncludeProducts>true</SitemapXmlIncludeProducts>
+  <SitemapXmlIncludeProductTags>true</SitemapXmlIncludeProductTags>
+  <SitemapXmlIncludeTopics>true</SitemapXmlIncludeTopics>
+  <SitemapCustomUrls />
+</SitemapXmlSettings>

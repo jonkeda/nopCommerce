@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<AdminAreaSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DefaultGridPageSize>15</DefaultGridPageSize>
+  <PopupGridPageSize>7</PopupGridPageSize>
+  <GridPageSizes>7, 15, 20, 50, 100</GridPageSizes>
+  <RichEditorAdditionalSettings />
+  <RichEditorAllowJavaScript>false</RichEditorAllowJavaScript>
+  <RichEditorAllowStyleTag>false</RichEditorAllowStyleTag>
+  <UseRichEditorForCustomerEmails>false</UseRichEditorForCustomerEmails>
+  <UseRichEditorInMessageTemplates>false</UseRichEditorInMessageTemplates>
+  <HideAdvertisementsOnAdminArea>false</HideAdvertisementsOnAdminArea>
+  <CheckCopyrightRemovalKey>true</CheckCopyrightRemovalKey>
+  <LastNewsTitleAdminArea>"Powered by nopCommerce" link</LastNewsTitleAdminArea>
+  <UseIsoDateFormatInJsonResult>true</UseIsoDateFormatInJsonResult>
+  <ShowDocumentationReferenceLinks>true</ShowDocumentationReferenceLinks>
+</AdminAreaSettings>

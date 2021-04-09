@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<OrderSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <IsReOrderAllowed>true</IsReOrderAllowed>
+  <MinOrderSubtotalAmount>0</MinOrderSubtotalAmount>
+  <MinOrderSubtotalAmountIncludingTax>false</MinOrderSubtotalAmountIncludingTax>
+  <MinOrderTotalAmount>0</MinOrderTotalAmount>
+  <AutoUpdateOrderTotalsOnEditingOrder>false</AutoUpdateOrderTotalsOnEditingOrder>
+  <AnonymousCheckoutAllowed>true</AnonymousCheckoutAllowed>
+  <CheckoutDisabled>false</CheckoutDisabled>
+  <TermsOfServiceOnShoppingCartPage>false</TermsOfServiceOnShoppingCartPage>
+  <TermsOfServiceOnOrderConfirmPage>true</TermsOfServiceOnOrderConfirmPage>
+  <OnePageCheckoutEnabled>true</OnePageCheckoutEnabled>
+  <OnePageCheckoutDisplayOrderTotalsOnPaymentInfoTab>false</OnePageCheckoutDisplayOrderTotalsOnPaymentInfoTab>
+  <DisableBillingAddressCheckoutStep>false</DisableBillingAddressCheckoutStep>
+  <DisableOrderCompletedPage>false</DisableOrderCompletedPage>
+  <DisplayPickupInStoreOnShippingMethodPage>false</DisplayPickupInStoreOnShippingMethodPage>
+  <AttachPdfInvoiceToOrderPlacedEmail>false</AttachPdfInvoiceToOrderPlacedEmail>
+  <AttachPdfInvoiceToOrderPaidEmail>false</AttachPdfInvoiceToOrderPaidEmail>
+  <AttachPdfInvoiceToOrderCompletedEmail>false</AttachPdfInvoiceToOrderCompletedEmail>
+  <GeneratePdfInvoiceInCustomerLanguage>true</GeneratePdfInvoiceInCustomerLanguage>
+  <ReturnRequestsEnabled>true</ReturnRequestsEnabled>
+  <ReturnRequestsAllowFiles>false</ReturnRequestsAllowFiles>
+  <ReturnRequestsFileMaximumSize>2048</ReturnRequestsFileMaximumSize>
+  <ReturnRequestNumberMask>{ID}</ReturnRequestNumberMask>
+  <NumberOfDaysReturnRequestAvailable>365</NumberOfDaysReturnRequestAvailable>
+  <ActivateGiftCardsAfterCompletingOrder>false</ActivateGiftCardsAfterCompletingOrder>
+  <DeactivateGiftCardsAfterCancellingOrder>false</DeactivateGiftCardsAfterCancellingOrder>
+  <DeactivateGiftCardsAfterDeletingOrder>false</DeactivateGiftCardsAfterDeletingOrder>
+  <MinimumOrderPlacementInterval>30</MinimumOrderPlacementInterval>
+  <CompleteOrderWhenDelivered>true</CompleteOrderWhenDelivered>
+  <CustomOrderNumberMask>{ID}</CustomOrderNumberMask>
+  <ExportWithProducts>true</ExportWithProducts>
+  <AllowAdminsToBuyCallForPriceProducts>true</AllowAdminsToBuyCallForPriceProducts>
+  <DeleteGiftCardUsageHistory>false</DeleteGiftCardUsageHistory>
+  <DisplayCustomerCurrencyOnOrders>false</DisplayCustomerCurrencyOnOrders>
+</OrderSettings>

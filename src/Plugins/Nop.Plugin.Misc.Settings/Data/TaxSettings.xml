@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<TaxSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TaxBasedOn>BillingAddress</TaxBasedOn>
+  <TaxBasedOnPickupPointAddress>false</TaxBasedOnPickupPointAddress>
+  <TaxDisplayType>IncludingTax</TaxDisplayType>
+  <ActiveTaxProviderSystemName>Tax.FixedOrByCountryStateZip</ActiveTaxProviderSystemName>
+  <DefaultTaxAddressId>7</DefaultTaxAddressId>
+  <DisplayTaxSuffix>true</DisplayTaxSuffix>
+  <DisplayTaxRates>true</DisplayTaxRates>
+  <PricesIncludeTax>true</PricesIncludeTax>
+  <AllowCustomersToSelectTaxDisplayType>false</AllowCustomersToSelectTaxDisplayType>
+  <HideZeroTax>false</HideZeroTax>
+  <HideTaxInOrderSummary>false</HideTaxInOrderSummary>
+  <ForceTaxExclusionFromOrderSubtotal>false</ForceTaxExclusionFromOrderSubtotal>
+  <DefaultTaxCategoryId>1</DefaultTaxCategoryId>
+  <ShippingIsTaxable>false</ShippingIsTaxable>
+  <ShippingPriceIncludesTax>false</ShippingPriceIncludesTax>
+  <ShippingTaxClassId>0</ShippingTaxClassId>
+  <PaymentMethodAdditionalFeeIsTaxable>false</PaymentMethodAdditionalFeeIsTaxable>
+  <PaymentMethodAdditionalFeeIncludesTax>false</PaymentMethodAdditionalFeeIncludesTax>
+  <PaymentMethodAdditionalFeeTaxClassId>0</PaymentMethodAdditionalFeeTaxClassId>
+  <EuVatEnabled>true</EuVatEnabled>
+  <EuVatShopCountryId>158</EuVatShopCountryId>
+  <EuVatAllowVatExemption>false</EuVatAllowVatExemption>
+  <EuVatUseWebService>false</EuVatUseWebService>
+  <EuVatAssumeValid>false</EuVatAssumeValid>
+  <EuVatEmailAdminWhenNewVatSubmitted>false</EuVatEmailAdminWhenNewVatSubmitted>
+  <LogErrors>false</LogErrors>
+</TaxSettings>

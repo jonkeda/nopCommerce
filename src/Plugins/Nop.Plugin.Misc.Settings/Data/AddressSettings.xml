@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<AddressSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CompanyEnabled>true</CompanyEnabled>
+  <CompanyRequired>false</CompanyRequired>
+  <StreetAddressEnabled>true</StreetAddressEnabled>
+  <StreetAddressRequired>true</StreetAddressRequired>
+  <StreetAddress2Enabled>true</StreetAddress2Enabled>
+  <StreetAddress2Required>false</StreetAddress2Required>
+  <ZipPostalCodeEnabled>true</ZipPostalCodeEnabled>
+  <ZipPostalCodeRequired>true</ZipPostalCodeRequired>
+  <CityEnabled>true</CityEnabled>
+  <CityRequired>true</CityRequired>
+  <CountyEnabled>false</CountyEnabled>
+  <CountyRequired>false</CountyRequired>
+  <CountryEnabled>true</CountryEnabled>
+  <StateProvinceEnabled>true</StateProvinceEnabled>
+  <PhoneEnabled>true</PhoneEnabled>
+  <PhoneRequired>true</PhoneRequired>
+  <FaxEnabled>true</FaxEnabled>
+  <FaxRequired>false</FaxRequired>
+  <PreselectCountryIfOnlyOne>false</PreselectCountryIfOnlyOne>
+</AddressSettings>

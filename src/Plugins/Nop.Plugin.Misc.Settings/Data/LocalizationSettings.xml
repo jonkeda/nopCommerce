@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<LocalizationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DefaultAdminLanguageId>1</DefaultAdminLanguageId>
+  <UseImagesForLanguageSelection>false</UseImagesForLanguageSelection>
+  <SeoFriendlyUrlsForLanguagesEnabled>false</SeoFriendlyUrlsForLanguagesEnabled>
+  <AutomaticallyDetectLanguage>false</AutomaticallyDetectLanguage>
+  <LoadAllLocaleRecordsOnStartup>true</LoadAllLocaleRecordsOnStartup>
+  <LoadAllLocalizedPropertiesOnStartup>true</LoadAllLocalizedPropertiesOnStartup>
+  <LoadAllUrlRecordsOnStartup>false</LoadAllUrlRecordsOnStartup>
+  <IgnoreRtlPropertyForAdminArea>false</IgnoreRtlPropertyForAdminArea>
+</LocalizationSettings>

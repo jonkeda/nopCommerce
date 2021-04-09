@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ForumSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ForumsEnabled>false</ForumsEnabled>
+  <RelativeDateTimeFormattingEnabled>true</RelativeDateTimeFormattingEnabled>
+  <AllowCustomersToEditPosts>false</AllowCustomersToEditPosts>
+  <AllowCustomersToManageSubscriptions>false</AllowCustomersToManageSubscriptions>
+  <AllowGuestsToCreatePosts>false</AllowGuestsToCreatePosts>
+  <AllowGuestsToCreateTopics>false</AllowGuestsToCreateTopics>
+  <AllowCustomersToDeletePosts>false</AllowCustomersToDeletePosts>
+  <AllowPostVoting>true</AllowPostVoting>
+  <MaxVotesPerDay>30</MaxVotesPerDay>
+  <TopicSubjectMaxLength>450</TopicSubjectMaxLength>
+  <StrippedTopicMaxLength>45</StrippedTopicMaxLength>
+  <PostMaxLength>4000</PostMaxLength>
+  <TopicsPageSize>10</TopicsPageSize>
+  <PostsPageSize>10</PostsPageSize>
+  <SearchResultsPageSize>10</SearchResultsPageSize>
+  <ActiveDiscussionsPageSize>50</ActiveDiscussionsPageSize>
+  <LatestCustomerPostsPageSize>10</LatestCustomerPostsPageSize>
+  <ShowCustomersPostCount>true</ShowCustomersPostCount>
+  <ForumEditor>BBCodeEditor</ForumEditor>
+  <SignaturesEnabled>true</SignaturesEnabled>
+  <AllowPrivateMessages>false</AllowPrivateMessages>
+  <ShowAlertForPM>false</ShowAlertForPM>
+  <PrivateMessagesPageSize>10</PrivateMessagesPageSize>
+  <ForumSubscriptionsPageSize>10</ForumSubscriptionsPageSize>
+  <NotifyAboutPrivateMessages>false</NotifyAboutPrivateMessages>
+  <PMSubjectMaxLength>450</PMSubjectMaxLength>
+  <PMTextMaxLength>4000</PMTextMaxLength>
+  <HomepageActiveDiscussionsTopicCount>5</HomepageActiveDiscussionsTopicCount>
+  <ActiveDiscussionsFeedCount>25</ActiveDiscussionsFeedCount>
+  <ActiveDiscussionsFeedEnabled>false</ActiveDiscussionsFeedEnabled>
+  <ForumFeedsEnabled>false</ForumFeedsEnabled>
+  <ForumFeedCount>10</ForumFeedCount>
+  <ForumSearchTermMinimumLength>3</ForumSearchTermMinimumLength>
+</ForumSettings>

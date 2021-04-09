@@ -31,6 +31,8 @@ var productConfigurator = {
             productConfigurator.SetCfg(JSON.parse(configuration));
           }
           productConfigurator.Calculate();
+        } else {
+          productConfigurator.Calculate();
         }
         var i;
         for (i = 0; i < productConfigurator.Fields.length; i++) {
