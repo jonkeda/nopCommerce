@@ -1276,7 +1276,7 @@ namespace Nop.Web.Factories
         /// <param name="isAssociatedProduct">Whether the product is associated</param>
         /// <returns>Product details model</returns>
         public virtual async Task<ProductDetailsModel> PrepareProductDetailsModelAsync(Product product,
-            ShoppingCartItem updatecartitem = null, bool isAssociatedProduct = false)
+            ShoppingCartItem updatecartitem = null, Product originalProduct = null, bool isAssociatedProduct = false)
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -1499,10 +1499,11 @@ namespace Nop.Web.Factories
                 {
                     var associatedProducts = await _productService.GetAssociatedProductsAsync(product.Id, (await _storeContext.GetCurrentStoreAsync()).Id);
                     foreach (var associatedProduct in associatedProducts)
-                        model.AssociatedProducts.Add(await PrepareProductDetailsModelAsync(associatedProduct, null, true));
+                        model.AssociatedProducts.Add(await PrepareProductDetailsModelAsync(associatedProduct, null, null, true));
                 }
             }
 
+            // PCFG Product configuration
             if (product.IsConfiguratorEnabled)
             {
                 var productConfigurator = await _productConfiguratorPluginManager
@@ -1522,6 +1523,10 @@ namespace Nop.Web.Factories
                     if (updatecartitem != null)
                     {
                         configuration = updatecartitem.Configuration;
+                    }
+                    else if (originalProduct != null)
+                    {
+                        configuration = originalProduct.Configuration;
                     }
                     else
                     {

@@ -68,5 +68,10 @@ namespace Nop.Core.Domain.Catalog
         /// </summary>
         public string RouteName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the main product of the configurator
+        /// </summary>
+        public int ProductId { get; set; }
+
     }
 }

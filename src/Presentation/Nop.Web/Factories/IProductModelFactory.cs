@@ -48,7 +48,7 @@ namespace Nop.Web.Factories
         /// <param name="updatecartitem">Updated shopping cart item</param>
         /// <param name="isAssociatedProduct">Whether the product is associated</param>
         /// <returns>Product details model</returns>
-        Task<ProductDetailsModel> PrepareProductDetailsModelAsync(Product product, ShoppingCartItem updatecartitem = null, bool isAssociatedProduct = false);
+        Task<ProductDetailsModel> PrepareProductDetailsModelAsync(Product product, ShoppingCartItem updatecartitem = null, Product originalProduct = null, bool isAssociatedProduct = false);
 
         /// <summary>
         /// Prepare the product reviews model

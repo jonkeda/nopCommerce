@@ -47,6 +47,7 @@ namespace Nop.Web.Controllers
         private readonly IProductAttributeParser _productAttributeParser;
         private readonly IProductModelFactory _productModelFactory;
         private readonly IProductService _productService;
+        private readonly IProductConfiguratorService _productConfiguratorService;
         private readonly IRecentlyViewedProductsService _recentlyViewedProductsService;
         private readonly IReviewTypeService _reviewTypeService;
         private readonly IShoppingCartModelFactory _shoppingCartModelFactory;
@@ -76,6 +77,7 @@ namespace Nop.Web.Controllers
             IPermissionService permissionService,
             IProductAttributeParser productAttributeParser,
             IProductModelFactory productModelFactory,
+            IProductConfiguratorService productConfiguratorService,
             IProductService productService,
             IRecentlyViewedProductsService recentlyViewedProductsService,
             IReviewTypeService reviewTypeService,
@@ -101,6 +103,7 @@ namespace Nop.Web.Controllers
             _orderService = orderService;
             _permissionService = permissionService;
             _productAttributeParser = productAttributeParser;
+            _productConfiguratorService = productConfiguratorService;
             _productModelFactory = productModelFactory;
             _productService = productService;
             _reviewTypeService = reviewTypeService;
@@ -183,6 +186,24 @@ namespace Nop.Web.Controllers
                 return RedirectToRoutePermanent("Product", new { SeName = await _urlRecordService.GetSeNameAsync(parentGroupedProduct) });
             }
 
+            Product originalProduct = null;
+            //pcfg Load main configurator product
+            if (product.IsConfiguratorEnabled
+                && product.ConfiguratorId != 0
+                && updatecartitemid == 0)
+            {
+                originalProduct = product;
+                var productConfigurator = await _productConfiguratorService.GetProductConfiguratorByIdAsync(product.ConfiguratorId);
+                if (productConfigurator.ProductId != 0)
+                {
+                    product = await _productService.GetProductByIdAsync(productConfigurator.ProductId);
+                }
+                else
+                {
+                    originalProduct = null;
+                }
+            }
+
             //update existing shopping cart or wishlist  item?
             ShoppingCartItem updatecartitem = null;
             if (_shoppingCartSettings.AllowCartItemEditing && updatecartitemid > 0)
@@ -220,7 +241,7 @@ namespace Nop.Web.Controllers
                 string.Format(await _localizationService.GetResourceAsync("ActivityLog.PublicStore.ViewProduct"), product.Name), product);
 
             //model
-            var model = await _productModelFactory.PrepareProductDetailsModelAsync(product, updatecartitem, false);
+            var model = await _productModelFactory.PrepareProductDetailsModelAsync(product, updatecartitem, originalProduct, false);
             //template
             var productTemplateViewPath = await _productModelFactory.PrepareProductTemplateViewPathAsync(product);
 

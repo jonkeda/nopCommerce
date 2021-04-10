@@ -54,12 +54,13 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
 
         public async Task Import(IImportDefinition definition)
         {
-            int configuratorId = 0;
+            var configuratorId = 0;
             IProductConfiguratorProvider configurator = null;
             if (definition is IProductConfiguratorDefinition configuratorDefinition)
             {
-                configurator = configuratorDefinition.GetConfigurator();
-                configuratorId = await InstallProductConfigurator(configurator);
+                var tuple = await ImportProductConfigurator(configuratorDefinition);
+                configurator = tuple.Item1;
+                configuratorId = tuple.Item2;
             }
             if (definition is ICategoryImportDefinition category)
             {
@@ -74,6 +75,21 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
                 await ImportLanguage(language);
             }
 
+        }
+
+        private async Task<Tuple<IProductConfiguratorProvider, int>> ImportProductConfigurator(IProductConfiguratorDefinition configuratorDefinition)
+        {
+            var configurator = configuratorDefinition.GetConfigurator();
+            var configuratorId = await InstallProductConfigurator(configurator);
+
+            ProductImport import = configuratorDefinition.GetProduct();
+            object model = import.GetConfiguration();
+            int productId = await AddUpdateProduct(null, import.Name, import.CategoryName, import.PictureName, import.Published, import.DisplayOrder,
+                configuratorId, configurator, model);
+
+            await UpdateProductConfigurator(configuratorId, productId);
+            
+            return  new Tuple<IProductConfiguratorProvider, int>(configurator, configuratorId);
         }
 
         #endregion
@@ -328,7 +344,8 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
                     });
                 }
             }
-            if (!string.IsNullOrEmpty(pictureName)
+            if (definition != null
+                && !string.IsNullOrEmpty(pictureName)
                 && !(await _productService.GetProductPicturesByProductIdAsync(product.Id)).Any())
             {
                 var picture = await _pictureService.InsertPictureAsync(
@@ -369,6 +386,17 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
                 return productConfigurator.Id;
             }
             return 0;
+        }
+
+        private async Task UpdateProductConfigurator(int configuratorId, int productId)
+        {
+            var configurator = await _productConfiguratorService.GetProductConfiguratorByIdAsync(configuratorId);
+            if (configurator != null)
+            {
+                configurator.ProductId = productId;
+
+                await _productConfiguratorService.UpdateProductConfiguratorAsync(configurator);
+            }
         }
 
         #endregion
