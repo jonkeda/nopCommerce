@@ -3234,6 +3234,7 @@ namespace Nop.Services.Installation
                 ShowDiscountBox = true,
                 ShowGiftCardBox = true,
                 CrossSellsNumber = 4,
+                WishlistEnabled = true,
                 EmailWishlistEnabled = true,
                 AllowAnonymousUsersToEmailWishlist = false,
                 MiniShoppingCartEnabled = true,

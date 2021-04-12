@@ -92,6 +92,7 @@ namespace Nop.Web.Factories
         private readonly NewsSettings _newsSettings;
         private readonly SitemapSettings _sitemapSettings;
         private readonly SitemapXmlSettings _sitemapXmlSettings;
+        private readonly ShoppingCartSettings _shoppingCartSettings;
         private readonly StoreInformationSettings _storeInformationSettings;
         private readonly VendorSettings _vendorSettings;
 
@@ -140,6 +141,7 @@ namespace Nop.Web.Factories
             NewsSettings newsSettings,
             SitemapSettings sitemapSettings,
             SitemapXmlSettings sitemapXmlSettings,
+            ShoppingCartSettings shoppingCartSettings,
             StoreInformationSettings storeInformationSettings,
             VendorSettings vendorSettings)
         {
@@ -184,6 +186,7 @@ namespace Nop.Web.Factories
             _newsSettings = newsSettings;
             _sitemapSettings = sitemapSettings;
             _sitemapXmlSettings = sitemapXmlSettings;
+            _shoppingCartSettings = shoppingCartSettings;
             _storeInformationSettings = storeInformationSettings;
             _vendorSettings = vendorSettings;
         }
@@ -357,7 +360,8 @@ namespace Nop.Web.Factories
                 IsAuthenticated = await _customerService.IsRegisteredAsync(customer),
                 CustomerName = await _customerService.IsRegisteredAsync(customer) ? await _customerService.FormatUsernameAsync(customer) : string.Empty,
                 ShoppingCartEnabled = await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableShoppingCart),
-                WishlistEnabled = await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist),
+                WishlistEnabled = await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist)
+                                        && _shoppingCartSettings.WishlistEnabled,
                 AllowPrivateMessages = await _customerService.IsRegisteredAsync(customer) && _forumSettings.AllowPrivateMessages,
                 UnreadPrivateMessages = unreadMessage,
                 AlertMessage = alertMessage,
@@ -435,7 +439,7 @@ namespace Nop.Web.Factories
             var model = new FooterModel
             {
                 StoreName = await _localizationService.GetLocalizedAsync(await _storeContext.GetCurrentStoreAsync(), x => x.Name),
-                WishlistEnabled = await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist),
+                WishlistEnabled = await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist) && _shoppingCartSettings.WishlistEnabled,
                 ShoppingCartEnabled = await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableShoppingCart),
                 SitemapEnabled = _sitemapSettings.SitemapEnabled,
                 SearchEnabled = _catalogSettings.ProductSearchEnabled,

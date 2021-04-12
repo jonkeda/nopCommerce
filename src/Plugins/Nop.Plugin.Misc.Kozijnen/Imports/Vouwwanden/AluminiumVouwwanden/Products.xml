@@ -6,6 +6,7 @@
 		<PictureName>2_delig.PNG</PictureName>
 		<Published>true</Published>
 		<DisplayOrder>0</DisplayOrder>
+		<ShowOnHomepage>true</ShowOnHomepage>
 		<BreedteKozijn>1700</BreedteKozijn>
 		<HoogteKozijn>2000</HoogteKozijn>
 		<AantalDelen>Delen2</AantalDelen>
@@ -30,6 +31,7 @@
 		<PictureName>3_delig_andere_kant.PNG</PictureName>
 		<Published>true</Published>
 		<DisplayOrder>10</DisplayOrder>
+		<ShowOnHomepage>true</ShowOnHomepage>
 		<BreedteKozijn>2300</BreedteKozijn>
 		<HoogteKozijn>2000</HoogteKozijn>
 		<AantalDelen>Delen3</AantalDelen>
@@ -54,6 +56,7 @@
 		<PictureName>4_delig_andere_kant.PNG</PictureName>
 		<Published>true</Published>
 		<DisplayOrder>20</DisplayOrder>
+		<ShowOnHomepage>true</ShowOnHomepage>
 		<BreedteKozijn>3000</BreedteKozijn>
 		<HoogteKozijn>2000</HoogteKozijn>
 		<AantalDelen>Delen4</AantalDelen>
@@ -77,6 +80,7 @@
 		<CategoryName>Vouwwanden</CategoryName>
 		<Published>true</Published>
 		<DisplayOrder>30</DisplayOrder>
+		<ShowOnHomepage>true</ShowOnHomepage>
 		<BreedteKozijn>3800</BreedteKozijn>
 		<HoogteKozijn>2000</HoogteKozijn>
 		<AantalDelen>Delen5</AantalDelen>
@@ -101,6 +105,7 @@
 		<PictureName>6_delig_symmetrisch.PNG</PictureName>
 		<Published>true</Published>
 		<DisplayOrder>40</DisplayOrder>
+		<ShowOnHomepage>true</ShowOnHomepage>
 		<BreedteKozijn>4400</BreedteKozijn>
 		<HoogteKozijn>2000</HoogteKozijn>
 		<AantalDelen>Delen6</AantalDelen>

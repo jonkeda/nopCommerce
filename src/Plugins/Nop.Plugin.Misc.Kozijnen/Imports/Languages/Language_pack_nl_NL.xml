@@ -3,12 +3,19 @@
   <LocaleResource Name="ShoppingCart.CalculatePrice">
     <Value>Bereken prijs</Value>
   </LocaleResource>
-    <LocaleResource Name="ShoppingCart.ProductConfigurationError">
-        <Value>Dit is geen correcte configuratie en kan niet worden gekocht</Value>
-    </LocaleResource>
-    <LocaleResource Name="nop.plugin.misc.kozijnen.updated">
-        <Value>Kozijnen plugin bijgewerkt</Value>
-    </LocaleResource>
+  <LocaleResource Name="ShoppingCart.ProductConfigurationError">
+    <Value>Dit is geen correcte configuratie en kan niet worden gekocht</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.ShoppingCart.WishlistEnabled">
+    <Value>Toon verlanglijst</Value>
+  </LocaleResource>
+  <LocaleResource Name="nop.plugin.misc.kozijnen.updated">
+    <Value>Kozijnen plugin bijgewerkt</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="nop.plugin.misc.settings.updated">
+    <Value>Settings bijgewerkt</Value>
+  </LocaleResource>
 
   <LocaleResource Name="Admin.Catalog.ProductConfigurator.List.SearchProductConfiguratorName">
     <Value>Zoek product configurator</Value>
@@ -62,13 +69,13 @@
   <LocaleResource Name="Admin.Catalog.ProductConfigurator.Edit">
     <Value>Bewerken</Value>
   </LocaleResource>
-  
+
   <LocaleResource Name="Admin.Catalog.ProductConfigurator">
-      <Value>Product configurator</Value>
+    <Value>Product configurator</Value>
   </LocaleResource>
-    <LocaleResource Name="Admin.Catalog.ProductConfigurators">
-        <Value>Product configuratoren</Value>
-    </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.ProductConfigurators">
+    <Value>Product configuratoren</Value>
+  </LocaleResource>
 
   <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator">
     <Value>Product configurator</Value>
@@ -76,9 +83,9 @@
   <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.Configure">
     <Value>Configureer product</Value>
   </LocaleResource>
-    <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.Configuration">
-        <Value>Product configuratie</Value>
-    </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.Configuration">
+    <Value>Product configuratie</Value>
+  </LocaleResource>
   <LocaleResource Name="Admin.Catalog.Products.ProductConfigurator.None">
     <Value>Geen</Value>
   </LocaleResource>

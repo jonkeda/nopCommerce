@@ -1643,7 +1643,9 @@ namespace Nop.Web.Areas.Admin.Controllers
                 picture.MimeType,
                 picture.SeoFilename,
                 overrideAltAttribute,
-                overrideTitleAttribute);
+                overrideTitleAttribute, 
+                mediaType:picture.MediaType,
+                name:picture.Name);
 
             await _pictureService.SetSeoFilenameAsync(pictureId, await _pictureService.GetPictureSeNameAsync(product.Name));
 
@@ -1704,7 +1706,9 @@ namespace Nop.Web.Areas.Admin.Controllers
                 picture.MimeType,
                 picture.SeoFilename,
                 model.OverrideAltAttribute,
-                model.OverrideTitleAttribute);
+                model.OverrideTitleAttribute,
+                mediaType: picture.MediaType,
+                name: picture.Name);
 
             productPicture.DisplayOrder = model.DisplayOrder;
             await _productService.UpdateProductPictureAsync(productPicture);

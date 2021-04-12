@@ -1491,7 +1491,7 @@ namespace Nop.Services.Orders
                 return warnings;
             }
 
-            if (shoppingCartType == ShoppingCartType.Wishlist && !await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist, customer))
+            if (shoppingCartType == ShoppingCartType.Wishlist && (!_shoppingCartSettings.WishlistEnabled || !await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist, customer)))
             {
                 warnings.Add("Wishlist is disabled");
                 return warnings;

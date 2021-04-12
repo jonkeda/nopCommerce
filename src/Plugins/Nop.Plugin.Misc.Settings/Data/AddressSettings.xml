@@ -4,7 +4,7 @@
   <CompanyRequired>false</CompanyRequired>
   <StreetAddressEnabled>true</StreetAddressEnabled>
   <StreetAddressRequired>true</StreetAddressRequired>
-  <StreetAddress2Enabled>true</StreetAddress2Enabled>
+  <StreetAddress2Enabled>false</StreetAddress2Enabled>
   <StreetAddress2Required>false</StreetAddress2Required>
   <ZipPostalCodeEnabled>true</ZipPostalCodeEnabled>
   <ZipPostalCodeRequired>true</ZipPostalCodeRequired>
@@ -13,10 +13,10 @@
   <CountyEnabled>false</CountyEnabled>
   <CountyRequired>false</CountyRequired>
   <CountryEnabled>true</CountryEnabled>
-  <StateProvinceEnabled>true</StateProvinceEnabled>
+  <StateProvinceEnabled>false</StateProvinceEnabled>
   <PhoneEnabled>true</PhoneEnabled>
   <PhoneRequired>true</PhoneRequired>
-  <FaxEnabled>true</FaxEnabled>
+  <FaxEnabled>false</FaxEnabled>
   <FaxRequired>false</FaxRequired>
   <PreselectCountryIfOnlyOne>false</PreselectCountryIfOnlyOne>
 </AddressSettings>

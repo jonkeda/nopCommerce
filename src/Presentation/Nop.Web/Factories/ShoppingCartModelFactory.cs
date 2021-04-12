@@ -522,6 +522,7 @@ namespace Nop.Web.Factories
                 ProductSeName = await _urlRecordService.GetSeNameAsync(product),
                 Quantity = sci.Quantity,
                 AttributeInfo = await _productAttributeFormatter.FormatAttributesAsync(product, sci.AttributesXml),
+                ConfigurationDescription = HtmlHelper.FormatText(sci.ConfigurationDescription, true, true, false, true, false, false)
             };
 
             //allow editing?
@@ -532,6 +533,7 @@ namespace Nop.Web.Factories
             cartItemModel.AllowItemEditing = _shoppingCartSettings.AllowCartItemEditing &&
                                              product.ProductType == ProductType.SimpleProduct &&
                                              (!string.IsNullOrEmpty(cartItemModel.AttributeInfo) ||
+                                              !string.IsNullOrEmpty(cartItemModel.ConfigurationDescription) ||
                                               product.IsGiftCard) &&
                                              product.VisibleIndividually;
 
@@ -991,7 +993,7 @@ namespace Nop.Web.Factories
         /// Prepare the mini shopping cart model
         /// </summary>
         /// <returns>Mini shopping cart model</returns>
-        public virtual async Task<MiniShoppingCartModel> PrepareMiniShoppingCartModelAsync()
+        public virtual async Task<MiniShoppingCartModel> PrepareMiniShoppingCartModelAsync(bool isEditable = true)
         {
             var model = new MiniShoppingCartModel
             {
@@ -1010,6 +1012,8 @@ namespace Nop.Web.Factories
                 if (cart.Any())
                 {
                     model.TotalProducts = cart.Sum(item => item.Quantity);
+
+                    model.IsEditable = isEditable;
 
                     //subtotal
                     var subTotalIncludingTax = await _workContext.GetTaxDisplayTypeAsync() == TaxDisplayType.IncludingTax && !_taxSettings.ForceTaxExclusionFromOrderSubtotal;
@@ -1055,8 +1059,22 @@ namespace Nop.Web.Factories
                             ProductName = await _localizationService.GetLocalizedAsync(product, x => x.Name),
                             ProductSeName = await _urlRecordService.GetSeNameAsync(product),
                             Quantity = sci.Quantity,
-                            AttributeInfo = await _productAttributeFormatter.FormatAttributesAsync(product, sci.AttributesXml)
+                            AttributeInfo = await _productAttributeFormatter.FormatAttributesAsync(product, sci.AttributesXml),
+                            ConfigurationDescription = HtmlHelper.FormatText(sci.ConfigurationDescription, true, true, false, true, false, false)
                         };
+
+                        //allow editing?
+                        //1. setting enabled?
+                        //2. simple product?
+                        //3. has attribute or gift card or has ConfigurationDescription?
+                        //4. visible individually?
+                        cartItemModel.AllowItemEditing = _shoppingCartSettings.AllowCartItemEditing &&
+                                                         product.ProductType == ProductType.SimpleProduct &&
+                                                         (!string.IsNullOrEmpty(cartItemModel.AttributeInfo) ||
+                                                          !string.IsNullOrEmpty(cartItemModel.ConfigurationDescription) ||
+                                                          product.IsGiftCard) &&
+                                                         product.VisibleIndividually;
+
 
                         //unit prices
                         if (product.CallForPrice &&

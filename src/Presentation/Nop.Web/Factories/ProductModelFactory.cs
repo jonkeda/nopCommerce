@@ -75,6 +75,7 @@ namespace Nop.Web.Factories
         private readonly IStaticCacheManager _staticCacheManager;
         private readonly IStoreContext _storeContext;
         private readonly IShoppingCartModelFactory _shoppingCartModelFactory;
+        private readonly ShoppingCartSettings _shoppingCartSettings;
         private readonly ITaxService _taxService;
         private readonly IUrlRecordService _urlRecordService;
         private readonly IVendorService _vendorService;
@@ -117,6 +118,7 @@ namespace Nop.Web.Factories
             IStaticCacheManager staticCacheManager,
             IStoreContext storeContext,
             IShoppingCartModelFactory shoppingCartModelFactory,
+            ShoppingCartSettings shoppingCartSettings,
             ITaxService taxService,
             IUrlRecordService urlRecordService,
             IVendorService vendorService,
@@ -155,6 +157,7 @@ namespace Nop.Web.Factories
             _staticCacheManager = staticCacheManager;
             _storeContext = storeContext;
             _shoppingCartModelFactory = shoppingCartModelFactory;
+            _shoppingCartSettings = shoppingCartSettings;
             _taxService = taxService;
             _urlRecordService = urlRecordService;
             _vendorService = vendorService;
@@ -310,6 +313,7 @@ namespace Nop.Web.Factories
 
             //add to wishlist button
             priceModel.DisableWishlistButton = product.DisableWishlistButton ||
+                                               !_shoppingCartSettings.WishlistEnabled ||
                                                !await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist) ||
                                                !await _permissionService.AuthorizeAsync(StandardPermissionProvider.DisplayPrices);
             //compare products
@@ -431,6 +435,7 @@ namespace Nop.Web.Factories
 
             //add to wishlist button (ignore "DisableWishlistButton" property for grouped products)
             priceModel.DisableWishlistButton =
+                !_shoppingCartSettings.WishlistEnabled ||
                 !await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist) ||
                 !await _permissionService.AuthorizeAsync(StandardPermissionProvider.DisplayPrices);
 
@@ -735,7 +740,8 @@ namespace Nop.Web.Factories
 
             //'add to cart', 'add to wishlist' buttons
             model.DisableBuyButton = product.DisableBuyButton || !await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableShoppingCart);
-            model.DisableWishlistButton = product.DisableWishlistButton || !await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist);
+            model.DisableWishlistButton = product.DisableWishlistButton || !await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableWishlist)
+                || !_shoppingCartSettings.WishlistEnabled;
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.DisplayPrices))
             {
                 model.DisableBuyButton = true;

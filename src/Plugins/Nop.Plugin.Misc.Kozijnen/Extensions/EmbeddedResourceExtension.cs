@@ -12,9 +12,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Extensions
             return space.Substring(0, index);
         }
 
-        public static string Combine(this Type type, string fullname)
+        public static string Combine(this Type type, string name)
         {
-            return $"{type.GetNamespace()}.{fullname}";
+            return $"{type.GetNamespace()}.{name}";
         }
 
         public static Stream GetStream(this Type type, string name)
@@ -22,9 +22,14 @@ namespace Nop.Plugin.Misc.Kozijnen.Extensions
             return type.Assembly.GetManifestResourceStream( Combine(type, name));
         }
 
-        public static string ReadAsString(this Type type, string fullname)
+        public static bool ResourceExists(this Type type, string name)
         {
-            using (var stream = GetStream(type, fullname))
+            return type.Assembly.GetManifestResourceInfo(Combine(type, name)) != null;
+        }
+
+        public static string ResourceAsString(this Type type, string name)
+        {
+            using (var stream = GetStream(type, name))
             {
                 if (stream == null)
                 {
@@ -37,10 +42,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Extensions
             }
         }
         
-        public static byte[] ReadAsBytes(this Type type, string fullname)
+        public static byte[] ResourceAsBytes(this Type type, string name)
         {
-            //string fullname = $"Nop.Plugin.Misc.Kozijnen.Images.Vouwwanden.{name}";
-            using (var stream = GetStream(type, fullname))
+            using (var stream = GetStream(type, name))
             {
                 if (stream == null)
                 {

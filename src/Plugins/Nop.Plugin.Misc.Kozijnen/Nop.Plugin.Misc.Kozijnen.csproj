@@ -39,6 +39,8 @@
     <None Remove="Imports\Vouwwanden\4_delig_symmetrisch.PNG" />
     <None Remove="Imports\Vouwwanden\4_delig_zelfde_kant.PNG" />
     <None Remove="Imports\Vouwwanden\6_delig_symmetrisch.PNG" />
+    <None Remove="Imports\Vouwwanden\AluminiumVouwwanden\2_delig_links_vouwend.PNG" />
+    <None Remove="Imports\Vouwwanden\AluminiumVouwwanden\2_delig_rechts_vouwend.png" />
     <None Remove="Imports\Vouwwanden\AluminiumVouwwanden\Products.xml" />
     <None Remove="Imports\Vouwwanden\Categories.xml" />
     <None Remove="logo.jpg" />
@@ -116,7 +118,9 @@
     <EmbeddedResource Include="Imports\Categories\Kunstof vouwwanden.png" />
     <EmbeddedResource Include="Imports\Categories\Schuifpuien.png" />
     <EmbeddedResource Include="Imports\Categories\Vouwwanden.png" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\2_delig_links_vouwend.PNG" />
     <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\2_delig.PNG" />
+    <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\2_delig_rechts_vouwend.PNG" />
     <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\3_delig_andere_kant.PNG" />
     <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\3_delig_zelfde_richting.PNG" />
     <EmbeddedResource Include="Imports\Vouwwanden\AluminiumVouwwanden\4_delig_andere_kant.PNG" />

@@ -82,13 +82,30 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             var configurator = configuratorDefinition.GetConfigurator();
             var configuratorId = await InstallProductConfigurator(configurator);
 
-            ProductImport import = configuratorDefinition.GetProduct();
-            object model = import.GetConfiguration();
-            int productId = await AddUpdateProduct(null, import.Name, import.CategoryName, import.PictureName, import.Published, import.DisplayOrder,
-                configuratorId, configurator, model);
+            var import = configuratorDefinition.GetProduct();
+            var model = import.GetConfiguration();
+            var productId = await AddUpdateProduct(null, import, configuratorId, configurator, model);
 
             await UpdateProductConfigurator(configuratorId, productId);
-            
+
+            foreach (var pictureImport in configuratorDefinition.GetPictures())
+            {
+                string pictureName = $"Configuration_{pictureImport.IdName}";
+                if ((await _pictureService.GetPictureByNameAsync(pictureName)) == null
+                    && configuratorDefinition.GetType().ResourceExists(pictureImport.Name))
+                {
+                    var picture = await _pictureService.InsertPictureAsync(
+                        configuratorDefinition.GetType().ResourceAsBytes(pictureImport.Name),
+                        MimeTypes.ImagePng,
+                        await _pictureService.GetPictureSeNameAsync(pictureImport.Name), mediaType: MediaType.Image,
+                        name: pictureName);
+                    await _productService.InsertProductPictureAsync(new ProductPicture
+                    {
+                        PictureId = picture.Id, ProductId = productId, DisplayOrder = 0
+                    });
+                }
+            }
+
             return  new Tuple<IProductConfiguratorProvider, int>(configurator, configuratorId);
         }
 
@@ -116,7 +133,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
 
         public async Task ImportCategory(ICategoryImportDefinition definition)
         {
-            var text = definition.GetType().ReadAsString(definition.CategoryFileName);
+            var text = definition.GetType().ResourceAsString(definition.CategoryFileName);
             var imports = text.LoadFromText<CategoryImports>();
             if (imports != null)
             {
@@ -183,7 +200,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
 
             if (!string.IsNullOrEmpty(pictureName))
             {
-                var bytes = definition.GetType().ReadAsBytes(pictureName);
+                var bytes = definition.GetType().ResourceAsBytes(pictureName);
                 if (bytes != null)
                 {
                     if (isNew || category.PictureId == 0)
@@ -230,9 +247,11 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
 
         private const int TaxCategoryHighId = 1;
 
-        public async Task ImportProduct(IProductImportDefinition definition, int configuratorId, IProductConfiguratorProvider configurator)
+        public async Task ImportProduct(IProductImportDefinition definition, 
+            int configuratorId, 
+            IProductConfiguratorProvider configurator)
         {
-            var text = definition.GetType().ReadAsString(definition.ProductFileName);
+            var text = definition.GetType().ResourceAsString(definition.ProductFileName);
             var imports = (IProductImports)text.LoadFromText(definition.GetProductImportType());
             if (imports != null)
             {
@@ -240,18 +259,17 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
                 {
                     object model = import.GetConfiguration();
 
-                    await AddUpdateProduct(definition, import.Name, import.CategoryName, import.PictureName, import.Published, import.DisplayOrder,
-                        configuratorId, configurator, model);
+                    await AddUpdateProduct(definition, 
+                        import,
+                        configuratorId, 
+                        configurator, 
+                        model);
                 }
             }
         }
 
         private async Task<int> AddUpdateProduct(IProductImportDefinition definition,
-            string name,
-            string categoryName,
-            string pictureName,
-            bool published,
-            int displayOrder,
+            ProductImport import,
             int configuratorId,
             IProductConfiguratorProvider configurator,
             object configurationModel)
@@ -263,7 +281,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
 
             (configuration, description, price, isValid) = configurator.CalculateToJson(JsonConvert.SerializeObject(configurationModel));
 
-            var product = await _productService.GetProductByNameAsync(name);
+            var product = await _productService.GetProductByNameAsync(import.Name);
 
             var isNew = false;
             if (product == null)
@@ -275,7 +293,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
                 };
             }
 
-            product.Name = name;
+            product.Name = import.Name;
             product.ProductType = ProductType.SimpleProduct;
             product.VisibleIndividually = true;
             product.ShortDescription = null;
@@ -301,9 +319,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             product.Configuration = configuration;
             product.ConfigurationDescription = description;
 
-            product.ShowOnHomepage = false;
-            product.Published = published;
-            product.DisplayOrder = displayOrder;
+            product.ShowOnHomepage = import.ShowOnHomepage;
+            product.Published = import.Published;
+            product.DisplayOrder = import.DisplayOrder;
 
             product.UpdatedOnUtc = DateTime.UtcNow;
 
@@ -320,7 +338,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
             var seName = await _urlRecordService.ValidateSeNameAsync(product, product.Name, product.Name, true);
             await _urlRecordService.SaveSlugAsync(product, seName, 0);
 
-            if (!string.IsNullOrEmpty(categoryName))
+            if (!string.IsNullOrEmpty(import.CategoryName))
             {
                 var existingProductCategories =
                     await _categoryService.GetProductCategoriesByProductIdAsync(product.Id, true);
@@ -328,9 +346,9 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
                 {
                     var categoryId = 0;
 
-                    if (!string.IsNullOrEmpty(categoryName))
+                    if (!string.IsNullOrEmpty(import.CategoryName))
                     {
-                        var category = (await _categoryService.GetAllCategoriesAsync(categoryName, showHidden: true))
+                        var category = (await _categoryService.GetAllCategoriesAsync(import.CategoryName, showHidden: true))
                             .FirstOrDefault();
                         if (category != null)
                         {
@@ -345,11 +363,11 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
                 }
             }
             if (definition != null
-                && !string.IsNullOrEmpty(pictureName)
+                && !string.IsNullOrEmpty(import.PictureName)
                 && !(await _productService.GetProductPicturesByProductIdAsync(product.Id)).Any())
             {
                 var picture = await _pictureService.InsertPictureAsync(
-                    definition.GetType().ReadAsBytes(pictureName),
+                    definition.GetType().ResourceAsBytes(import.PictureName),
                     MimeTypes.ImagePng,
                     await _pictureService.GetPictureSeNameAsync(product.Name), mediaType: MediaType.Image,
                     name: $"Product_{product.Name}");

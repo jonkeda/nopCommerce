@@ -68,6 +68,11 @@ namespace Nop.Core.Domain.Orders
         public int CrossSellsNumber { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether "wishlist" feature is enabled
+        /// </summary>
+        public bool WishlistEnabled { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether "email a wishlist" feature is enabled
         /// </summary>
         public bool EmailWishlistEnabled { get; set; }

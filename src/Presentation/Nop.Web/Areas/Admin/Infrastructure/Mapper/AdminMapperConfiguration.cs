@@ -1331,6 +1331,7 @@ namespace Nop.Web.Areas.Admin.Infrastructure.Mapper
                 .ForMember(model => model.GroupTierPricesForDistinctShoppingCartItems_OverrideForStore, options => options.Ignore())
                 .ForMember(model => model.DisplayCartAfterAddingProduct_OverrideForStore, options => options.Ignore())
                 .ForMember(model => model.DisplayWishlistAfterAddingProduct_OverrideForStore, options => options.Ignore())
+                .ForMember(model => model.WishlistEnabled_OverrideForStore, options => options.Ignore())
                 .ForMember(model => model.EmailWishlistEnabled_OverrideForStore, options => options.Ignore())
                 .ForMember(model => model.MaximumShoppingCartItems_OverrideForStore, options => options.Ignore())
                 .ForMember(model => model.MaximumWishlistItems_OverrideForStore, options => options.Ignore())

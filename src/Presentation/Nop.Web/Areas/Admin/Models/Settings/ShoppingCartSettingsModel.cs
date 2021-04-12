@@ -60,6 +60,10 @@ namespace Nop.Web.Areas.Admin.Models.Settings
         public int CrossSellsNumber { get; set; }
         public bool CrossSellsNumber_OverrideForStore { get; set; }
 
+        [NopResourceDisplayName("Admin.Configuration.Settings.ShoppingCart.WishlistEnabled")]
+        public bool WishlistEnabled { get; set; }
+        public bool WishlistEnabled_OverrideForStore { get; set; }
+        
         [NopResourceDisplayName("Admin.Configuration.Settings.ShoppingCart.EmailWishlistEnabled")]
         public bool EmailWishlistEnabled { get; set; }
         public bool EmailWishlistEnabled_OverrideForStore { get; set; }

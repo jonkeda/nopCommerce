@@ -3,6 +3,16 @@
 <div class="card-body">
     <div class="form-group row">
         <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="WishlistEnabled_OverrideForStore" asp-input="WishlistEnabled" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="WishlistEnabled" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="WishlistEnabled" />
+            <span asp-validation-for="WishlistEnabled"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
             <nop-override-store-checkbox asp-for="MaximumWishlistItems_OverrideForStore" asp-input="MaximumWishlistItems" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
             <nop-label asp-for="MaximumWishlistItems" />
         </div>

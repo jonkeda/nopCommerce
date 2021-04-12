@@ -9,9 +9,10 @@
   <CartsSharedBetweenStores>false</CartsSharedBetweenStores>
   <ShowProductImagesOnShoppingCart>true</ShowProductImagesOnShoppingCart>
   <ShowProductImagesOnWishList>true</ShowProductImagesOnWishList>
-  <ShowDiscountBox>true</ShowDiscountBox>
+  <ShowDiscountBox>false</ShowDiscountBox>
   <ShowGiftCardBox>false</ShowGiftCardBox>
   <CrossSellsNumber>4</CrossSellsNumber>
+  <WishlistEnabled>false</WishlistEnabled>
   <EmailWishlistEnabled>true</EmailWishlistEnabled>
   <AllowAnonymousUsersToEmailWishlist>false</AllowAnonymousUsersToEmailWishlist>
   <MiniShoppingCartEnabled>true</MiniShoppingCartEnabled>

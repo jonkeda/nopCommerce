@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <DisplayDefaultMenuItemSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <DisplayHomepageMenuItem>false</DisplayHomepageMenuItem>
+  <DisplayHomepageMenuItem>true</DisplayHomepageMenuItem>
   <DisplayNewProductsMenuItem>false</DisplayNewProductsMenuItem>
-  <DisplayProductSearchMenuItem>true</DisplayProductSearchMenuItem>
+  <DisplayProductSearchMenuItem>false</DisplayProductSearchMenuItem>
   <DisplayCustomerInfoMenuItem>false</DisplayCustomerInfoMenuItem>
   <DisplayBlogMenuItem>false</DisplayBlogMenuItem>
   <DisplayForumsMenuItem>false</DisplayForumsMenuItem>
-  <DisplayContactUsMenuItem>false</DisplayContactUsMenuItem>
+  <DisplayContactUsMenuItem>true</DisplayContactUsMenuItem>
 </DisplayDefaultMenuItemSettings>

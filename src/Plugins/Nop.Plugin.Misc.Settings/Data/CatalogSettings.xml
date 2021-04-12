@@ -21,7 +21,7 @@
   <OneReviewPerProductFromCustomer>false</OneReviewPerProductFromCustomer>
   <DefaultProductRatingValue>5</DefaultProductRatingValue>
   <AllowAnonymousUsersToReviewProduct>false</AllowAnonymousUsersToReviewProduct>
-  <ProductReviewPossibleOnlyAfterPurchasing>false</ProductReviewPossibleOnlyAfterPurchasing>
+  <ProductReviewPossibleOnlyAfterPurchasing>true</ProductReviewPossibleOnlyAfterPurchasing>
   <NotifyStoreOwnerAboutNewProductReviews>false</NotifyStoreOwnerAboutNewProductReviews>
   <NotifyCustomerAboutProductReviewReply>false</NotifyCustomerAboutProductReviewReply>
   <ShowProductReviewsPerStore>false</ShowProductReviewsPerStore>

@@ -1,4 +1,5 @@
-﻿using Nop.Services.Catalog;
+﻿using System.Collections.Generic;
+using Nop.Services.Catalog;
 
 namespace Nop.Plugin.Misc.Kozijnen.Imports
 {
@@ -7,5 +8,7 @@ namespace Nop.Plugin.Misc.Kozijnen.Imports
         IProductConfiguratorProvider GetConfigurator();
 
         ProductImport GetProduct();
+        
+        IEnumerable<PictureImport> GetPictures();
     }
 }

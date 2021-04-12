@@ -7,7 +7,7 @@
     <string>Pickup.PickupInStore</string>
   </ActivePickupPointProviderSystemNames>
   <ShipToSameAddress>true</ShipToSameAddress>
-  <AllowPickupInStore>true</AllowPickupInStore>
+  <AllowPickupInStore>false</AllowPickupInStore>
   <DisplayPickupPointsOnMap>false</DisplayPickupPointsOnMap>
   <IgnoreAdditionalShippingChargeForPickupInStore>true</IgnoreAdditionalShippingChargeForPickupInStore>
   <GoogleMapsApiKey />
@@ -21,11 +21,11 @@
   <DisplayShipmentEventsToCustomers>false</DisplayShipmentEventsToCustomers>
   <DisplayShipmentEventsToStoreOwner>false</DisplayShipmentEventsToStoreOwner>
   <HideShippingTotal>false</HideShippingTotal>
-  <ShippingOriginAddressId>0</ShippingOriginAddressId>
+  <ShippingOriginAddressId>13</ShippingOriginAddressId>
   <ReturnValidOptionsIfThereAreAny>true</ReturnValidOptionsIfThereAreAny>
   <BypassShippingMethodSelectionIfOnlyOne>false</BypassShippingMethodSelectionIfOnlyOne>
   <UseCubeRootMethod>true</UseCubeRootMethod>
-  <ConsiderAssociatedProductsDimensions>true</ConsiderAssociatedProductsDimensions>
+  <ConsiderAssociatedProductsDimensions>false</ConsiderAssociatedProductsDimensions>
   <ShipSeparatelyOneItemEach>true</ShipSeparatelyOneItemEach>
   <RequestDelay>300</RequestDelay>
 </ShippingSettings>

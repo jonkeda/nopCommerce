@@ -5,7 +5,7 @@
   <MinOrderSubtotalAmountIncludingTax>false</MinOrderSubtotalAmountIncludingTax>
   <MinOrderTotalAmount>0</MinOrderTotalAmount>
   <AutoUpdateOrderTotalsOnEditingOrder>false</AutoUpdateOrderTotalsOnEditingOrder>
-  <AnonymousCheckoutAllowed>true</AnonymousCheckoutAllowed>
+  <AnonymousCheckoutAllowed>false</AnonymousCheckoutAllowed>
   <CheckoutDisabled>false</CheckoutDisabled>
   <TermsOfServiceOnShoppingCartPage>false</TermsOfServiceOnShoppingCartPage>
   <TermsOfServiceOnOrderConfirmPage>true</TermsOfServiceOnOrderConfirmPage>

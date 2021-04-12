@@ -1,4 +1,5 @@
-﻿using Nop.Core.Configuration;
+﻿using System.Xml.Serialization;
+using Nop.Core.Configuration;
 
 namespace Nop.Core.Domain.Common
 {
@@ -10,6 +11,7 @@ namespace Nop.Core.Domain.Common
         /// <summary>
         /// PDF logo picture identifier
         /// </summary>
+        [XmlIgnore]
         public int LogoPictureId { get; set; }
 
         /// <summary>

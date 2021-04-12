@@ -537,7 +537,9 @@ namespace Nop.Services.Media
                     picture.AltAttribute,
                     picture.TitleAttribute,
                     false,
-                    false);
+                    false,
+                    mediaType:picture.MediaType,
+                    name:picture.Name);
             }
 
             var seoFileName = picture.SeoFilename; // = GetPictureSeName(picture.SeoFilename); //just for sure
@@ -646,6 +648,17 @@ namespace Nop.Services.Media
         }
 
         /// <summary>
+        /// Gets a picture NEWMEDIA
+        /// </summary>
+        /// <param name="name">Picture name</param>
+        /// <returns>Picture</returns>
+        public virtual async Task<Picture> GetPictureByNameAsync(string name)
+        {
+            var picture = await _pictureRepository.Table.FirstOrDefaultAsync(p => p.Name == name);
+            return picture;
+        }
+
+        /// <summary>
         /// Deletes a picture
         /// </summary>
         /// <param name="picture">Picture</param>
@@ -741,7 +754,9 @@ namespace Nop.Services.Media
                 SeoFilename = seoFilename,
                 AltAttribute = altAttribute,
                 TitleAttribute = titleAttribute,
-                IsNew = isNew
+                IsNew = isNew,
+                Name = name,
+                MediaType = mediaType
             };
             await _pictureRepository.InsertAsync(picture);
             await UpdatePictureBinaryAsync(picture, await IsStoreInDbAsync() ? pictureBinary : Array.Empty<byte>());
@@ -909,7 +924,9 @@ namespace Nop.Services.Media
                     picture.AltAttribute,
                     picture.TitleAttribute,
                     true,
-                    false);
+                    false,
+                    mediaType: picture.MediaType,
+                    name: picture.Name);
             }
 
             return picture;

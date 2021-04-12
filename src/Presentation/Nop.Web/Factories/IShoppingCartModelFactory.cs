@@ -45,7 +45,7 @@ namespace Nop.Web.Factories
         /// Prepare the mini shopping cart model
         /// </summary>
         /// <returns>Mini shopping cart model</returns>
-        Task<MiniShoppingCartModel> PrepareMiniShoppingCartModelAsync();
+        Task<MiniShoppingCartModel> PrepareMiniShoppingCartModelAsync(bool isEditable = true);
 
         /// <summary>
         /// Prepare selected checkout attributes

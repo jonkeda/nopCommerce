@@ -29,13 +29,13 @@
   <ShowCustomersJoinDate>false</ShowCustomersJoinDate>
   <AllowViewingProfiles>false</AllowViewingProfiles>
   <NotifyNewCustomerRegistration>false</NotifyNewCustomerRegistration>
-  <HideDownloadableProductsTab>false</HideDownloadableProductsTab>
-  <HideBackInStockSubscriptionsTab>false</HideBackInStockSubscriptionsTab>
+  <HideDownloadableProductsTab>true</HideDownloadableProductsTab>
+  <HideBackInStockSubscriptionsTab>true</HideBackInStockSubscriptionsTab>
   <DownloadableProductsValidateUser>false</DownloadableProductsValidateUser>
   <CustomerNameFormat>ShowFirstName</CustomerNameFormat>
-  <NewsletterEnabled>true</NewsletterEnabled>
+  <NewsletterEnabled>false</NewsletterEnabled>
   <NewsletterTickedByDefault>true</NewsletterTickedByDefault>
-  <HideNewsletterBlock>false</HideNewsletterBlock>
+  <HideNewsletterBlock>true</HideNewsletterBlock>
   <NewsletterBlockAllowToUnsubscribe>false</NewsletterBlockAllowToUnsubscribe>
   <OnlineCustomerMinutes>20</OnlineCustomerMinutes>
   <StoreLastVisitedPage>false</StoreLastVisitedPage>
@@ -51,28 +51,28 @@
   <LastNameEnabled>true</LastNameEnabled>
   <LastNameRequired>true</LastNameRequired>
   <GenderEnabled>true</GenderEnabled>
-  <DateOfBirthEnabled>true</DateOfBirthEnabled>
+  <DateOfBirthEnabled>false</DateOfBirthEnabled>
   <DateOfBirthRequired>false</DateOfBirthRequired>
   <DateOfBirthMinimumAge xsi:nil="true" />
   <CompanyEnabled>true</CompanyEnabled>
   <CompanyRequired>false</CompanyRequired>
-  <StreetAddressEnabled>false</StreetAddressEnabled>
+  <StreetAddressEnabled>true</StreetAddressEnabled>
   <StreetAddressRequired>false</StreetAddressRequired>
   <StreetAddress2Enabled>false</StreetAddress2Enabled>
   <StreetAddress2Required>false</StreetAddress2Required>
-  <ZipPostalCodeEnabled>false</ZipPostalCodeEnabled>
+  <ZipPostalCodeEnabled>true</ZipPostalCodeEnabled>
   <ZipPostalCodeRequired>false</ZipPostalCodeRequired>
-  <CityEnabled>false</CityEnabled>
+  <CityEnabled>true</CityEnabled>
   <CityRequired>false</CityRequired>
   <CountyEnabled>false</CountyEnabled>
   <CountyRequired>false</CountyRequired>
-  <CountryEnabled>false</CountryEnabled>
+  <CountryEnabled>true</CountryEnabled>
   <CountryRequired>false</CountryRequired>
   <StateProvinceEnabled>false</StateProvinceEnabled>
   <StateProvinceRequired>false</StateProvinceRequired>
-  <PhoneEnabled>false</PhoneEnabled>
+  <PhoneEnabled>true</PhoneEnabled>
   <PhoneRequired>false</PhoneRequired>
   <FaxEnabled>false</FaxEnabled>
   <FaxRequired>false</FaxRequired>
-  <AcceptPrivacyPolicyEnabled>false</AcceptPrivacyPolicyEnabled>
+  <AcceptPrivacyPolicyEnabled>true</AcceptPrivacyPolicyEnabled>
 </CustomerSettings>

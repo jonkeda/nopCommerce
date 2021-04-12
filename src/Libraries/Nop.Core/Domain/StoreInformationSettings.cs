@@ -1,4 +1,5 @@
-﻿using Nop.Core.Configuration;
+﻿using System.Xml.Serialization;
+using Nop.Core.Configuration;
 
 namespace Nop.Core.Domain
 {
@@ -21,6 +22,7 @@ namespace Nop.Core.Domain
         /// <summary>
         /// Gets or sets a picture identifier of the logo. If 0, then the default one will be used
         /// </summary>
+        [XmlIgnore]
         public int LogoPictureId { get; set; }
 
         /// <summary>

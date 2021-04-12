@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Nop.Core;
 using Nop.Core.Domain.Catalog;
@@ -91,6 +90,13 @@ namespace Nop.Services.Media
         /// <param name="pictureId">Picture identifier</param>
         /// <returns>Picture</returns>
         Task<Picture> GetPictureByIdAsync(int pictureId);
+
+        /// <summary>
+        /// Gets a picture
+        /// </summary>
+        /// <param name="name">Picture name</param>
+        /// <returns>Picture</returns>
+        Task<Picture> GetPictureByNameAsync(string name);
 
         /// <summary>
         /// Deletes a picture
